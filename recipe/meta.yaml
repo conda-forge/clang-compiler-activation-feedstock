@@ -6,7 +6,7 @@ package:
 
 build:
   skip: True  # [not osx]
-  number: 17
+  number: 18
 
 requirements:
   build:
@@ -17,8 +17,8 @@ outputs:
     script: install-clang.sh
     requirements:
       - clang {{ version }}
-      - cctools
-      - ld64
+      - cctools                                  # [osx]
+      - ld64                                     # [osx]
       - compiler-rt {{ version }}
     test:
       commands:
@@ -42,6 +42,28 @@ outputs:
         - {{ pin_compatible('libcxx', max_pin=None) }}
     test:
       commands:
+        - {{ macos_machine }}-clang++ --version    # [osx]
+
+  - name: clang_bootstrap_{{ target_platform }}
+    requirements:
+      host:
+        - clangxx {{ version }}
+        - libcxx {{ version }}
+        - cctools                                  # [osx]
+        - ld64                                     # [osx]
+        - {{ pin_subpackage('clang_' ~ target_platform, exact=True) }}
+        - {{ pin_subpackage('clangxx_' ~ target_platform, exact=True) }}
+    build:
+      always_include_files:
+        - bin/
+        - etc/
+        - include/
+        - lib/
+        - libexec/
+        - share/
+    test:
+      commands:
+        - {{ macos_machine }}-clang --version      # [osx]
         - {{ macos_machine }}-clang++ --version    # [osx]
 
 about:
