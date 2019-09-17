@@ -53,7 +53,12 @@ Current build status
       <img src="https://img.shields.io/badge/Windows-disabled-lightgrey.svg" alt="Windows disabled">
     </td>
   </tr>
-![ppc64le disabled](https://img.shields.io/badge/ppc64le-disabled-lightgrey.svg)
+  <tr>
+    <td>Linux_ppc64le</td>
+    <td>
+      <img src="https://img.shields.io/badge/ppc64le-disabled-lightgrey.svg" alt="ppc64le disabled">
+    </td>
+  </tr>
 </table>
 
 Current release info
@@ -61,6 +66,7 @@ Current release info
 
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-clang_bootstrap_linux--64-green.svg)](https://anaconda.org/conda-forge/clang_bootstrap_linux-64) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/clang_bootstrap_linux-64.svg)](https://anaconda.org/conda-forge/clang_bootstrap_linux-64) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/clang_bootstrap_linux-64.svg)](https://anaconda.org/conda-forge/clang_bootstrap_linux-64) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/clang_bootstrap_linux-64.svg)](https://anaconda.org/conda-forge/clang_bootstrap_linux-64) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-clang_linux--64-green.svg)](https://anaconda.org/conda-forge/clang_linux-64) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/clang_linux-64.svg)](https://anaconda.org/conda-forge/clang_linux-64) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/clang_linux-64.svg)](https://anaconda.org/conda-forge/clang_linux-64) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/clang_linux-64.svg)](https://anaconda.org/conda-forge/clang_linux-64) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-clangxx_linux--64-green.svg)](https://anaconda.org/conda-forge/clangxx_linux-64) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/clangxx_linux-64.svg)](https://anaconda.org/conda-forge/clangxx_linux-64) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/clangxx_linux-64.svg)](https://anaconda.org/conda-forge/clangxx_linux-64) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/clangxx_linux-64.svg)](https://anaconda.org/conda-forge/clangxx_linux-64) |
 
@@ -73,16 +79,16 @@ Installing `clang-compiler-activation` from the `conda-forge` channel can be ach
 conda config --add channels conda-forge
 ```
 
-Once the `conda-forge` channel has been enabled, `clang_linux-64, clangxx_linux-64` can be installed with:
+Once the `conda-forge` channel has been enabled, `clang_bootstrap_linux-64, clang_linux-64, clangxx_linux-64` can be installed with:
 
 ```
-conda install clang_linux-64 clangxx_linux-64
+conda install clang_bootstrap_linux-64 clang_linux-64 clangxx_linux-64
 ```
 
-It is possible to list all of the versions of `clang_linux-64` available on your platform with:
+It is possible to list all of the versions of `clang_bootstrap_linux-64` available on your platform with:
 
 ```
-conda search clang_linux-64 --channel conda-forge
+conda search clang_bootstrap_linux-64 --channel conda-forge
 ```
 
 
