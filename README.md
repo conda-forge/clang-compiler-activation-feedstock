@@ -156,4 +156,5 @@ Feedstock Maintainers
 =====================
 
 * [@isuruf](https://github.com/isuruf/)
+* [@mingwandroid](https://github.com/mingwandroid/)
 

@@ -69,6 +69,7 @@ jobs:
   - script: |
       source activate base
       export GIT_BRANCH=$BUILD_SOURCEBRANCHNAME
+      export UPLOAD_ON_BRANCH="master"
       upload_package ./ ./recipe ./.ci_support/${CONFIG}.yaml
     displayName: Upload recipe
     env:
