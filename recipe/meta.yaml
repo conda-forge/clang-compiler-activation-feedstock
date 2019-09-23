@@ -1,4 +1,4 @@
-{% set version = "8.0.1" %}
+{% set version = "9.0.0" %}
 
 package:
   name: clang-compiler-activation
@@ -6,7 +6,7 @@ package:
 
 build:
   skip: True  # [not osx]
-  number: 22
+  number: 0
 
 requirements:
   build:
