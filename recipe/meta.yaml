@@ -65,6 +65,12 @@ outputs:
       commands:
         - {{ macos_machine }}-clang --version      # [osx]
         - {{ macos_machine }}-clang++ --version    # [osx]
+    about:
+      home: https://llvm.org
+      license: Apache-2.0
+      license_family: Apache
+      license_file: LLVM_LICENSE.txt
+      summary: 'clang compiler components in one package for bootstrapping clang'
 
 about:
   home: http://github.com/AnacondaRecipes/aggregate
