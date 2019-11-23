@@ -29,22 +29,23 @@ Current build status
         <table>
           <thead><tr><th>Variant</th><th>Status</th></tr></thead>
           <tbody><tr>
-              <td>osx_target_platformosx-64</td>
+              <td>linux</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7470&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=master&jobName=osx&configuration=osx_target_platformosx-64" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=master&jobName=linux&configuration=linux_" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7470&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=master&jobName=osx&configuration=osx_" alt="variant">
                 </a>
               </td>
             </tr>
           </tbody>
         </table>
       </details>
-    </td>
-  </tr>
-  <tr>
-    <td>Linux</td>
-    <td>
-      <img src="https://img.shields.io/badge/linux-disabled-lightgrey.svg" alt="linux disabled">
     </td>
   </tr>
   <tr>
@@ -66,9 +67,9 @@ Current release info
 
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-clang_bootstrap_linux--64-green.svg)](https://anaconda.org/conda-forge/clang_bootstrap_linux-64) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/clang_bootstrap_linux-64.svg)](https://anaconda.org/conda-forge/clang_bootstrap_linux-64) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/clang_bootstrap_linux-64.svg)](https://anaconda.org/conda-forge/clang_bootstrap_linux-64) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/clang_bootstrap_linux-64.svg)](https://anaconda.org/conda-forge/clang_bootstrap_linux-64) |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-clang_linux--64-green.svg)](https://anaconda.org/conda-forge/clang_linux-64) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/clang_linux-64.svg)](https://anaconda.org/conda-forge/clang_linux-64) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/clang_linux-64.svg)](https://anaconda.org/conda-forge/clang_linux-64) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/clang_linux-64.svg)](https://anaconda.org/conda-forge/clang_linux-64) |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-clangxx_linux--64-green.svg)](https://anaconda.org/conda-forge/clangxx_linux-64) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/clangxx_linux-64.svg)](https://anaconda.org/conda-forge/clangxx_linux-64) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/clangxx_linux-64.svg)](https://anaconda.org/conda-forge/clangxx_linux-64) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/clangxx_linux-64.svg)](https://anaconda.org/conda-forge/clangxx_linux-64) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-clang_bootstrap_osx--64-green.svg)](https://anaconda.org/conda-forge/clang_bootstrap_osx-64) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/clang_bootstrap_osx-64.svg)](https://anaconda.org/conda-forge/clang_bootstrap_osx-64) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/clang_bootstrap_osx-64.svg)](https://anaconda.org/conda-forge/clang_bootstrap_osx-64) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/clang_bootstrap_osx-64.svg)](https://anaconda.org/conda-forge/clang_bootstrap_osx-64) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-clang_osx--64-green.svg)](https://anaconda.org/conda-forge/clang_osx-64) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/clang_osx-64.svg)](https://anaconda.org/conda-forge/clang_osx-64) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/clang_osx-64.svg)](https://anaconda.org/conda-forge/clang_osx-64) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/clang_osx-64.svg)](https://anaconda.org/conda-forge/clang_osx-64) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-clangxx_osx--64-green.svg)](https://anaconda.org/conda-forge/clangxx_osx-64) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/clangxx_osx-64.svg)](https://anaconda.org/conda-forge/clangxx_osx-64) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/clangxx_osx-64.svg)](https://anaconda.org/conda-forge/clangxx_osx-64) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/clangxx_osx-64.svg)](https://anaconda.org/conda-forge/clangxx_osx-64) |
 
 Installing clang-compiler-activation
 ====================================
@@ -79,16 +80,16 @@ Installing `clang-compiler-activation` from the `conda-forge` channel can be ach
 conda config --add channels conda-forge
 ```
 
-Once the `conda-forge` channel has been enabled, `clang_bootstrap_linux-64, clang_linux-64, clangxx_linux-64` can be installed with:
+Once the `conda-forge` channel has been enabled, `clang_bootstrap_osx-64, clang_osx-64, clangxx_osx-64` can be installed with:
 
 ```
-conda install clang_bootstrap_linux-64 clang_linux-64 clangxx_linux-64
+conda install clang_bootstrap_osx-64 clang_osx-64 clangxx_osx-64
 ```
 
-It is possible to list all of the versions of `clang_bootstrap_linux-64` available on your platform with:
+It is possible to list all of the versions of `clang_bootstrap_osx-64` available on your platform with:
 
 ```
-conda search clang_bootstrap_linux-64 --channel conda-forge
+conda search clang_bootstrap_osx-64 --channel conda-forge
 ```
 
 
