@@ -14,9 +14,9 @@ FINAL_DEBUG_CXXFLAGS="-Og -g -Wall -Wextra"
 FINAL_PYTHON_SYSCONFIGDATA_NAME="_sysconfigdata_x86_64_apple_darwin13_4_0"
 
 if [[ "$target_platform" == "$cross_target_platform" ]]; then
-  CONDA_BUILD_CROSS_COMPILATION=0
+  export CONDA_BUILD_CROSS_COMPILATION=""
 else
-  CONDA_BUILD_CROSS_COMPILATION=1
+  export CONDA_BUILD_CROSS_COMPILATION="1"
 fi
 
 find "${RECIPE_DIR}" -name "*activate*.sh" -exec cp {} . \;
