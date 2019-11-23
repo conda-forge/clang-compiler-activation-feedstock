@@ -13,8 +13,10 @@ FINAL_DEBUG_CFLAGS="-Og -g -Wall -Wextra"
 FINAL_DEBUG_CXXFLAGS="-Og -g -Wall -Wextra"
 FINAL_PYTHON_SYSCONFIGDATA_NAME="_sysconfigdata_x86_64_apple_darwin13_4_0"
 
-if [[ "$target_platform" == "linux-64" ]]; then
-  CROSS_COMPILER=1
+if [[ "$target_platform" == "$cross_target_platform" ]]; then
+  CONDA_BUILD_CROSS_COMPILATION=0
+else
+  CONDA_BUILD_CROSS_COMPILATION=1
 fi
 
 find "${RECIPE_DIR}" -name "*activate*.sh" -exec cp {} . \;

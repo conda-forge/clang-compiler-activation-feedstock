@@ -6,7 +6,7 @@ package:
 
 build:
   skip: True  # [win]
-  number: 5
+  number: 6
 
 requirements:
   build:
