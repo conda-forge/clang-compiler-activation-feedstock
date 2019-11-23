@@ -5,54 +5,57 @@ package:
   version: {{ version }}
 
 build:
-  skip: True  # [not osx]
-  number: 3
+  skip: True  # [win]
+  number: 5
 
 requirements:
   build:
     - libcxx {{ version }}
 
 outputs:
-  - name: clang_{{ target_platform }}
+  - name: clang_{{ cross_target_platform }}
     script: install-clang.sh
     requirements:
       - clang {{ version }}
-      - cctools                                  # [osx]
-      - ld64                                     # [osx]
+      - cctools
+      - ld64
+      # This brings in libraries for linux too. Split this again?
       - compiler-rt {{ version }}
+      - compiler-rt_{{ cross_target_platform }} {{ version }}
     test:
       commands:
         - {{ macos_machine }}-clang --version    # [osx]
 
-  - name: clangxx_{{ target_platform }}
+  - name: clangxx_{{ cross_target_platform }}
     script: install-clangxx.sh
     requirements:
       host:
         - clangxx {{ version }}
-        - libcxx {{ version }}
-        - {{ pin_subpackage('clang_' ~ target_platform, min_pin='x.x.x.x.x.x.x.x', max_pin='x.x.x.x.x.x.x.x') }}
+        - libcxx {{ version }}  # [osx]
+        - {{ pin_subpackage('clang_' ~ cross_target_platform, min_pin='x.x.x.x.x.x.x.x', max_pin='x.x.x.x.x.x.x.x') }}
       run:
         - clangxx {{ version }}
-        - {{ pin_compatible('libcxx', max_pin=None) }}
-        - {{ pin_subpackage('clang_' ~ target_platform, min_pin='x.x.x.x.x.x.x.x', max_pin='x.x.x.x.x.x.x.x') }}
+        # This is not needed in Linux for cross-compiling in a conda-build env, but is needed outside
+        - libcxx >={{ version }}
+        - {{ pin_subpackage('clang_' ~ cross_target_platform, min_pin='x.x.x.x.x.x.x.x', max_pin='x.x.x.x.x.x.x.x') }}
     # Since transitive run_exports are not currently possible
     # (here I would like the run dependency on clangxx to pull in the run_exports from it).
     run_exports:
       strong:
-        - {{ pin_compatible('libcxx', max_pin=None) }}
+        - libcxx >={{ version }}
     test:
       commands:
         - {{ macos_machine }}-clang++ --version    # [osx]
 
-  - name: clang_bootstrap_{{ target_platform }}
+  - name: clang_bootstrap_{{ cross_target_platform }}
     requirements:
       host:
         - clangxx {{ version }}
         - libcxx {{ version }}
         - cctools                                  # [osx]
         - ld64                                     # [osx]
-        - {{ pin_subpackage('clang_' ~ target_platform, exact=True) }}
-        - {{ pin_subpackage('clangxx_' ~ target_platform, exact=True) }}
+        - {{ pin_subpackage('clang_' ~ cross_target_platform, exact=True) }}
+        - {{ pin_subpackage('clangxx_' ~ cross_target_platform, exact=True) }}
     build:
       always_include_files:
         - bin/
@@ -61,6 +64,7 @@ outputs:
         - lib/
         - libexec/
         - share/
+      skip: True  # [not osx]
     test:
       commands:
         - {{ macos_machine }}-clang --version      # [osx]
