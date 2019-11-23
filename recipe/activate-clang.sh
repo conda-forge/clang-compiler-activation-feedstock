@@ -106,7 +106,7 @@ if [ "${CONDA_BUILD:-0}" = "1" ]; then
   env > /tmp/old-env-$$.txt
 fi
 
-if [ "@CROSS_COMPILER@" = "1" ]; then
+if [ "@CONDA_BUILD_CROSS_COMPILATION@" = "1" ]; then
   if [ "${CONDA_BUILD_SYSROOT:-${SDKROOT}}" = "" ]; then
     echo "ERROR: CONDA_BUILD_SYSROOT or SDKROOT has to be set for cross-compiling"
   fi
@@ -126,6 +126,7 @@ _tc_activation \
   "DEBUG_CFLAGS,${DEBUG_CFLAGS:-${DEBUG_CFLAGS_USED}}" \
   "_CONDA_PYTHON_SYSCONFIGDATA_NAME,${_CONDA_PYTHON_SYSCONFIGDATA_NAME:-@_PYTHON_SYSCONFIGDATA_NAME@}" \
   "CMAKE_PREFIX_PATH,${CMAKE_PREFIX_PATH:-${CMAKE_PREFIX_PATH_USED}}" \
+  "CONDA_BUILD_CROSS_COMPILATION,@CONDA_BUILD_CROSS_COMPILATION@" \
   "CONDA_BUILD_SYSROOT,${CONDA_BUILD_SYSROOT:-${SDKROOT:-$(xcrun --show-sdk-path)}}"
 
 if [ $? -ne 0 ]; then
