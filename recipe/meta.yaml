@@ -1,12 +1,17 @@
-{% set version = "9.0.0" %}
+{% set version = "9.0.1" %}
 
 package:
   name: clang-compiler-activation
   version: {{ version }}
 
+# Not strictly needed but enables automatic updates from the bot
+source:
+  url: https://github.com/llvm/llvm-project/releases/download/llvmorg-{{ version }}/clang-{{ version }}.src.tar.xz
+  sha256: 5778512b2e065c204010f88777d44b95250671103e434f9dc7363ab2e3804253
+
 build:
   skip: True  # [win]
-  number: 6
+  number: 0
 
 requirements:
   build:
