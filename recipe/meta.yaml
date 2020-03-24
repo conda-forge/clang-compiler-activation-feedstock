@@ -1,4 +1,4 @@
-{% set version = "9.0.1" %}
+{% set version = "10.0.0" %}
 
 package:
   name: clang-compiler-activation
@@ -7,10 +7,10 @@ package:
 # Not strictly needed but enables automatic updates from the bot
 source:
   url: https://github.com/llvm/llvm-project/releases/download/llvmorg-{{ version }}/clang-{{ version }}.src.tar.xz
-  sha256: 5778512b2e065c204010f88777d44b95250671103e434f9dc7363ab2e3804253
+  sha256: 885b062b00e903df72631c5f98b9579ed1ed2790f74e5646b4234fa084eacb21
 
 build:
-  skip: True  # [win]
+  skip: true  # [win]
   number: 0
 
 requirements:
@@ -69,7 +69,7 @@ outputs:
         - lib/
         - libexec/
         - share/
-      skip: True  # [not osx]
+      skip: true  # [not osx]
     test:
       commands:
         - {{ macos_machine }}-clang --version      # [osx]
@@ -79,14 +79,14 @@ outputs:
       license: Apache-2.0
       license_family: Apache
       license_file: LLVM_LICENSE.txt
-      summary: 'clang compiler components in one package for bootstrapping clang'
+      summary: clang compiler components in one package for bootstrapping clang
 
 about:
   home: http://github.com/AnacondaRecipes/aggregate
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE.txt
-  summary: 'clang compilers for conda-build 3'
+  summary: clang compilers for conda-build 3
 
 extra:
   recipe-maintainers:
