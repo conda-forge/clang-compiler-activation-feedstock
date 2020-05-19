@@ -11,7 +11,7 @@ source:
 
 build:
   skip: True  # [win]
-  number: 0
+  number: 1
 
 requirements:
   build:
@@ -22,6 +22,7 @@ outputs:
     script: install-clang.sh
     requirements:
       - clang {{ version }}
+      - llvm-tools {{ version }}
       - cctools
       - ld64
       # This brings in libraries for linux too. Split this again?
@@ -92,3 +93,4 @@ extra:
   recipe-maintainers:
     - isuruf
     - mingwandroid
+    - katietz
