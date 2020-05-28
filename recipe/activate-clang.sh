@@ -114,7 +114,7 @@ fi
 
 _tc_activation \
   activate host @CHOST@ @CHOST@- \
-  ar as checksyms codesign_allocate indr install_name_tool libtool lipo nm nmedit otool \
+  ar as checksyms indr install_name_tool libtool lipo nm nmedit otool \
   pagestuff ranlib redo_prebinding seg_addr_table seg_hack segedit size strings strip \
   ld \
   clang \
