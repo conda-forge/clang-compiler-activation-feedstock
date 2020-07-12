@@ -23,8 +23,8 @@ outputs:
     requirements:
       - clang {{ version }}
       - llvm-tools {{ version }}
-      - cctools
-      - ld64
+      - cctools_{{ cross_target_platform }}
+      - ld64_{{ cross_target_platform }}
       # This brings in libraries for linux too. Split this again?
       - compiler-rt {{ version }}
       - compiler-rt_{{ cross_target_platform }} {{ version }}
@@ -58,8 +58,8 @@ outputs:
       host:
         - clangxx {{ version }}
         - libcxx {{ version }}
-        - cctools                                  # [osx]
-        - ld64                                     # [osx]
+        - cctools_{{ cross_target_platform }}      # [osx]
+        - ld64_{{ cross_target_platform }}         # [osx]
         - {{ pin_subpackage('clang_' ~ cross_target_platform, exact=True) }}
         - {{ pin_subpackage('clangxx_' ~ cross_target_platform, exact=True) }}
     build:
