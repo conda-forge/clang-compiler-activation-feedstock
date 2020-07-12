@@ -5,7 +5,7 @@ Home: http://github.com/AnacondaRecipes/aggregate
 
 Package license: BSD-3-Clause
 
-Feedstock license: BSD 3-Clause
+Feedstock license: BSD-3-Clause
 
 Summary: clang compilers for conda-build 3
 
