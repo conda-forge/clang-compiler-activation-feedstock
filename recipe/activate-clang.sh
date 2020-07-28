@@ -112,6 +112,11 @@ if [ "@CONDA_BUILD_CROSS_COMPILATION@" = "1" ]; then
   fi
 fi
 
+CONDA_BUILD_SYSROOT_TEMP=${CONDA_BUILD_SYSROOT:-${SDKROOT}}
+if [ "${CONDA_BUILD_SYSROOT_TEMP}" = "0" ]; then
+   CONDA_BUILD_SYSROOT_TEMP=$(xcrun --show-sdk-path)
+fi
+
 _tc_activation \
   activate host @CHOST@ @CHOST@- \
   ar as checksyms indr install_name_tool libtool lipo nm nmedit otool \
@@ -127,7 +132,10 @@ _tc_activation \
   "_CONDA_PYTHON_SYSCONFIGDATA_NAME,${_CONDA_PYTHON_SYSCONFIGDATA_NAME:-@_PYTHON_SYSCONFIGDATA_NAME@}" \
   "CMAKE_PREFIX_PATH,${CMAKE_PREFIX_PATH:-${CMAKE_PREFIX_PATH_USED}}" \
   "CONDA_BUILD_CROSS_COMPILATION,@CONDA_BUILD_CROSS_COMPILATION@" \
-  "CONDA_BUILD_SYSROOT,${CONDA_BUILD_SYSROOT:-${SDKROOT:-$(xcrun --show-sdk-path)}}"
+  "CONDA_BUILD_SYSROOT,${CONDA_BUILD_SYSROOT_TEMP}" \
+  "ac_cv_host,@CHOST@"
+
+unset CONDA_BUILD_SYSROOT_TEMP
 
 if [ $? -ne 0 ]; then
   echo "ERROR: $(_get_sourced_filename) failed, see above for details"
