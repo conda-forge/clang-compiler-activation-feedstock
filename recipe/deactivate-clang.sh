@@ -106,9 +106,14 @@ if [ "${CONDA_BUILD:-0}" = "1" ]; then
   env > /tmp/old-env-$$.txt
 fi
 
+ CONDA_BUILD_SYSROOT_TEMP=${CONDA_BUILD_SYSROOT:-${SDKROOT}}
+ if [ "${CONDA_BUILD_SYSROOT_TEMP}" = "0" ]; then
+    CONDA_BUILD_SYSROOT_TEMP=$(xcrun --show-sdk-path)
+ fi
+
 _tc_activation \
   deactivate host @CHOST@ @CHOST@- \
-  ar as checksyms codesign_allocate indr install_name_tool libtool lipo nm nmedit otool \
+  ar as checksyms indr install_name_tool libtool lipo nm nmedit otool \
   pagestuff ranlib redo_prebinding seg_addr_table seg_hack segedit size strings strip \
   ld \
   clang \
@@ -121,7 +126,11 @@ _tc_activation \
   "_CONDA_PYTHON_SYSCONFIGDATA_NAME,${_CONDA_PYTHON_SYSCONFIGDATA_NAME:-@_PYTHON_SYSCONFIGDATA_NAME@}" \
   "CMAKE_PREFIX_PATH,${CMAKE_PREFIX_PATH:-${CMAKE_PREFIX_PATH_USED}}" \
   "CONDA_BUILD_CROSS_COMPILATION,@CONDA_BUILD_CROSS_COMPILATION@" \
-  "CONDA_BUILD_SYSROOT,${CONDA_BUILD_SYSROOT:-$(xcrun --show-sdk-path)}"
+  "CONDA_BUILD_SYSROOT,${CONDA_BUILD_SYSROOT_TEMP}"
+  "ac_cv_host,@CHOST@" \
+  ""
+
+unset CONDA_BUILD_SYSROOT_TEMP
 
 if [ $? -ne 0 ]; then
   echo "ERROR: $(_get_sourced_filename) failed, see above for details"
