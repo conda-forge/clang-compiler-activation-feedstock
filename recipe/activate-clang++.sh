@@ -99,7 +99,7 @@ if [ "${CONDA_BUILD:-0}" = "1" ]; then
 fi
 
 _tc_activation \
-  activate host @CHOST@ @CHOST@- \
+  activate HOST @CHOST@ @CHOST@- \
   clang++ \
   "CXX,${CXX:-@CHOST@-clang++}" \
   "CXXFLAGS,${CXXFLAGS:-${CXXFLAGS_USED}}" \

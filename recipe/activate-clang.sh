@@ -118,7 +118,7 @@ if [ "${CONDA_BUILD_SYSROOT_TEMP}" = "0" ]; then
 fi
 
 _tc_activation \
-  activate host @CHOST@ @CHOST@- \
+  activate HOST @CHOST@ @CHOST@- \
   ar as checksyms indr install_name_tool libtool lipo nm nmedit otool \
   pagestuff ranlib redo_prebinding seg_addr_table seg_hack segedit size strings strip \
   ld \
