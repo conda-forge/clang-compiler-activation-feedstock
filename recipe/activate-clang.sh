@@ -107,12 +107,12 @@ if [ "${CONDA_BUILD:-0}" = "1" ]; then
 fi
 
 if [ "@CONDA_BUILD_CROSS_COMPILATION@" = "1" ]; then
-  if [ "${CONDA_BUILD_SYSROOT:-${SDKROOT}}" = "" ]; then
+  if [ "${CONDA_BUILD_SYSROOT:-${SDKROOT:-0}}" = "0" ]; then
     echo "ERROR: CONDA_BUILD_SYSROOT or SDKROOT has to be set for cross-compiling"
   fi
 fi
 
-CONDA_BUILD_SYSROOT_TEMP=${CONDA_BUILD_SYSROOT:-${SDKROOT}}
+CONDA_BUILD_SYSROOT_TEMP=${CONDA_BUILD_SYSROOT:-${SDKROOT:-0}}
 if [ "${CONDA_BUILD_SYSROOT_TEMP}" = "0" ]; then
    CONDA_BUILD_SYSROOT_TEMP=$(xcrun --show-sdk-path)
 fi

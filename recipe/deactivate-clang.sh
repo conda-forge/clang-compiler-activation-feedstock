@@ -106,10 +106,10 @@ if [ "${CONDA_BUILD:-0}" = "1" ]; then
   env > /tmp/old-env-$$.txt
 fi
 
- CONDA_BUILD_SYSROOT_TEMP=${CONDA_BUILD_SYSROOT:-${SDKROOT}}
- if [ "${CONDA_BUILD_SYSROOT_TEMP}" = "0" ]; then
-    CONDA_BUILD_SYSROOT_TEMP=$(xcrun --show-sdk-path)
- fi
+CONDA_BUILD_SYSROOT_TEMP=${CONDA_BUILD_SYSROOT:-${SDKROOT:-0}}
+if [ "${CONDA_BUILD_SYSROOT_TEMP}" = "0" ]; then
+   CONDA_BUILD_SYSROOT_TEMP=$(xcrun --show-sdk-path)
+fi
 
 _tc_activation \
   deactivate HOST @CHOST@ @CHOST@- \
