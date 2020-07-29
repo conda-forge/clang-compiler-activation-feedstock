@@ -112,7 +112,7 @@ fi
  fi
 
 _tc_activation \
-  deactivate host @CHOST@ @CHOST@- \
+  deactivate HOST @CHOST@ @CHOST@- \
   ar as checksyms indr install_name_tool libtool lipo nm nmedit otool \
   pagestuff ranlib redo_prebinding seg_addr_table seg_hack segedit size strings strip \
   ld \
