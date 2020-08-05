@@ -6,7 +6,11 @@ channel_targets:
 - conda-forge main
 cross_target_platform:
 - osx-64
+docker_image:
+- condaforge/linux-anvil-comp7
 macos_machine:
 - x86_64-apple-darwin13.4.0
 macos_min_version:
 - '10.9'
+target_platform:
+- linux-64
