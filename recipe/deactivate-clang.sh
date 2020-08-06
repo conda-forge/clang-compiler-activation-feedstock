@@ -30,8 +30,6 @@ function _get_sourced_filename() {
 #  a fatal error if a program is identified but not present.
 function _tc_activation() {
   local act_nature=$1; shift
-  local tc_nature=$1; shift
-  local tc_machine=$1; shift
   local tc_prefix=$1; shift
   local thing
   local newval
@@ -48,7 +46,7 @@ function _tc_activation() {
   fi
 
   for pass in check apply; do
-    for thing in $tc_nature,$tc_machine "$@"; do
+    for thing in "$@"; do
       case "${thing}" in
         *,*)
           newval=$(echo "${thing}" | sed "s,^[^\,]*\,\(.*\),\1,")
@@ -112,7 +110,7 @@ if [ "${CONDA_BUILD_SYSROOT_TEMP}" = "0" ]; then
 fi
 
 _tc_activation \
-  deactivate HOST @CHOST@ @CHOST@- \
+  deactivate @CHOST@- "HOST,@CHOST@" \
   ar as checksyms indr install_name_tool libtool lipo nm nmedit otool \
   pagestuff ranlib redo_prebinding seg_addr_table seg_hack segedit size strings strip \
   ld \
@@ -127,6 +125,7 @@ _tc_activation \
   "CMAKE_PREFIX_PATH,${CMAKE_PREFIX_PATH:-${CMAKE_PREFIX_PATH_USED}}" \
   "CONDA_BUILD_CROSS_COMPILATION,@CONDA_BUILD_CROSS_COMPILATION@" \
   "CONDA_BUILD_SYSROOT,${CONDA_BUILD_SYSROOT_TEMP}" \
+  "CMAKE_ARGS,${_CMAKE_ARGS:-}" \
   "host_alias,@CHOST@"
 
 unset CONDA_BUILD_SYSROOT_TEMP

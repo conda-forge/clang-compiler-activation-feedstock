@@ -32,4 +32,5 @@ find . -name "*activate*.sh" -exec sed -i.bak "s|@LDFLAGS@|${FINAL_LDFLAGS}|g"  
 find . -name "*activate*.sh" -exec sed -i.bak "s|@LDFLAGS_LD@|${FINAL_LDFLAGS_LD}|g"         "{}" \;
 find . -name "*activate*.sh" -exec sed -i.bak "s|@CONDA_BUILD_CROSS_COMPILATION@|${CONDA_BUILD_CROSS_COMPILATION}|g"         "{}" \;
 find . -name "*activate*.sh" -exec sed -i.bak "s|@_PYTHON_SYSCONFIGDATA_NAME@|${FINAL_PYTHON_SYSCONFIGDATA_NAME}|g"  "{}" \;
+find . -name "*activate*.sh" -exec sed -i.bak "s|@UNAME_MACHINE@|${uname_machine}|g"         "{}" \;
 find . -name "*activate*.sh.bak" -exec rm "{}" \;
