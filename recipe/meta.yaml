@@ -11,7 +11,7 @@ source:
 
 build:
   skip: true  # [win or (linux and cross_target_platform == "osx-arm64")]
-  number: 0
+  number: 1
 
 requirements:
   build:
@@ -72,7 +72,7 @@ outputs:
         - lib/
         - libexec/
         - share/
-      skip: true  # [cross_target_platform != target_platform]
+      skip: True   # [not osx]
     test:
       commands:
         - {{ macos_machine }}-clang --version
