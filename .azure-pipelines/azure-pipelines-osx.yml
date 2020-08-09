@@ -8,11 +8,11 @@ jobs:
     vmImage: macOS-10.15
   strategy:
     matrix:
-      osx_64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0target_platformosx-64:
-        CONFIG: osx_64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0target_platformosx-64
+      osx_64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0:
+        CONFIG: osx_64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0
         UPLOAD_PACKAGES: 'True'
-      osx_64_cross_target_platformosx-arm64macos_machinearm64-apple-macos11target_platformosx-64:
-        CONFIG: osx_64_cross_target_platformosx-arm64macos_machinearm64-apple-macos11target_platformosx-64
+      osx_64_cross_target_platformosx-arm64macos_machinearm64-apple-macos11:
+        CONFIG: osx_64_cross_target_platformosx-arm64macos_machinearm64-apple-macos11
         UPLOAD_PACKAGES: 'True'
     maxParallel: 8
   timeoutInMinutes: 360

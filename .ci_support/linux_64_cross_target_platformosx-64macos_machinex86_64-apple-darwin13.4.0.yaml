@@ -1,3 +1,5 @@
+FINAL_PYTHON_SYSCONFIGDATA_NAME:
+- _sysconfigdata_x86_64_apple_darwin13_4_0
 MACOSX_DEPLOYMENT_TARGET:
 - '10.9'
 channel_sources:
@@ -22,3 +24,4 @@ zip_keys:
   - uname_machine
   - MACOSX_DEPLOYMENT_TARGET
   - macos_min_version
+  - FINAL_PYTHON_SYSCONFIGDATA_NAME
