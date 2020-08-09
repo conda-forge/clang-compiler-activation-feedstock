@@ -10,7 +10,7 @@ source:
   sha256: 25da496d46be7cced8192e21fe4c6ca72eed5366f6ee09b9d436e5d2229f83a4
 
 build:
-  skip: true  # [win]
+  skip: true  # [win or (linux and cross_target_platform == "osx-arm64")]
   number: 0
 
 requirements:
