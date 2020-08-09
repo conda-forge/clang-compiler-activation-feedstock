@@ -113,7 +113,6 @@ _tc_activation \
   deactivate @CHOST@- "HOST,@CHOST@" \
   ar as checksyms indr install_name_tool libtool lipo nm nmedit otool \
   pagestuff ranlib redo_prebinding seg_addr_table seg_hack segedit size strings strip \
-  ld \
   clang \
   "CC,${CC:-@CHOST@-clang}" \
   "CPPFLAGS,${CPPFLAGS:-${CPPFLAGS_USED}}" \
@@ -127,6 +126,11 @@ _tc_activation \
   "CONDA_BUILD_SYSROOT,${CONDA_BUILD_SYSROOT_TEMP}" \
   "CMAKE_ARGS,${_CMAKE_ARGS:-}" \
   "host_alias,@CHOST@"
+
+if [ "@UNAME_MACHINE@" = "x86_64" ]; then
+   _tc_activation \
+    activate @CHOST@- ld
+fi
 
 unset CONDA_BUILD_SYSROOT_TEMP
 

@@ -1,10 +1,22 @@
 cross_target_platform:
   - osx-64
+  - osx-arm64
 macos_machine:
   - x86_64-apple-darwin13.4.0
+  - arm64-apple-macos11
 uname_machine:
   - x86_64
+  - arm64
 MACOSX_DEPLOYMENT_TARGET:
   - 10.9
+  - 11.0
 macos_min_version:
   - 10.9
+  - 11.0
+zip_keys:
+  - - cross_target_platform
+    - macos_machine
+    - uname_machine
+    - MACOSX_DEPLOYMENT_TARGET
+    - macos_min_version
+

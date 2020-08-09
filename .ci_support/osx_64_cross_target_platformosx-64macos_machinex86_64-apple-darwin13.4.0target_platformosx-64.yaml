@@ -10,3 +10,13 @@ macos_machine:
 - x86_64-apple-darwin13.4.0
 macos_min_version:
 - '10.9'
+target_platform:
+- osx-64
+uname_machine:
+- x86_64
+zip_keys:
+- - cross_target_platform
+  - macos_machine
+  - uname_machine
+  - MACOSX_DEPLOYMENT_TARGET
+  - macos_min_version

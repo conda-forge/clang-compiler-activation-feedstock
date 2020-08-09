@@ -1,0 +1,24 @@
+MACOSX_DEPLOYMENT_TARGET:
+- '11.0'
+channel_sources:
+- conda-forge,defaults
+channel_targets:
+- conda-forge main
+cross_target_platform:
+- osx-arm64
+docker_image:
+- condaforge/linux-anvil-comp7
+macos_machine:
+- arm64-apple-macos11
+macos_min_version:
+- '11.0'
+target_platform:
+- linux-64
+uname_machine:
+- arm64
+zip_keys:
+- - cross_target_platform
+  - macos_machine
+  - uname_machine
+  - MACOSX_DEPLOYMENT_TARGET
+  - macos_min_version
