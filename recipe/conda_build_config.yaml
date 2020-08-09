@@ -20,3 +20,7 @@ zip_keys:
     - MACOSX_DEPLOYMENT_TARGET
     - macos_min_version
 
+channel_sources:
+  - conda-forge/label/llvm_rc,conda-forge,defaults
+channel_targets:
+  - conda-forge llvm_rc
