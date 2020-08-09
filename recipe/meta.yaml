@@ -11,7 +11,7 @@ source:
 
 build:
   skip: true  # [win or (linux and cross_target_platform == "osx-arm64")]
-  number: 1
+  number: 2
 
 requirements:
   build:
@@ -53,6 +53,7 @@ outputs:
       commands:
         - echo {{ MACOSX_DEPLOYMENT_TARGET }}
         - echo {{ uname_machine }}
+        - echo {{ FINAL_PYTHON_SYSCONFIGDATA_NAME }}
         - {{ macos_machine }}-clang++ --version
 
   - name: clang_bootstrap_{{ cross_target_platform }}

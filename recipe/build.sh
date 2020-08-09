@@ -3,15 +3,18 @@
 CHOST=${macos_machine}
 
 FINAL_CPPFLAGS="-D_FORTIFY_SOURCE=2 -mmacosx-version-min=${macos_min_version}"
-FINAL_CFLAGS="-march=core2 -mtune=haswell -mssse3 -ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe"
-FINAL_CXXFLAGS="-march=core2 -mtune=haswell -mssse3 -ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe -stdlib=libc++ -fvisibility-inlines-hidden -std=c++14 -fmessage-length=0"
+FINAL_CFLAGS="-ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe"
+FINAL_CXXFLAGS="-ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe -stdlib=libc++ -fvisibility-inlines-hidden -std=c++14 -fmessage-length=0"
+if [[ "${uname_machine}" == "x86_64" ]]; then
+  FINAL_CFLAGS="-march=core2 -mtune=haswell -mssse3 $FINAL_CFLAGS"
+  FINAL_CXXFLAGS="-march=core2 -mtune=haswell -mssse3 $FINAL_CXXFLAGS"
+fi
 # These are the LDFLAGS for when the linker is being driven by a compiler, i.e. with -Wl,
 FINAL_LDFLAGS="-Wl,-pie -Wl,-headerpad_max_install_names -Wl,-dead_strip_dylibs"
 # These are the LDFLAGS for when the linker is being called directly, i.e. without -Wl,
 FINAL_LDFLAGS_LD="-pie -headerpad_max_install_names -dead_strip_dylibs"
 FINAL_DEBUG_CFLAGS="-Og -g -Wall -Wextra"
 FINAL_DEBUG_CXXFLAGS="-Og -g -Wall -Wextra"
-FINAL_PYTHON_SYSCONFIGDATA_NAME="_sysconfigdata_x86_64_apple_darwin13_4_0"
 
 if [[ "$target_platform" == "$cross_target_platform" ]]; then
   export CONDA_BUILD_CROSS_COMPILATION=""
