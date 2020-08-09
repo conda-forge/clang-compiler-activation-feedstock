@@ -1,2 +1,2 @@
-upload_on_branch: master
+upload_on_branch: rc
 conda_forge_output_validation: true

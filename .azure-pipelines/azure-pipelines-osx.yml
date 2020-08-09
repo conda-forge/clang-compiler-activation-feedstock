@@ -24,7 +24,7 @@ jobs:
       export OSX_FORCE_SDK_DOWNLOAD="1"
       export GIT_BRANCH=$BUILD_SOURCEBRANCHNAME
       export FEEDSTOCK_NAME=$(basename ${BUILD_REPOSITORY_NAME})
-      export UPLOAD_ON_BRANCH="master"
+      export UPLOAD_ON_BRANCH="rc"
       ./.scripts/run_osx_build.sh
     displayName: Run OSX build
     env:
