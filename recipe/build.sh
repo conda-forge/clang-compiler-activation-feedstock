@@ -14,15 +14,26 @@ FINAL_DEBUG_CXXFLAGS="-Og -g -Wall -Wextra"
 FINAL_PYTHON_SYSCONFIGDATA_NAME="_sysconfigdata_x86_64_apple_darwin13_4_0"
 
 if [[ "$target_platform" == "$cross_target_platform" ]]; then
-  export CONDA_BUILD_CROSS_COMPILATION=""
+  CONDA_BUILD_CROSS_COMPILATION=""
+  CC_FOR_BUILD=${CHOST}-clang
+  CXX_FOR_BUILD=${CHOST}-clang++
 else
-  export CONDA_BUILD_CROSS_COMPILATION="1"
+  CONDA_BUILD_CROSS_COMPILATION="1"
+  if [[ "$target_platform" == linux* ]]; then
+    CC_FOR_BUILD=$(basename $BUILD_PREFIX/bin/*-gcc)
+    CXX_FOR_BUILD=$(basename $BUILD_PREFIX/bin/*-g++)
+  else
+    CC_FOR_BUILD=clang
+    CXX_FOR_BUILD=clang++
+  fi
 fi
 
 find "${RECIPE_DIR}" -name "*activate*.sh" -exec cp {} . \;
 
 find . -name "*activate*.sh" -exec sed -i.bak "s|@CHOST@|${CHOST}|g" "{}" \;
 find . -name "*activate*.sh" -exec sed -i.bak "s|@CPPFLAGS@|${FINAL_CPPFLAGS}|g"             "{}" \;
+find . -name "*activate*.sh" -exec sed -i.bak "s|@CC_FOR_BUILD@|${CC_FOR_BUILD}|g"           "{}" \;
+find . -name "*activate*.sh" -exec sed -i.bak "s|@CXX_FOR_BUILD@|${CXX_FOR_BUILD}|g"         "{}" \;
 find . -name "*activate*.sh" -exec sed -i.bak "s|@CFLAGS@|${FINAL_CFLAGS}|g"                 "{}" \;
 find . -name "*activate*.sh" -exec sed -i.bak "s|@DEBUG_CFLAGS@|${FINAL_DEBUG_CFLAGS}|g"     "{}" \;
 find . -name "*activate*.sh" -exec sed -i.bak "s|@CXXFLAGS@|${FINAL_CXXFLAGS}|g"             "{}" \;
