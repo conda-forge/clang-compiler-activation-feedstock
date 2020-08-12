@@ -11,11 +11,13 @@ source:
 
 build:
   skip: true  # [win or (linux and cross_target_platform == "osx-arm64")]
-  number: 4
+  number: 5
 
 requirements:
   build:
     - libcxx {{ version }}
+    - gcc_impl_{{ target_platform }}       # [target_platform.startswith("linux")]
+    - clang {{ version }}                  # [not target_platform.startswith("linux")]
 
 outputs:
   - name: clang_{{ cross_target_platform }}
@@ -24,10 +26,11 @@ outputs:
       - clang {{ version }}
       - llvm-tools {{ version }}
       - cctools_{{ cross_target_platform }}
-      - ld64_{{ cross_target_platform }}   # [cross_target_platform == "osx-64"]
+      - ld64_{{ cross_target_platform }}     # [cross_target_platform == "osx-64"]
       # This brings in libraries for linux too. Split this again?
       - compiler-rt {{ version }}
       - compiler-rt_osx-64 {{ version }}
+      - gcc_impl_{{ target_platform }}       # [target_platform.startswith("linux")]
     test:
       commands:
         - {{ macos_machine }}-clang --version
@@ -39,11 +42,13 @@ outputs:
         - clangxx {{ version }}
         - libcxx {{ version }}  # [osx]
         - {{ pin_subpackage('clang_' ~ cross_target_platform, exact=True) }}
+        - gxx_impl_{{ target_platform }}     # [target_platform.startswith("linux")]
       run:
         - clangxx {{ version }}
         # This is not needed in Linux for cross-compiling in a conda-build env, but is needed outside
         - libcxx >={{ version }}
         - {{ pin_subpackage('clang_' ~ cross_target_platform, exact=True) }}
+        - gxx_impl_{{ target_platform }}     # [target_platform.startswith("linux")]
     # Since transitive run_exports are not currently possible
     # (here I would like the run dependency on clangxx to pull in the run_exports from it).
     run_exports:
