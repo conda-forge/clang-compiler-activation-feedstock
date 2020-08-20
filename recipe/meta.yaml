@@ -16,8 +16,8 @@ build:
 requirements:
   build:
     - libcxx {{ version }}
-    - gcc_impl_{{ target_platform }}       # [target_platform.startswith("linux")]
-    - clang {{ version }}                  # [not target_platform.startswith("linux")]
+    - gcc_impl_{{ target_platform }}       # [linux]
+    - clang {{ version }}                  # [not linux]
 
 outputs:
   - name: clang_{{ cross_target_platform }}
@@ -30,7 +30,7 @@ outputs:
       # This brings in libraries for linux too. Split this again?
       - compiler-rt {{ version }}
       - compiler-rt_{{ cross_target_platform }} {{ version }}
-      - gcc_impl_{{ target_platform }}       # [target_platform.startswith("linux")]
+      - gcc_impl_{{ target_platform }}       # [linux]
     test:
       commands:
         - {{ macos_machine }}-clang --version    # [osx]
@@ -42,13 +42,13 @@ outputs:
         - clangxx {{ version }}
         - libcxx {{ version }}  # [osx]
         - {{ pin_subpackage('clang_' ~ cross_target_platform, exact=True) }}
-        - gxx_impl_{{ target_platform }}     # [target_platform.startswith("linux")]
+        - gxx_impl_{{ target_platform }}     # [linux]
       run:
         - clangxx {{ version }}
         # This is not needed in Linux for cross-compiling in a conda-build env, but is needed outside
         - libcxx >={{ version }}
         - {{ pin_subpackage('clang_' ~ cross_target_platform, exact=True) }}
-        - gxx_impl_{{ target_platform }}     # [target_platform.startswith("linux")]
+        - gxx_impl_{{ target_platform }}     # [linux]
     # Since transitive run_exports are not currently possible
     # (here I would like the run dependency on clangxx to pull in the run_exports from it).
     run_exports:
