@@ -116,6 +116,7 @@ _tc_activation \
   ld \
   clang \
   "CC,${CC:-@CHOST@-clang}" \
+  "CC_FOR_BUILD,${CONDA_PREFIX}/bin/@CC_FOR_BUILD@" \
   "CPPFLAGS,${CPPFLAGS:-${CPPFLAGS_USED}}" \
   "CFLAGS,${CFLAGS:-${CFLAGS_USED}}" \
   "LDFLAGS,${LDFLAGS:-${LDFLAGS_USED}}" \
