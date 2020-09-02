@@ -1,5 +1,7 @@
 FINAL_PYTHON_SYSCONFIGDATA_NAME:
 - _sysconfigdata_x86_64_apple_darwin13_4_0
+MACOSX_DEPLOYMENT_TARGET:
+- '10.9'
 channel_sources:
 - conda-forge/label/llvm_rc,conda-forge,defaults
 channel_targets:
