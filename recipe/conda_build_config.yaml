@@ -10,9 +10,6 @@ uname_machine:
 uname_kernel_release:
   - 13.4.0
   - 20.0.0
-MACOSX_DEPLOYMENT_TARGET:
-  - 10.9
-  - 11.0
 macos_min_version:
   - 10.9
   - 11.0
@@ -24,7 +21,6 @@ zip_keys:
     - macos_machine
     - uname_machine
     - uname_kernel_release
-    - MACOSX_DEPLOYMENT_TARGET
     - macos_min_version
     - FINAL_PYTHON_SYSCONFIGDATA_NAME
 

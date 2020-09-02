@@ -56,7 +56,6 @@ outputs:
         - libcxx >={{ version }}
     test:
       commands:
-        - echo {{ MACOSX_DEPLOYMENT_TARGET }}
         - echo {{ uname_kernel_release }}
         - echo {{ uname_machine }}
         - echo {{ FINAL_PYTHON_SYSCONFIGDATA_NAME }}
