@@ -23,5 +23,4 @@ zip_keys:
   - macos_machine
   - uname_machine
   - uname_kernel_release
-  - macos_min_version
   - FINAL_PYTHON_SYSCONFIGDATA_NAME

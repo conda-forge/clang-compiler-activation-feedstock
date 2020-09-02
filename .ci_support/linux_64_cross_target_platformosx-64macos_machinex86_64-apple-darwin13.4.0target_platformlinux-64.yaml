@@ -10,8 +10,6 @@ docker_image:
 - condaforge/linux-anvil-comp7
 macos_machine:
 - x86_64-apple-darwin13.4.0
-macos_min_version:
-- '10.9'
 target_platform:
 - linux-64
 uname_kernel_release:
@@ -23,5 +21,4 @@ zip_keys:
   - macos_machine
   - uname_machine
   - uname_kernel_release
-  - macos_min_version
   - FINAL_PYTHON_SYSCONFIGDATA_NAME
