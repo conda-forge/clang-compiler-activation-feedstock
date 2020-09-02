@@ -23,6 +23,5 @@ zip_keys:
   - macos_machine
   - uname_machine
   - uname_kernel_release
-  - MACOSX_DEPLOYMENT_TARGET
   - macos_min_version
   - FINAL_PYTHON_SYSCONFIGDATA_NAME
