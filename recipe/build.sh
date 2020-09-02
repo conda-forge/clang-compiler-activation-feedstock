@@ -2,7 +2,7 @@
 
 CHOST=${macos_machine}
 
-FINAL_CPPFLAGS="-D_FORTIFY_SOURCE=2 -mmacosx-version-min=${macos_min_version}"
+FINAL_CPPFLAGS="-D_FORTIFY_SOURCE=2"
 FINAL_CFLAGS="-ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe"
 FINAL_CXXFLAGS="-ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe -stdlib=libc++ -fvisibility-inlines-hidden -std=c++14 -fmessage-length=0"
 if [[ "${uname_machine}" == "x86_64" ]]; then

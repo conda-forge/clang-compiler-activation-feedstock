@@ -10,9 +10,6 @@ uname_machine:
 uname_kernel_release:
   - 13.4.0
   - 20.0.0
-macos_min_version:
-  - 10.9
-  - 11.0
 FINAL_PYTHON_SYSCONFIGDATA_NAME:
   - _sysconfigdata_x86_64_apple_darwin13_4_0
   - _sysconfigdata_arm64_apple_darwin20_0_0
@@ -21,7 +18,6 @@ zip_keys:
     - macos_machine
     - uname_machine
     - uname_kernel_release
-    - macos_min_version
     - FINAL_PYTHON_SYSCONFIGDATA_NAME
 
 channel_sources:
