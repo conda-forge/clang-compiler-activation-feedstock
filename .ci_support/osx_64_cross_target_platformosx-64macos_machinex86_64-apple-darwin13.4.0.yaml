@@ -14,12 +14,13 @@ macos_min_version:
 - '10.9'
 target_platform:
 - osx-64
+uname_kernel_release:
+- 13.4.0
 uname_machine:
 - x86_64
 zip_keys:
 - - cross_target_platform
   - macos_machine
   - uname_machine
-  - MACOSX_DEPLOYMENT_TARGET
-  - macos_min_version
+  - uname_kernel_release
   - FINAL_PYTHON_SYSCONFIGDATA_NAME

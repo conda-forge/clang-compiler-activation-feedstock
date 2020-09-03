@@ -7,12 +7,11 @@ macos_machine:
 uname_machine:
   - x86_64
   - arm64
-MACOSX_DEPLOYMENT_TARGET:
-  - 10.9
-  - 11.0
-macos_min_version:
-  - 10.9
-  - 11.0
+uname_kernel_release:
+  - 13.4.0
+  - 20.0.0
+MACOSX_DEPLOYMENT_TARGET:  # [linux]
+  - 10.9                   # [linux]
 FINAL_PYTHON_SYSCONFIGDATA_NAME:
   - _sysconfigdata_x86_64_apple_darwin13_4_0
   - _sysconfigdata_arm64_apple_darwin20_0_0
@@ -20,8 +19,7 @@ zip_keys:
   - - cross_target_platform
     - macos_machine
     - uname_machine
-    - MACOSX_DEPLOYMENT_TARGET
-    - macos_min_version
+    - uname_kernel_release
     - FINAL_PYTHON_SYSCONFIGDATA_NAME
 
 channel_sources:

@@ -97,6 +97,10 @@ else
   CMAKE_PREFIX_PATH_USED="${CMAKE_PREFIX_PATH}:${CONDA_PREFIX}"
 fi
 
+if [ "${MACOSX_DEPLOYMENT_TARGET:-0}" != "0" ]; then
+  CPPFLAGS_USED="$CPPFLAGS_USED -mmacosx-version-min=${MACOSX_DEPLOYMENT_TARGET}"
+fi
+
 if [ "${CONDA_BUILD:-0}" = "1" ]; then
   if [ -f /tmp/old-env-$$.txt ]; then
     rm -f /tmp/old-env-$$.txt || true
@@ -129,7 +133,7 @@ if [ "${CONDA_BUILD:-0}" = "1" ]; then
 fi
 
 if [ "@CONDA_BUILD_CROSS_COMPILATION@" = "1" ]; then
-  _CMAKE_ARGS="${_CMAKE_ARGS} -DCMAKE_SYSTEM_NAME=Darwin -DCMAKE_SYSTEM_PROCESSOR=@UNAME_MACHINE@"
+  _CMAKE_ARGS="${_CMAKE_ARGS} -DCMAKE_SYSTEM_NAME=Darwin -DCMAKE_SYSTEM_PROCESSOR=@UNAME_MACHINE@ -DCMAKE_SYSTEM_VERSION=@UNAME_KERNEL_RELEASE@"
 fi
 
 _tc_activation \
