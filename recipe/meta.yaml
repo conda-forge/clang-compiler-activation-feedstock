@@ -28,7 +28,7 @@ outputs:
       - cctools_{{ cross_target_platform }}
       - ld64_{{ cross_target_platform }}
       # this brings in an extra symlink of ld -> x86_64-apple-darwin13.4.0-ld
-      - ld64  # [cross_target_platform == "osx-64"]
+      - ld64  # [cross_target_platform == target_platform]
       # This brings in libraries for linux too. Split this again?
       - compiler-rt {{ version }}
       - compiler-rt_{{ cross_target_platform }} {{ version }}
