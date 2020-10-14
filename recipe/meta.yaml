@@ -11,7 +11,7 @@ source:
 
 build:
   skip: true  # [win]
-  number: 8
+  number: 9
 
 requirements:
   build:
@@ -63,6 +63,7 @@ outputs:
         - {{ macos_machine }}-clang++ --version
 
   - name: clang_bootstrap_{{ cross_target_platform }}
+    script: install-clang-bootstrap.sh
     requirements:
       host:
         - clangxx {{ version }}
