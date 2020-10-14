@@ -33,7 +33,7 @@ outputs:
       # - cctools  # [cross_target_platform == target_platform]
       # This brings in libraries for linux too. Split this again?
       - compiler-rt {{ version }}
-      - compiler-rt_{{ cross_target_platform }} {{ version }}
+      - compiler-rt_osx-64 {{ version }}
       - gcc_impl_{{ target_platform }}       # [linux]
     test:
       commands:
