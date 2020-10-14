@@ -2,6 +2,14 @@
 
 CHOST=${macos_machine}
 
+if [[ "$target_platform" == linux-* ]]; then
+  CBUILD=${HOST}
+elif [[ "$target_platform" == "osx-64" ]]; then
+  CBUILD=x86_64-apple-darwin13.4.0
+else
+  CBUILD=arm64-apple-darwin20.0.0
+fi
+
 FINAL_CPPFLAGS="-D_FORTIFY_SOURCE=2"
 FINAL_CFLAGS="-ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe"
 FINAL_CXXFLAGS="-ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe -stdlib=libc++ -fvisibility-inlines-hidden -std=c++14 -fmessage-length=0"
@@ -34,6 +42,7 @@ fi
 find "${RECIPE_DIR}" -name "*activate*.sh" -exec cp {} . \;
 
 find . -name "*activate*.sh" -exec sed -i.bak "s|@CHOST@|${CHOST}|g" "{}" \;
+find . -name "*activate*.sh" -exec sed -i.bak "s|@CBUILD@|${CBUILD}|g" "{}" \;
 find . -name "*activate*.sh" -exec sed -i.bak "s|@CPPFLAGS@|${FINAL_CPPFLAGS}|g"             "{}" \;
 find . -name "*activate*.sh" -exec sed -i.bak "s|@CC_FOR_BUILD@|${CC_FOR_BUILD}|g"           "{}" \;
 find . -name "*activate*.sh" -exec sed -i.bak "s|@CXX_FOR_BUILD@|${CXX_FOR_BUILD}|g"         "{}" \;

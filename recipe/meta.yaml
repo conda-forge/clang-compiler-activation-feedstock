@@ -11,12 +11,12 @@ source:
 
 build:
   skip: true  # [win]
-  number: 10
+  number: 11
 
 requirements:
   build:
     - libcxx {{ version }}
-    - gcc_impl_{{ target_platform }}       # [linux]
+    - gcc_{{ target_platform }}       # [linux]
     - clang {{ version }}                  # [osx]
 
 outputs:

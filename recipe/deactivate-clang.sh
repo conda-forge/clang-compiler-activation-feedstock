@@ -131,8 +131,10 @@ _tc_activation \
   "CONDA_BUILD_SYSROOT,${CONDA_BUILD_SYSROOT_TEMP}" \
   "SDKROOT,${CONDA_BUILD_SYSROOT_TEMP}" \
   "CMAKE_ARGS,${_CMAKE_ARGS:-}" \
+  "ac_cv_func_malloc_0_nonnull,yes" \
   "host_alias,@CHOST@" \
-  "ac_cv_func_malloc_0_nonnull,yes"
+  "build_alias,@CBUILD@" \
+  "BUILD,@CBUILD@"
 
 if [ "@UNAME_MACHINE@" = "x86_64" ]; then
    _tc_activation \
