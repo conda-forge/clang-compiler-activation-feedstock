@@ -126,6 +126,8 @@ fi
 _CMAKE_ARGS="-DCMAKE_AR=${CONDA_PREFIX}/bin/@CHOST@-ar -DCMAKE_RANLIB=${CONDA_PREFIX}/bin/@CHOST@-ranlib"
 _CMAKE_ARGS="${_CMAKE_ARGS} -DCMAKE_LINKER=${CONDA_PREFIX}/bin/@CHOST@-ld -DCMAKE_STRIP=${CONDA_PREFIX}/bin/@CHOST@-strip"
 _CMAKE_ARGS="${_CMAKE_ARGS} -DCMAKE_INSTALL_NAME_TOOL=${CONDA_PREFIX}/bin/@CHOST@-install_name_tool"
+_CMAKE_ARGS="${_CMAKE_ARGS} -DCMAKE_LIBTOOL=${CONDA_PREFIX}/bin/@CHOST@-libtool"
+_CMAKE_ARGS="${_CMAKE_ARGS} -DCMAKE_OSX_DEPLOYMENT_TARGET=${MACOSX_DEPLOYMENT_TARGET}"
 _CMAKE_ARGS="${_CMAKE_ARGS} -DCMAKE_BUILD_TYPE=Release -DCMAKE_OSX_SYSROOT=${CONDA_BUILD_SYSROOT_TEMP}"
 
 if [ "${CONDA_BUILD:-0}" = "1" ]; then
@@ -157,7 +159,7 @@ _tc_activation \
   "ac_cv_func_malloc_0_nonnull,yes" \
   "host_alias,@CHOST@" \
   "build_alias,@CBUILD@" \
-  "BUILD,@BUILD@"
+  "BUILD,@CBUILD@"
 
 if [ "@UNAME_MACHINE@" = "x86_64" ]; then
   _tc_activation \
