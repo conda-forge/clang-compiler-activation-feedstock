@@ -11,7 +11,7 @@ source:
 
 build:
   skip: true  # [win]
-  number: 9
+  number: 10
 
 requirements:
   build:
@@ -26,10 +26,14 @@ outputs:
       - clang {{ version }}
       - llvm-tools {{ version }}
       - cctools_{{ cross_target_platform }}
-      - ld64_{{ cross_target_platform }}     # [cross_target_platform == "osx-64"]
+      - ld64_{{ cross_target_platform }}
+      # this brings in an extra symlink of ld -> x86_64-apple-darwin13.4.0-ld
+      # adding these generated an error w/ libtool: https://github.com/conda-forge/libtool-feedstock/issues/24
+      # - ld64     # [cross_target_platform == target_platform]
+      # - cctools  # [cross_target_platform == target_platform]
       # This brings in libraries for linux too. Split this again?
       - compiler-rt {{ version }}
-      - compiler-rt_osx-64 {{ version }}
+      - compiler-rt_{{ cross_target_platform }} {{ version }}
       - gcc_impl_{{ target_platform }}       # [linux]
     test:
       commands:
