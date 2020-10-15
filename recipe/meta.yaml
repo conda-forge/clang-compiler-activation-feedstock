@@ -7,7 +7,7 @@ package:
 # Not strictly needed but enables automatic updates from the bot
 source:
   url: https://github.com/llvm/llvm-project/releases/download/llvmorg-{{ version.replace(".rc", "-rc") }}/llvm-project-{{ version.replace(".rc", "rc") }}.tar.xz
-  sha256: 0f96acace1e8326b39f220ba19e055ba99b0ab21c2475042dbc6a482649c5209
+  sha256: b7b639fc675fa1c86dd6d0bc32267be9eb34451748d2efd03f674b773000e92b
 
 build:
   skip: true  # [win]
@@ -33,7 +33,10 @@ outputs:
       # - cctools  # [cross_target_platform == target_platform]
       # This brings in libraries for linux too. Split this again?
       - compiler-rt {{ version }}
-      - compiler-rt_osx-64 {{ version }}
+      # For OSX, compiler-rt library includes both x86_64 and arm64.
+      # Therefore `compiler-rt_osx-64` and `compiler-rt_osx-arm64` are basically the same
+      # and clobber each other. Don't bring both here.
+      - compiler-rt_{{ cross_target_platform }} {{ version }}     # [linux]
       - gcc_impl_{{ target_platform }}       # [linux]
     test:
       commands:
