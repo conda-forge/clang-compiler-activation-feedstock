@@ -3,7 +3,7 @@ FINAL_PYTHON_SYSCONFIGDATA_NAME:
 MACOSX_DEPLOYMENT_TARGET:
 - '11.0'
 channel_sources:
-- https://conda-web.anaconda.org/conda-forge,conda-forge
+- conda-forge/label/llvm_rc,conda-forge,https://conda-web.anaconda.org/conda-forge
 channel_targets:
 - conda-forge main
 cross_target_platform:
