@@ -21,8 +21,3 @@ zip_keys:
     - uname_machine
     - uname_kernel_release
     - FINAL_PYTHON_SYSCONFIGDATA_NAME
-
-channel_sources:
-  - conda-forge/label/llvm_rc,conda-forge,defaults
-channel_targets:
-  - conda-forge llvm_rc
