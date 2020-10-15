@@ -11,7 +11,7 @@ source:
 
 build:
   skip: true  # [win]
-  number: 0
+  number: 1
 
 requirements:
   build:
@@ -27,6 +27,7 @@ outputs:
       - llvm-tools {{ version }}
       - cctools_{{ cross_target_platform }}
       - ld64_{{ cross_target_platform }}
+      - ld64_{{ target_platform }}          # [osx]
       # this brings in an extra symlink of ld -> x86_64-apple-darwin13.4.0-ld
       # adding these generated an error w/ libtool: https://github.com/conda-forge/libtool-feedstock/issues/24
       # - ld64     # [cross_target_platform == target_platform]
@@ -40,6 +41,7 @@ outputs:
       - gcc_impl_{{ target_platform }}       # [linux]
     test:
       commands:
+        - {{ CBUILD }}-clang --version
         - {{ macos_machine }}-clang --version
 
   - name: clangxx_{{ cross_target_platform }}
@@ -67,6 +69,8 @@ outputs:
         - echo {{ uname_kernel_release }}
         - echo {{ uname_machine }}
         - echo {{ FINAL_PYTHON_SYSCONFIGDATA_NAME }}
+        - echo {{ CBUILD }}
+        - {{ CBUILD }}-clang++ --version
         - {{ macos_machine }}-clang++ --version
 
   - name: clang_bootstrap_{{ cross_target_platform }}

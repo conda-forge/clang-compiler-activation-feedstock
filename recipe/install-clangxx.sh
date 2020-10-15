@@ -11,4 +11,7 @@ cp "${SRC_DIR}"/deactivate-clang++.sh "${PREFIX}"/etc/conda/deactivate.d/deactiv
 
 pushd "${PREFIX}"/bin
   ln -s clang++ ${CHOST}-clang++
+  if [[ "${CHOST}" != "${CBUILD}" ]]; then
+    ln -s clang++ ${CBUILD}-clang++
+  fi
 popd

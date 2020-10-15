@@ -4,6 +4,12 @@ cross_target_platform:
 macos_machine:
   - x86_64-apple-darwin13.4.0
   - arm64-apple-darwin20.0.0
+CBUILD:
+  - x86_64-conda-linux-gnu      # [linux64]
+  - powerpc64le-conda-linux-gnu      # [linux and ppc64le]
+  - aarch64-conda-linux-gnu      # [linux and aarch64]
+  - x86_64-apple-darwin13.4.0   # [osx and x86_64]
+  - arm64-apple-darwin20.0.0    # [osx and arm64]
 uname_machine:
   - x86_64
   - arm64

@@ -2,14 +2,6 @@
 
 CHOST=${macos_machine}
 
-if [[ "$target_platform" == linux-* ]]; then
-  CBUILD=${HOST}
-elif [[ "$target_platform" == "osx-64" ]]; then
-  CBUILD=x86_64-apple-darwin13.4.0
-else
-  CBUILD=arm64-apple-darwin20.0.0
-fi
-
 FINAL_CPPFLAGS="-D_FORTIFY_SOURCE=2"
 FINAL_CFLAGS="-ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe"
 FINAL_CXXFLAGS="-ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe -stdlib=libc++ -fvisibility-inlines-hidden -std=c++14 -fmessage-length=0"
@@ -26,17 +18,16 @@ FINAL_DEBUG_CXXFLAGS="-Og -g -Wall -Wextra"
 
 if [[ "$target_platform" == "$cross_target_platform" ]]; then
   CONDA_BUILD_CROSS_COMPILATION=""
-  CC_FOR_BUILD=${CHOST}-clang
-  CXX_FOR_BUILD=${CHOST}-clang++
 else
   CONDA_BUILD_CROSS_COMPILATION="1"
-  if [[ "$target_platform" == linux* ]]; then
-    CC_FOR_BUILD=$(basename $BUILD_PREFIX/bin/*-gcc)
-    CXX_FOR_BUILD=$(basename $BUILD_PREFIX/bin/*-g++)
-  else
-    CC_FOR_BUILD=clang
-    CXX_FOR_BUILD=clang++
-  fi
+fi
+
+if [[ "$target_platform" == linux* ]]; then
+  CC_FOR_BUILD=${CBUILD}-gcc
+  CXX_FOR_BUILD=${CBUILD}-g++
+else
+  CC_FOR_BUILD=${CBUILD}-clang
+  CXX_FOR_BUILD=${CBUILD}-clang++
 fi
 
 find "${RECIPE_DIR}" -name "*activate*.sh" -exec cp {} . \;

@@ -1,3 +1,5 @@
+CBUILD:
+- x86_64-apple-darwin13.4.0
 FINAL_PYTHON_SYSCONFIGDATA_NAME:
 - _sysconfigdata_arm64_apple_darwin20_0_0
 MACOSX_DEPLOYMENT_TARGET:

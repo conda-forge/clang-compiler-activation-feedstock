@@ -1,9 +1,11 @@
+CBUILD:
+- arm64-apple-darwin20.0.0
 FINAL_PYTHON_SYSCONFIGDATA_NAME:
 - _sysconfigdata_x86_64_apple_darwin13_4_0
 MACOSX_DEPLOYMENT_TARGET:
-- '10.9'
+- '11.0'
 channel_sources:
-- conda-forge,defaults
+- conda-forge,https://conda-web.anaconda.org/conda-forge
 channel_targets:
 - conda-forge main
 cross_target_platform:
@@ -11,7 +13,7 @@ cross_target_platform:
 macos_machine:
 - x86_64-apple-darwin13.4.0
 target_platform:
-- osx-64
+- osx-arm64
 uname_kernel_release:
 - 13.4.0
 uname_machine:
