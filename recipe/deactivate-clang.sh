@@ -97,6 +97,10 @@ else
   CMAKE_PREFIX_PATH_USED="${CMAKE_PREFIX_PATH}:${CONDA_PREFIX}"
 fi
 
+if [ "${MACOSX_DEPLOYMENT_TARGET:-0}" != "0" ]; then
+  CPPFLAGS_USED="$CPPFLAGS_USED -mmacosx-version-min=${MACOSX_DEPLOYMENT_TARGET}"
+fi
+
 if [ "${CONDA_BUILD:-0}" = "1" ]; then
   if [ -f /tmp/old-env-$$.txt ]; then
     rm -f /tmp/old-env-$$.txt || true
@@ -113,7 +117,6 @@ _tc_activation \
   deactivate @CHOST@- "HOST,@CHOST@" \
   ar as checksyms indr install_name_tool libtool lipo nm nmedit otool \
   pagestuff ranlib redo_prebinding seg_addr_table seg_hack segedit size strings strip \
-  ld \
   clang \
   "CC,${CC:-@CHOST@-clang}" \
   "CC_FOR_BUILD,${CONDA_PREFIX}/bin/@CC_FOR_BUILD@" \
@@ -128,7 +131,15 @@ _tc_activation \
   "CONDA_BUILD_SYSROOT,${CONDA_BUILD_SYSROOT_TEMP}" \
   "SDKROOT,${CONDA_BUILD_SYSROOT_TEMP}" \
   "CMAKE_ARGS,${_CMAKE_ARGS:-}" \
-  "host_alias,@CHOST@"
+  "ac_cv_func_malloc_0_nonnull,yes" \
+  "host_alias,@CHOST@" \
+  "build_alias,@CBUILD@" \
+  "BUILD,@CBUILD@"
+
+if [ "@UNAME_MACHINE@" = "x86_64" ]; then
+   _tc_activation \
+    activate @CHOST@- ld
+fi
 
 unset CONDA_BUILD_SYSROOT_TEMP
 

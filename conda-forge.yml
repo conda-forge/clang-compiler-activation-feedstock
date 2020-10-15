@@ -1,2 +1,6 @@
-upload_on_branch: master
 conda_forge_output_validation: true
+upload_on_branch: master
+build_platform:
+  osx_arm64: osx_64
+channel_priority: flexible
+test_on_native_only: true

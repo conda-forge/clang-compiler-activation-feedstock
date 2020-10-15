@@ -1,0 +1,24 @@
+FINAL_PYTHON_SYSCONFIGDATA_NAME:
+- _sysconfigdata_arm64_apple_darwin20_0_0
+MACOSX_DEPLOYMENT_TARGET:
+- '11.0'
+channel_sources:
+- conda-forge,https://conda-web.anaconda.org/conda-forge
+channel_targets:
+- conda-forge main
+cross_target_platform:
+- osx-arm64
+macos_machine:
+- arm64-apple-darwin20.0.0
+target_platform:
+- osx-arm64
+uname_kernel_release:
+- 20.0.0
+uname_machine:
+- arm64
+zip_keys:
+- - cross_target_platform
+  - macos_machine
+  - uname_machine
+  - uname_kernel_release
+  - FINAL_PYTHON_SYSCONFIGDATA_NAME
