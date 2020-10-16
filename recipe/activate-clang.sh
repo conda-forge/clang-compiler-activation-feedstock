@@ -114,6 +114,10 @@ if [ "@CONDA_BUILD_CROSS_COMPILATION@" = "1" ]; then
   fi
 fi
 
+if [ "${CONDA_BUILD_SYSROOT:-0}" != "0" ] && [ "${CONDA_BUILD_STATE:-0}" = "TEST" ] && [ ! -d "${CONDA_BUILD_SYSROOT:-0}" ]; then
+  unset CONDA_BUILD_SYSROOT
+fi
+
 CONDA_BUILD_SYSROOT_TEMP=${CONDA_BUILD_SYSROOT:-${SDKROOT:-0}}
 if [ "${CONDA_BUILD_SYSROOT_TEMP}" = "0" ]; then
   if [ "${SDKROOT:-0}" = "0" ]; then
