@@ -47,5 +47,6 @@ find . -name "*activate*.sh" -exec sed -i.bak "s|@LDFLAGS_LD@|${FINAL_LDFLAGS_LD
 find . -name "*activate*.sh" -exec sed -i.bak "s|@CONDA_BUILD_CROSS_COMPILATION@|${CONDA_BUILD_CROSS_COMPILATION}|g"         "{}" \;
 find . -name "*activate*.sh" -exec sed -i.bak "s|@_PYTHON_SYSCONFIGDATA_NAME@|${FINAL_PYTHON_SYSCONFIGDATA_NAME}|g"  "{}" \;
 find . -name "*activate*.sh" -exec sed -i.bak "s|@UNAME_MACHINE@|${uname_machine}|g"         "{}" \;
+find . -name "*activate*.sh" -exec sed -i.bak "s|@MESON_CPU_FAMILY@|${meson_cpu_family}|g"         "{}" \;
 find . -name "*activate*.sh" -exec sed -i.bak "s|@UNAME_KERNEL_RELEASE@|${uname_kernel_release}|g"         "{}" \;
 find . -name "*activate*.sh.bak" -exec rm "{}" \;
