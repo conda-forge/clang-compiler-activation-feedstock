@@ -11,7 +11,7 @@ source:
 
 build:
   skip: true  # [win]
-  number: 2
+  number: 3
 
 requirements:
   build:
@@ -70,6 +70,7 @@ outputs:
         - echo {{ uname_machine }}
         - echo {{ FINAL_PYTHON_SYSCONFIGDATA_NAME }}
         - echo {{ CBUILD }}
+        - echo {{ meson_cpu_family }}
         - {{ CBUILD }}-clang++ --version
         - {{ macos_machine }}-clang++ --version
 

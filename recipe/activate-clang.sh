@@ -134,21 +134,32 @@ _CMAKE_ARGS="${_CMAKE_ARGS} -DCMAKE_LIBTOOL=${CONDA_PREFIX}/bin/@CHOST@-libtool"
 _CMAKE_ARGS="${_CMAKE_ARGS} -DCMAKE_OSX_DEPLOYMENT_TARGET=${MACOSX_DEPLOYMENT_TARGET}"
 _CMAKE_ARGS="${_CMAKE_ARGS} -DCMAKE_BUILD_TYPE=Release -DCMAKE_OSX_SYSROOT=${CONDA_BUILD_SYSROOT_TEMP}"
 
+_MESON_ARGS="--buildtype release"
+
 if [ "${CONDA_BUILD:-0}" = "1" ]; then
   _CMAKE_ARGS="${_CMAKE_ARGS} -DCMAKE_INSTALL_PREFIX=${PREFIX} -DCMAKE_INSTALL_LIBDIR=lib"
+  _MESON_ARGS="${_MESON_ARGS} --prefix="$PREFIX" -Dlibdir=lib"
 fi
 
 if [ "@CONDA_BUILD_CROSS_COMPILATION@" = "1" ]; then
   _CMAKE_ARGS="${_CMAKE_ARGS} -DCMAKE_SYSTEM_NAME=Darwin -DCMAKE_SYSTEM_PROCESSOR=@UNAME_MACHINE@ -DCMAKE_SYSTEM_VERSION=@UNAME_KERNEL_RELEASE@"
+  _MESON_ARGS="${_MESON_ARGS} --cross-file $BUILD_PREFIX/meson_cross_file.txt"
+  echo "[host_machine]" > $BUILD_PREFIX/meson_cross_file.txt
+  echo "system = 'darwin'" >> $BUILD_PREFIX/meson_cross_file.txt
+  echo "cpu_family = '@UNAME_MACHINE@'" >> $BUILD_PREFIX/meson_cross_file.txt
+  echo "cpu = '@MESON_CPU_FAMILY@'" >> $BUILD_PREFIX/meson_cross_file.txt
+  echo "endian = 'little'" >> $BUILD_PREFIX/meson_cross_file.txt
 fi
 
 _tc_activation \
   activate @CHOST@- "HOST,@CHOST@" \
   ar as checksyms indr install_name_tool libtool lipo nm nmedit otool \
   pagestuff ranlib redo_prebinding seg_addr_table seg_hack segedit size strings strip \
-  clang \
+  clang, ld \
   "CC,${CC:-@CHOST@-clang}" \
+  "OBJC,${OBJC:-@CHOST@-clang}" \
   "CC_FOR_BUILD,${CONDA_PREFIX}/bin/@CC_FOR_BUILD@" \
+  "OBJC_FOR_BUILD,${CONDA_PREFIX}/bin/@CC_FOR_BUILD@" \
   "CPPFLAGS,${CPPFLAGS:-${CPPFLAGS_USED}}" \
   "CFLAGS,${CFLAGS:-${CFLAGS_USED}}" \
   "LDFLAGS,${LDFLAGS:-${LDFLAGS_USED}}" \
@@ -160,15 +171,11 @@ _tc_activation \
   "CONDA_BUILD_SYSROOT,${CONDA_BUILD_SYSROOT_TEMP}" \
   "SDKROOT,${CONDA_BUILD_SYSROOT_TEMP}" \
   "CMAKE_ARGS,${_CMAKE_ARGS}" \
+  "MESON_ARGS,${_MESON_ARGS}" \
   "ac_cv_func_malloc_0_nonnull,yes" \
   "host_alias,@CHOST@" \
   "build_alias,@CBUILD@" \
   "BUILD,@CBUILD@"
-
-if [ "@UNAME_MACHINE@" = "x86_64" ]; then
-  _tc_activation \
-   activate @CHOST@- ld
-fi
 
 unset CONDA_BUILD_SYSROOT_TEMP
 unset _CMAKE_ARGS

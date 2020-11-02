@@ -117,9 +117,11 @@ _tc_activation \
   deactivate @CHOST@- "HOST,@CHOST@" \
   ar as checksyms indr install_name_tool libtool lipo nm nmedit otool \
   pagestuff ranlib redo_prebinding seg_addr_table seg_hack segedit size strings strip \
-  clang \
+  clang ld \
   "CC,${CC:-@CHOST@-clang}" \
+  "OBJC,${OBJC:-@CHOST@-clang}" \
   "CC_FOR_BUILD,${CONDA_PREFIX}/bin/@CC_FOR_BUILD@" \
+  "OBJC_FOR_BUILD,${CONDA_PREFIX}/bin/@OBJC_FOR_BUILD@" \
   "CPPFLAGS,${CPPFLAGS:-${CPPFLAGS_USED}}" \
   "CFLAGS,${CFLAGS:-${CFLAGS_USED}}" \
   "LDFLAGS,${LDFLAGS:-${LDFLAGS_USED}}" \
@@ -131,15 +133,11 @@ _tc_activation \
   "CONDA_BUILD_SYSROOT,${CONDA_BUILD_SYSROOT_TEMP}" \
   "SDKROOT,${CONDA_BUILD_SYSROOT_TEMP}" \
   "CMAKE_ARGS,${_CMAKE_ARGS:-}" \
+  "MESON_ARGS,${_MESON_ARGS:-}" \
   "ac_cv_func_malloc_0_nonnull,yes" \
   "host_alias,@CHOST@" \
   "build_alias,@CBUILD@" \
   "BUILD,@CBUILD@"
-
-if [ "@UNAME_MACHINE@" = "x86_64" ]; then
-   _tc_activation \
-    activate @CHOST@- ld
-fi
 
 unset CONDA_BUILD_SYSROOT_TEMP
 

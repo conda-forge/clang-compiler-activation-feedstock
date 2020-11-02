@@ -13,6 +13,9 @@ CBUILD:
 uname_machine:
   - x86_64
   - arm64
+meson_cpu_family:
+  - x86_64
+  - aarch64
 uname_kernel_release:
   - 13.4.0
   - 20.0.0
@@ -24,6 +27,7 @@ FINAL_PYTHON_SYSCONFIGDATA_NAME:
 zip_keys:
   - - cross_target_platform
     - macos_machine
+    - meson_cpu_family
     - uname_machine
     - uname_kernel_release
     - FINAL_PYTHON_SYSCONFIGDATA_NAME
