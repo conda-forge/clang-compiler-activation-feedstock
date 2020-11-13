@@ -146,8 +146,8 @@ if [ "@CONDA_BUILD_CROSS_COMPILATION@" = "1" ]; then
   _MESON_ARGS="${_MESON_ARGS} --cross-file $BUILD_PREFIX/meson_cross_file.txt"
   echo "[host_machine]" > $BUILD_PREFIX/meson_cross_file.txt
   echo "system = 'darwin'" >> $BUILD_PREFIX/meson_cross_file.txt
-  echo "cpu_family = '@UNAME_MACHINE@'" >> $BUILD_PREFIX/meson_cross_file.txt
-  echo "cpu = '@MESON_CPU_FAMILY@'" >> $BUILD_PREFIX/meson_cross_file.txt
+  echo "cpu = '@UNAME_MACHINE@'" >> $BUILD_PREFIX/meson_cross_file.txt
+  echo "cpu_family = '@MESON_CPU_FAMILY@'" >> $BUILD_PREFIX/meson_cross_file.txt
   echo "endian = 'little'" >> $BUILD_PREFIX/meson_cross_file.txt
 fi
 
@@ -173,6 +173,7 @@ _tc_activation \
   "CMAKE_ARGS,${_CMAKE_ARGS}" \
   "MESON_ARGS,${_MESON_ARGS}" \
   "ac_cv_func_malloc_0_nonnull,yes" \
+  "ac_cv_func_realloc_0_nonnull,yes" \
   "host_alias,@CHOST@" \
   "build_alias,@CBUILD@" \
   "BUILD,@CBUILD@"
