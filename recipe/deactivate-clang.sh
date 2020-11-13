@@ -135,6 +135,7 @@ _tc_activation \
   "CMAKE_ARGS,${_CMAKE_ARGS:-}" \
   "MESON_ARGS,${_MESON_ARGS:-}" \
   "ac_cv_func_malloc_0_nonnull,yes" \
+  "ac_cv_func_realloc_0_nonnull,yes" \
   "host_alias,@CHOST@" \
   "build_alias,@CBUILD@" \
   "BUILD,@CBUILD@"
