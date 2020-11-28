@@ -49,4 +49,5 @@ find . -name "*activate*.sh" -exec sed -i.bak "s|@_PYTHON_SYSCONFIGDATA_NAME@|${
 find . -name "*activate*.sh" -exec sed -i.bak "s|@UNAME_MACHINE@|${uname_machine}|g"         "{}" \;
 find . -name "*activate*.sh" -exec sed -i.bak "s|@MESON_CPU_FAMILY@|${meson_cpu_family}|g"         "{}" \;
 find . -name "*activate*.sh" -exec sed -i.bak "s|@UNAME_KERNEL_RELEASE@|${uname_kernel_release}|g"         "{}" \;
+find . -name "*activate*.sh" -exec sed -i.bak "s|@TARGET_PLATFORM@|${cross_target_platform}|g"         "{}" \;
 find . -name "*activate*.sh.bak" -exec rm "{}" \;
