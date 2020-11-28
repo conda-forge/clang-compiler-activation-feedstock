@@ -79,6 +79,8 @@ function _tc_activation() {
   return 0
 }
 
+function deactivate_clangxx() {
+
 # When people are using conda-build, assume that adding rpath during build, and pointing at
 #    the host env's includes and libs is helpful default behavior
 if [ "${CONDA_BUILD:-0}" = "1" ]; then
@@ -117,4 +119,11 @@ else
     diff -U 0 -rN /tmp/old-env-$$.txt /tmp/new-env-$$.txt | tail -n +4 | grep "^-.*\|^+.*" | grep -v "CONDA_BACKUP_" | sort
     rm -f /tmp/old-env-$$.txt /tmp/new-env-$$.txt || true
   fi
+fi
+}
+
+if [ "${CONDA_BUILD_STATE:-0}" = "BUILD" ] && [ "${target_platform:-@TARGET_PLATFORM@}" -ne "@TARGET_PLATFORM@" ]; then
+  echo "Not deactivating environment because this compiler is not expected."
+else
+  deactivate_clangxx
 fi
