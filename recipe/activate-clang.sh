@@ -198,7 +198,7 @@ else
 fi
 }
 
-if [ "${CONDA_BUILD_STATE:-0}" = "BUILD" ] && [ "${target_platform:-@TARGET_PLATFORM@}" -ne "@TARGET_PLATFORM@" ]; then
+if [ "${CONDA_BUILD_STATE:-0}" = "BUILD" ] && [ "${target_platform:-@TARGET_PLATFORM@}" != "@TARGET_PLATFORM@" ]; then
   echo "Not activating environment because this compiler is not expected."
 else
   activate_clang
