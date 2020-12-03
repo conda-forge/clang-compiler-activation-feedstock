@@ -53,10 +53,10 @@ function _tc_activation() {
           thing=$(echo "${thing}" | sed "s,^\([^\,]*\)\,.*,\1,")
           ;;
         *)
-          newval="${CONDA_PREFIX}/bin/${tc_prefix}${thing}"
+          newval="${tc_prefix}${thing}"
           thing=$(echo ${thing} | tr 'a-z+-' 'A-ZX_')
-          if [ ! -x "${newval}" -a "${pass}" = "check" ]; then
-            echo "ERROR: This cross-compiler package contains no program ${newval}"
+          if [ ! -x "${CONDA_PREFIX}/bin/${newval}" -a "${pass}" = "check" ]; then
+            echo "ERROR: This cross-compiler package contains no program ${CONDA_PREFIX}/bin/${newval}"
             return 1
           fi
           ;;
