@@ -11,7 +11,7 @@ source:
 
 build:
   skip: true  # [win]
-  number: 8
+  number: 9
 
 requirements:
   build:
@@ -26,6 +26,7 @@ outputs:
       - clang {{ version }}
       - llvm-tools {{ version }}
       - cctools_{{ cross_target_platform }}
+      - cctools_{{ target_platform }}          # [osx]
       - ld64_{{ cross_target_platform }}
       - ld64_{{ target_platform }}          # [osx]
       # this brings in an extra symlink of ld -> x86_64-apple-darwin13.4.0-ld
