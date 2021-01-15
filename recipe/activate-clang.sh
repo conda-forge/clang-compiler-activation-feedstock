@@ -152,7 +152,7 @@ if [ "@CONDA_BUILD_CROSS_COMPILATION@" = "1" ]; then
   echo "endian = 'little'" >> $BUILD_PREFIX/meson_cross_file.txt
 fi
 
-if [[ -z "${BASH}" ]]; then
+if [[ -n "${ZSH_NAME}" ]]; then
   _tc_activation \
     activate @CHOST@- \
     "CONDA_CLANG_HOSTNAME,$(hostname)"
@@ -203,7 +203,7 @@ else
   fi
 
   # fix prompt for zsh
-  if [[ -z "${BASH}" ]]; then
+  if [[ -n "${ZSH_NAME}" ]]; then
     _conda_clang_precmd() {
       CONDA_CLANG_OLDHOST="${HOST}"
       HOST="${CONDA_CLANG_HOSTNAME}"

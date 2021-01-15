@@ -143,7 +143,7 @@ _tc_activation \
   "build_alias,@CBUILD@" \
   "BUILD,@CBUILD@"
 
-if [[ -z "${BASH}" ]]; then
+if [[ -n "${ZSH_NAME}" ]]; then
   _tc_activation \
     deactivate @CHOST@- \
     "CONDA_CLANG_HOSTNAME,$(hostname)"
@@ -166,7 +166,7 @@ else
   fi
 
   # unfix prompt for zsh
-  if [[ -z "${BASH}" ]]; then
+  if [[ -n "${ZSH_NAME}" ]]; then
     precmd_functions=(${precmd_functions:#_conda_clang_precmd})
     preexec_functions=(${preexec_functions:#_conda_clang_preexec})
   fi
