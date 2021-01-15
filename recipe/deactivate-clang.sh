@@ -118,6 +118,7 @@ fi
 
 _tc_activation \
   deactivate @CHOST@- "HOST,@CHOST@" \
+  "CONDA_TOOLCHAIN_HOST,@CHOST@" \
   ar as checksyms indr install_name_tool libtool lipo nm nmedit otool \
   pagestuff ranlib redo_prebinding seg_addr_table seg_hack segedit size strings strip \
   clang ld \

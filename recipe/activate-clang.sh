@@ -154,6 +154,7 @@ fi
 
 _tc_activation \
   activate @CHOST@- "HOST,@CHOST@" \
+  "CONDA_TOOLCHAIN_HOST,@CHOST@" \
   ar as checksyms indr install_name_tool libtool lipo nm nmedit otool \
   pagestuff ranlib redo_prebinding seg_addr_table seg_hack segedit size strings strip \
   clang ld \
@@ -199,7 +200,6 @@ else
   # fix prompt for zsh
   if [[ -n "${ZSH_NAME}" ]]; then
     _conda_clang_precmd() {
-      CONDA_CLANG_OLDHOST="${HOST}"
       HOST="${CONDA_BACKUP_HOST}"
     }
 
@@ -207,7 +207,7 @@ else
     precmd_functions=(\$precmd_functions _conda_clang_precmd)
 
     _conda_clang_preexec() {
-      HOST="${CONDA_CLANG_OLDHOST}"
+      HOST="${CONDA_TOOLCHAIN_HOST}"
     }
 
     [[ -z \$preexec_functions ]] && preexec_functions=()
