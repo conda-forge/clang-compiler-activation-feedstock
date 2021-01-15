@@ -152,12 +152,6 @@ if [ "@CONDA_BUILD_CROSS_COMPILATION@" = "1" ]; then
   echo "endian = 'little'" >> $BUILD_PREFIX/meson_cross_file.txt
 fi
 
-if [[ -n "${ZSH_NAME}" ]]; then
-  _tc_activation \
-    activate @CHOST@- \
-    "CONDA_CLANG_HOSTNAME,$(hostname)"
-fi
-
 _tc_activation \
   activate @CHOST@- "HOST,@CHOST@" \
   ar as checksyms indr install_name_tool libtool lipo nm nmedit otool \

@@ -143,12 +143,6 @@ _tc_activation \
   "build_alias,@CBUILD@" \
   "BUILD,@CBUILD@"
 
-if [[ -n "${ZSH_NAME}" ]]; then
-  _tc_activation \
-    deactivate @CHOST@- \
-    "CONDA_CLANG_HOSTNAME,$(hostname)"
-fi
-
 unset CONDA_BUILD_SYSROOT_TEMP
 
 if [ $? -ne 0 ]; then
