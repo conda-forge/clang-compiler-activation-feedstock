@@ -206,7 +206,7 @@ else
   if [[ -n "${ZSH_NAME}" ]]; then
     _conda_clang_precmd() {
       CONDA_CLANG_OLDHOST="${HOST}"
-      HOST="${CONDA_CLANG_HOSTNAME}"
+      HOST="${CONDA_BACKUP_HOST}"
     }
 
     [[ -z \$precmd_functions ]] && precmd_functions=()
