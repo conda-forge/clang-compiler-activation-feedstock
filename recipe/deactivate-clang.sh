@@ -143,6 +143,12 @@ _tc_activation \
   "build_alias,@CBUILD@" \
   "BUILD,@CBUILD@"
 
+if [[ -z "${BASH}" ]]; then
+  _tc_activation \
+    deactivate @CHOST@- \
+    "CONDA_CLANG_HOSTNAME,$(hostname)"
+fi
+
 unset CONDA_BUILD_SYSROOT_TEMP
 
 if [ $? -ne 0 ]; then
@@ -157,6 +163,12 @@ else
     echo "INFO: $(_get_sourced_filename) made the following environmental changes:"
     diff -U 0 -rN /tmp/old-env-$$.txt /tmp/new-env-$$.txt | tail -n +4 | grep "^-.*\|^+.*" | grep -v "CONDA_BACKUP_" | sort
     rm -f /tmp/old-env-$$.txt /tmp/new-env-$$.txt || true
+  fi
+
+  # unfix prompt for zsh
+  if [[ -z "${BASH}" ]]; then
+    precmd_functions=(${precmd_functions:#_conda_clang_precmd})
+    preexec_functions=(${preexec_functions:#_conda_clang_preexec})
   fi
 fi
 }

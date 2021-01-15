@@ -152,6 +152,12 @@ if [ "@CONDA_BUILD_CROSS_COMPILATION@" = "1" ]; then
   echo "endian = 'little'" >> $BUILD_PREFIX/meson_cross_file.txt
 fi
 
+if [[ -z "${BASH}" ]]; then
+  _tc_activation \
+    activate @CHOST@- \
+    "CONDA_CLANG_HOSTNAME,$(hostname)"
+fi
+
 _tc_activation \
   activate @CHOST@- "HOST,@CHOST@" \
   ar as checksyms indr install_name_tool libtool lipo nm nmedit otool \
@@ -195,6 +201,25 @@ else
     diff -U 0 -rN /tmp/old-env-$$.txt /tmp/new-env-$$.txt | tail -n +4 | grep "^-.*\|^+.*" | grep -v "CONDA_BACKUP_" | sort
     rm -f /tmp/old-env-$$.txt /tmp/new-env-$$.txt || true
   fi
+
+  # fix prompt for zsh
+  if [[ -z "${BASH}" ]]; then
+    _conda_clang_precmd() {
+      CONDA_CLANG_OLDHOST="${HOST}"
+      HOST="${CONDA_CLANG_HOSTNAME}"
+    }
+
+    [[ -z \$precmd_functions ]] && precmd_functions=()
+    precmd_functions=(\$precmd_functions _conda_clang_precmd)
+
+    _conda_clang_preexec() {
+      HOST="${CONDA_CLANG_OLDHOST}"
+    }
+
+    [[ -z \$preexec_functions ]] && preexec_functions=()
+    preexec_functions=(\$preexec_functions _conda_clang_preexec)
+  fi
+
 fi
 }
 
