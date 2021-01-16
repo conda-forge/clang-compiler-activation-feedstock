@@ -210,7 +210,7 @@ else
     _conda_clang_preexec() {
       HOST="${CONDA_TOOLCHAIN_HOST}"
     }
-    add-zsh-hook -Uz preexec _conda_clang_precmd
+    add-zsh-hook -Uz preexec _conda_clang_preexec
   fi
 
 fi
