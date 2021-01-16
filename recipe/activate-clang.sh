@@ -154,6 +154,8 @@ fi
 
 _tc_activation \
   activate @CHOST@- "HOST,@CHOST@" \
+  "CONDA_TOOLCHAIN_HOST,@CHOST@" \
+  "CONDA_TOOLCHAIN_BUILD,@CBUILD@" \
   ar as checksyms indr install_name_tool libtool lipo nm nmedit otool \
   pagestuff ranlib redo_prebinding seg_addr_table seg_hack segedit size strings strip \
   clang ld \
@@ -195,6 +197,24 @@ else
     diff -U 0 -rN /tmp/old-env-$$.txt /tmp/new-env-$$.txt | tail -n +4 | grep "^-.*\|^+.*" | grep -v "CONDA_BACKUP_" | sort
     rm -f /tmp/old-env-$$.txt /tmp/new-env-$$.txt || true
   fi
+
+  # fix prompt for zsh
+  if [[ -n "${ZSH_NAME}" ]]; then
+    _conda_clang_precmd() {
+      HOST="${CONDA_BACKUP_HOST}"
+    }
+
+    [[ -z \$precmd_functions ]] && precmd_functions=()
+    precmd_functions=(\$precmd_functions _conda_clang_precmd)
+
+    _conda_clang_preexec() {
+      HOST="${CONDA_TOOLCHAIN_HOST}"
+    }
+
+    [[ -z \$preexec_functions ]] && preexec_functions=()
+    preexec_functions=(\$preexec_functions _conda_clang_preexec)
+  fi
+
 fi
 }
 
