@@ -12,7 +12,7 @@ source:
 
 build:
   skip: true  # [win]
-  number: 1
+  number: 2
 
 requirements:
   build:
@@ -97,6 +97,10 @@ outputs:
         - lib/
         - libexec/
         - share/
+      ignore_run_exports_from:
+        - libllvm{{ major_ver }}
+        - {{ pin_subpackage('clang_' ~ cross_target_platform, exact=True) }}
+        - {{ pin_subpackage('clangxx_' ~ cross_target_platform, exact=True) }}
       skip: True   # [not osx]
     test:
       commands:
