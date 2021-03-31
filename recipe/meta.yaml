@@ -24,22 +24,25 @@ outputs:
   - name: clang_{{ cross_target_platform }}
     script: install-clang.sh
     requirements:
-      - clang {{ version }}
-      - llvm-tools {{ version }}
-      - cctools_{{ cross_target_platform }}
-      - ld64_{{ cross_target_platform }}
-      - ld64_{{ target_platform }}          # [osx]
-      # this brings in an extra symlink of ld -> x86_64-apple-darwin13.4.0-ld
-      # adding these generated an error w/ libtool: https://github.com/conda-forge/libtool-feedstock/issues/24
-      # - ld64     # [cross_target_platform == target_platform]
-      # - cctools  # [cross_target_platform == target_platform]
-      # This brings in libraries for linux too. Split this again?
-      - compiler-rt {{ version }}
-      # For OSX, compiler-rt library includes both x86_64 and arm64.
-      # Therefore `compiler-rt_osx-64` and `compiler-rt_osx-arm64` are basically the same
-      # and clobber each other. Don't bring both here.
-      - compiler-rt_{{ cross_target_platform }} {{ version }}     # [linux]
-      - gcc_impl_{{ target_platform }}       # [linux]
+      build:
+        - cctools_{{ target_platform }}  # [osx]
+      host:
+        - clang {{ version }}
+        - llvm-tools {{ version }}
+        - cctools_{{ cross_target_platform }}
+        - ld64_{{ cross_target_platform }}
+        - ld64_{{ target_platform }}          # [osx]
+        # this brings in an extra symlink of ld -> x86_64-apple-darwin13.4.0-ld
+        # adding these generated an error w/ libtool: https://github.com/conda-forge/libtool-feedstock/issues/24
+        # - ld64     # [cross_target_platform == target_platform]
+        # - cctools  # [cross_target_platform == target_platform]
+        # This brings in libraries for linux too. Split this again?
+        - compiler-rt {{ version }}
+        # For OSX, compiler-rt library includes both x86_64 and arm64.
+        # Therefore `compiler-rt_osx-64` and `compiler-rt_osx-arm64` are basically the same
+        # and clobber each other. Don't bring both here.
+        - compiler-rt_{{ cross_target_platform }} {{ version }}     # [linux]
+        - gcc_impl_{{ target_platform }}       # [linux]
     test:
       commands:
         - {{ CBUILD }}-clang --version
@@ -48,6 +51,8 @@ outputs:
   - name: clangxx_{{ cross_target_platform }}
     script: install-clangxx.sh
     requirements:
+      build:
+        - cctools_{{ target_platform }}  # [osx]
       host:
         - clangxx {{ version }}
         - libcxx {{ version }}  # [osx]
@@ -80,6 +85,8 @@ outputs:
   - name: clang_bootstrap_{{ cross_target_platform }}
     script: install-clang-bootstrap.sh
     requirements:
+      build:
+        - cctools_{{ target_platform }}  # [osx]
       host:
         - clangxx {{ version }}
         - libcxx {{ version }}                # [cross_target_platform in ("osx-64", "osx-arm64")]
