@@ -16,6 +16,7 @@ build:
 
 requirements:
   build:
+    - cctools_{{ target_platform }}  # [osx]
     - libcxx {{ version }}
     - gcc_{{ target_platform }}       # [linux]
     - clang {{ version }}                  # [osx]
