@@ -16,7 +16,7 @@ build:
 
 requirements:
   build:
-    - cctools_{{ target_platform }}
+    - cctools_{{ target_platform }}  # [osx]
     - libcxx {{ version }}
     - gcc_{{ target_platform }}       # [linux]
     - clang {{ version }}                  # [osx]
@@ -27,7 +27,7 @@ outputs:
     requirements:
       - clang {{ version }}
       - llvm-tools {{ version }}
-      - cctools_{{ target_platform }}
+      - cctools_{{ target_platform }}  # [osx]
       - cctools_{{ cross_target_platform }}
       - ld64_{{ cross_target_platform }}
       - ld64_{{ target_platform }}          # [osx]
@@ -51,10 +51,9 @@ outputs:
     script: install-clangxx.sh
     requirements:
       build:
-        - cctools_{{ target_platform }}
+        - cctools_{{ target_platform }}  # [osx]
       host:
         - clangxx {{ version }}
-        - cctools_{{ cross_target_platform }}
         - libcxx {{ version }}  # [osx]
         - {{ pin_subpackage('clang_' ~ cross_target_platform, exact=True) }}
         - gxx_impl_{{ target_platform }}     # [linux]
