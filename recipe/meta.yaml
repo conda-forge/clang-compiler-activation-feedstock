@@ -12,10 +12,11 @@ source:
 
 build:
   skip: true  # [win]
-  number: 0
+  number: 1
 
 requirements:
   build:
+    - cctools_{{ target_platform }}  # [osx]
     - libcxx {{ version }}
     - gcc_{{ target_platform }}       # [linux]
     - clang {{ version }}                  # [osx]
@@ -26,6 +27,7 @@ outputs:
     requirements:
       - clang {{ version }}
       - llvm-tools {{ version }}
+      - cctools_{{ target_platform }}  # [osx]
       - cctools_{{ cross_target_platform }}
       - ld64_{{ cross_target_platform }}
       - ld64_{{ target_platform }}          # [osx]
@@ -48,6 +50,8 @@ outputs:
   - name: clangxx_{{ cross_target_platform }}
     script: install-clangxx.sh
     requirements:
+      build:
+        - cctools_{{ target_platform }}  # [osx]
       host:
         - clangxx {{ version }}
         - libcxx {{ version }}  # [osx]
@@ -80,6 +84,8 @@ outputs:
   - name: clang_bootstrap_{{ cross_target_platform }}
     script: install-clang-bootstrap.sh
     requirements:
+      build:
+        - cctools_{{ target_platform }}  # [osx]
       host:
         - clangxx {{ version }}
         - libcxx {{ version }}                # [cross_target_platform in ("osx-64", "osx-arm64")]
