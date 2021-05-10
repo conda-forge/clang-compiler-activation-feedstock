@@ -119,12 +119,21 @@ if [ "${CONDA_BUILD_SYSROOT:-0}" != "0" ] && [ "${CONDA_BUILD_STATE:-0}" = "TEST
   unset CONDA_BUILD_SYSROOT
 fi
 
-CONDA_BUILD_SYSROOT_TEMP=${CONDA_BUILD_SYSROOT:-${SDKROOT:-0}}
-if [ "${CONDA_BUILD_SYSROOT_TEMP}" = "0" ]; then
+if [ "${CONDA_BUILD:-0}" = "0" ]; then
+  # outside of conda build we do not purposefully use CONDA_BUILD_SYSROOT
   if [ "${SDKROOT:-0}" = "0" ]; then
     CONDA_BUILD_SYSROOT_TEMP=$(xcrun --show-sdk-path)
   else
     CONDA_BUILD_SYSROOT_TEMP=${SDKROOT}
+  fi
+else
+  CONDA_BUILD_SYSROOT_TEMP=${CONDA_BUILD_SYSROOT:-${SDKROOT:-0}}
+  if [ "${CONDA_BUILD_SYSROOT_TEMP}" = "0" ]; then
+    if [ "${SDKROOT:-0}" = "0" ]; then
+      CONDA_BUILD_SYSROOT_TEMP=$(xcrun --show-sdk-path)
+    else
+      CONDA_BUILD_SYSROOT_TEMP=${SDKROOT}
+    fi
   fi
 fi
 
@@ -172,7 +181,6 @@ _tc_activation \
   "_CONDA_PYTHON_SYSCONFIGDATA_NAME,${_CONDA_PYTHON_SYSCONFIGDATA_NAME:-@_PYTHON_SYSCONFIGDATA_NAME@}" \
   "CMAKE_PREFIX_PATH,${CMAKE_PREFIX_PATH:-${CMAKE_PREFIX_PATH_USED}}" \
   "CONDA_BUILD_CROSS_COMPILATION,@CONDA_BUILD_CROSS_COMPILATION@" \
-  "CONDA_BUILD_SYSROOT,${CONDA_BUILD_SYSROOT_TEMP}" \
   "SDKROOT,${CONDA_BUILD_SYSROOT_TEMP}" \
   "CMAKE_ARGS,${_CMAKE_ARGS}" \
   "MESON_ARGS,${_MESON_ARGS}" \
@@ -181,6 +189,13 @@ _tc_activation \
   "host_alias,@CHOST@" \
   "build_alias,@CBUILD@" \
   "BUILD,@CBUILD@"
+
+if [ "${CONDA_BUILD:-0}" = "1" ]; then
+  # in conda build we set CONDA_BUILD_SYSROOT too
+  _tc_activation \
+    activate @CHOST@- \
+    "CONDA_BUILD_SYSROOT,${CONDA_BUILD_SYSROOT_TEMP}"
+fi
 
 unset CONDA_BUILD_SYSROOT_TEMP
 unset _CMAKE_ARGS
