@@ -121,11 +121,11 @@ fi
 
 CONDA_BUILD_SYSROOT_TEMP=${CONDA_BUILD_SYSROOT:-${SDKROOT:-0}}
 if [ "${CONDA_BUILD_SYSROOT_TEMP}" = "0" ]; then
-if [ "${SDKROOT:-0}" = "0" ]; then
-  CONDA_BUILD_SYSROOT_TEMP=$(xcrun --show-sdk-path)
-else
-  CONDA_BUILD_SYSROOT_TEMP=${SDKROOT}
-fi
+  if [ "${SDKROOT:-0}" = "0" ]; then
+    CONDA_BUILD_SYSROOT_TEMP=$(xcrun --show-sdk-path)
+  else
+    CONDA_BUILD_SYSROOT_TEMP=${SDKROOT}
+  fi
 fi
 
 _CMAKE_ARGS="-DCMAKE_AR=${CONDA_PREFIX}/bin/@CHOST@-ar -DCMAKE_CXX_COMPILER_AR=${CONDA_PREFIX}/bin/@CHOST@-ar -DCMAKE_C_COMPILER_AR=${CONDA_PREFIX}/bin/@CHOST@-ar"
