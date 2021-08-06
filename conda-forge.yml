@@ -1,5 +1,5 @@
 conda_forge_output_validation: true
-upload_on_branch: master
+upload_on_branch: 11.x
 build_platform:
   osx_arm64: osx_64
 channel_priority: flexible
