@@ -5,7 +5,7 @@
 jobs:
 - job: linux
   pool:
-    vmImage: ubuntu-16.04
+    vmImage: ubuntu-latest
   strategy:
     matrix:
       linux_64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0:
@@ -36,7 +36,7 @@ jobs:
         export CI=azure
         export GIT_BRANCH=$BUILD_SOURCEBRANCHNAME
         export FEEDSTOCK_NAME=$(basename ${BUILD_REPOSITORY_NAME})
-        export UPLOAD_ON_BRANCH="master"
+        export UPLOAD_ON_BRANCH="11.x"
         .scripts/run_docker_build.sh
     displayName: Run docker build
     env:
