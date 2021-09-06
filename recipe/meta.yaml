@@ -12,7 +12,7 @@ source:
 
 build:
   skip: true  # [win]
-  number: 0
+  number: 1
 
 requirements:
   build:
@@ -89,8 +89,8 @@ outputs:
       host:
         - clangxx {{ version }}
         - libcxx {{ version }}                # [cross_target_platform in ("osx-64", "osx-arm64")]
-        - cctools_{{ cross_target_platform }}
-        - ld64_{{ cross_target_platform }}
+        - cctools_{{ cross_target_platform }} 949.*
+        - ld64_{{ cross_target_platform }} 530.*
         - {{ pin_subpackage('clang_' ~ cross_target_platform, exact=True) }}
         - {{ pin_subpackage('clangxx_' ~ cross_target_platform, exact=True) }}
         # hack to force the solver to work
@@ -120,7 +120,7 @@ outputs:
       summary: clang compiler components in one package for bootstrapping clang
 
 about:
-  home: http://github.com/AnacondaRecipes/aggregate
+  home: http://github.com/conda-forge/clang-compiler-activation-feedstock
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE.txt
