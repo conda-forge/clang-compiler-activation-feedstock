@@ -1,4 +1,4 @@
-{% set version = "12.0.1" %}
+{% set version = "13.0.0" %}
 {% set major_ver = version.split(".")[0] %}
 
 package:
@@ -8,11 +8,11 @@ package:
 # Not strictly needed but enables automatic updates from the bot
 source:
   url: https://github.com/llvm/llvm-project/releases/download/llvmorg-{{ version.replace(".rc", "-rc") }}/llvm-project-{{ version.replace(".rc", "rc") }}.src.tar.xz
-  sha256: 129cb25cd13677aad951ce5c2deb0fe4afc1e9d98950f53b51bdcfb5a73afa0e
+  sha256: 6075ad30f1ac0e15f07c1bf062c1e1268c241d674f11bd32cdf0e040c71f2bf3
 
 build:
   skip: true  # [win]
-  number: 1
+  number: 0
 
 requirements:
   build:
