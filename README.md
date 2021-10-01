@@ -1,7 +1,7 @@
 About clang-compiler-activation
 ===============================
 
-Home: http://github.com/AnacondaRecipes/aggregate
+Home: http://github.com/conda-forge/clang-compiler-activation-feedstock
 
 Package license: BSD-3-Clause
 
