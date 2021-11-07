@@ -1,7 +1,7 @@
 About clang-compiler-activation
 ===============================
 
-Home: http://github.com/AnacondaRecipes/aggregate
+Home: http://github.com/conda-forge/clang-compiler-activation-feedstock
 
 Package license: BSD-3-Clause
 
@@ -114,7 +114,8 @@ conda search clang_bootstrap_osx-64 --channel conda-forge
 About conda-forge
 =================
 
-[![Powered by NumFOCUS](https://img.shields.io/badge/powered%20by-NumFOCUS-orange.svg?style=flat&colorA=E1523D&colorB=007D8A)](http://numfocus.org)
+[![Powered by
+NumFOCUS](https://img.shields.io/badge/powered%20by-NumFOCUS-orange.svg?style=flat&colorA=E1523D&colorB=007D8A)](https://numfocus.org)
 
 conda-forge is a community-led conda channel of installable packages.
 In order to provide high-quality builds, the process has been automated into the
