@@ -1,7 +1,7 @@
 About clang-compiler-activation
 ===============================
 
-Home: http://github.com/AnacondaRecipes/aggregate
+Home: http://github.com/conda-forge/clang-compiler-activation-feedstock
 
 Package license: BSD-3-Clause
 
@@ -27,45 +27,87 @@ Current build status
         <table>
           <thead><tr><th>Variant</th><th>Status</th></tr></thead>
           <tbody><tr>
-              <td>linux_64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0</td>
+              <td>linux_64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version11.1.0</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7470&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=master&jobName=linux&configuration=linux_64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=master&jobName=linux&configuration=linux_64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version11.1.0" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0</td>
+              <td>linux_64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version12.0.1</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7470&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=master&jobName=linux&configuration=linux_64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=master&jobName=linux&configuration=linux_64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version12.0.1" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0</td>
+              <td>linux_64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version11.1.0</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7470&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=master&jobName=osx&configuration=osx_64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=master&jobName=linux&configuration=linux_64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version11.1.0" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0</td>
+              <td>linux_64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version12.0.1</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7470&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=master&jobName=osx&configuration=osx_64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=master&jobName=linux&configuration=linux_64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version12.0.1" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_arm64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0</td>
+              <td>osx_64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version11.1.0</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7470&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=master&jobName=osx&configuration=osx_arm64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=master&jobName=osx&configuration=osx_64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version11.1.0" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_arm64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0</td>
+              <td>osx_64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version12.0.1</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7470&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=master&jobName=osx&configuration=osx_arm64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=master&jobName=osx&configuration=osx_64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version12.0.1" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version11.1.0</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7470&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=master&jobName=osx&configuration=osx_64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version11.1.0" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version12.0.1</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7470&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=master&jobName=osx&configuration=osx_64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version12.0.1" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_arm64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version11.1.0</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7470&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=master&jobName=osx&configuration=osx_arm64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version11.1.0" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_arm64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version12.0.1</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7470&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=master&jobName=osx&configuration=osx_arm64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version12.0.1" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_arm64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version11.1.0</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7470&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=master&jobName=osx&configuration=osx_arm64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version11.1.0" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_arm64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version12.0.1</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7470&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=master&jobName=osx&configuration=osx_arm64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version12.0.1" alt="variant">
                 </a>
               </td>
             </tr>
@@ -114,7 +156,8 @@ conda search clang_bootstrap_osx-64 --channel conda-forge
 About conda-forge
 =================
 
-[![Powered by NumFOCUS](https://img.shields.io/badge/powered%20by-NumFOCUS-orange.svg?style=flat&colorA=E1523D&colorB=007D8A)](http://numfocus.org)
+[![Powered by
+NumFOCUS](https://img.shields.io/badge/powered%20by-NumFOCUS-orange.svg?style=flat&colorA=E1523D&colorB=007D8A)](https://numfocus.org)
 
 conda-forge is a community-led conda channel of installable packages.
 In order to provide high-quality builds, the process has been automated into the
