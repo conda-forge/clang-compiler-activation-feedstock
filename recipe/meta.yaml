@@ -15,7 +15,7 @@ source:
 
 build:
   skip: true  # [win]
-  number: 5
+  number: 6
 
 requirements:
   build:
@@ -92,8 +92,8 @@ outputs:
       host:
         - clangxx {{ version }}
         - libcxx {{ version }}                # [cross_target_platform in ("osx-64", "osx-arm64")]
-        - cctools_{{ cross_target_platform }} 949.*
-        - ld64_{{ cross_target_platform }} 530.*
+        - cctools_{{ cross_target_platform }}
+        - ld64_{{ cross_target_platform }}
         - {{ pin_subpackage('clang_' ~ cross_target_platform, exact=True) }}
         - {{ pin_subpackage('clangxx_' ~ cross_target_platform, exact=True) }}
         # hack to force the solver to work
