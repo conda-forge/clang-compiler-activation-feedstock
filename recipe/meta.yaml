@@ -22,8 +22,8 @@ requirements:
   build:
     - cctools_{{ target_platform }}  # [osx]
     - libcxx {{ version }}
-    - gcc_{{ target_platform }}       # [linux]
-    - clang {{ version }}                  # [osx]
+    - gcc_{{ target_platform }}      # [linux]
+    - clang {{ version }}            # [osx]
 
 outputs:
   - name: clang_{{ cross_target_platform }}
@@ -31,10 +31,10 @@ outputs:
     requirements:
       - clang {{ version }}
       - llvm-tools {{ version }}
-      - cctools_{{ target_platform }}  # [osx]
+      - cctools_{{ target_platform }}        # [osx]
       - cctools_{{ cross_target_platform }}
       - ld64_{{ cross_target_platform }}
-      - ld64_{{ target_platform }}          # [osx]
+      - ld64_{{ target_platform }}           # [osx]
       # this brings in an extra symlink of ld -> x86_64-apple-darwin13.4.0-ld
       # adding these generated an error w/ libtool: https://github.com/conda-forge/libtool-feedstock/issues/24
       # - ld64     # [cross_target_platform == target_platform]
@@ -55,12 +55,12 @@ outputs:
     script: install-clangxx.sh
     requirements:
       build:
-        - cctools_{{ target_platform }}  # [osx]
+        - cctools_{{ target_platform }}   # [osx]
       host:
         - clangxx {{ version }}
-        - libcxx {{ version }}  # [osx]
+        - libcxx {{ version }}            # [osx]
         - {{ pin_subpackage('clang_' ~ cross_target_platform, exact=True) }}
-        - gxx_impl_{{ target_platform }}     # [linux]
+        - gxx_impl_{{ target_platform }}  # [linux]
         # hack to force the solver to work
         - libllvm{{ major_ver }} {{ version }}
       run:
@@ -68,7 +68,7 @@ outputs:
         # This is not needed in Linux for cross-compiling in a conda-build env, but is needed outside
         - libcxx >={{ version }}
         - {{ pin_subpackage('clang_' ~ cross_target_platform, exact=True) }}
-        - gxx_impl_{{ target_platform }}     # [linux]
+        - gxx_impl_{{ target_platform }}  # [linux]
     # Since transitive run_exports are not currently possible
     # (here I would like the run dependency on clangxx to pull in the run_exports from it).
     run_exports:
@@ -92,7 +92,7 @@ outputs:
         - cctools_{{ target_platform }}  # [osx]
       host:
         - clangxx {{ version }}
-        - libcxx {{ version }}                # [cross_target_platform in ("osx-64", "osx-arm64")]
+        - libcxx {{ version }}           # [cross_target_platform in ("osx-64", "osx-arm64")]
         - cctools_{{ cross_target_platform }}
         - ld64_{{ cross_target_platform }}
         - {{ pin_subpackage('clang_' ~ cross_target_platform, exact=True) }}
