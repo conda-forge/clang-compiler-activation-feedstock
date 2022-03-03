@@ -4,3 +4,5 @@ build_platform:
   osx_arm64: osx_64
 channel_priority: flexible
 test_on_native_only: true
+azure:
+  store_build_artifacts: true
