@@ -15,7 +15,7 @@ source:
 
 build:
   skip: true  # [win]
-  number: 6
+  number: 7
 
 requirements:
   build:
