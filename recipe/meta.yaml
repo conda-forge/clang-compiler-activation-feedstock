@@ -3,6 +3,12 @@
 {% endif %}
 {% set major_ver = version.split(".")[0] %}
 
+{% set build_number = 0 %}
+{% if major_ver | int < 13 %}
+  # continue count of builds for LLVM 11/12
+  {% set build_number = build_number + 8 %}
+{% endif %}
+
 package:
   name: clang-compiler-activation
   version: {{ version }}
@@ -16,7 +22,7 @@ source:
 
 build:
   skip: true  # [win]
-  number: 7
+  number: {{ build_number }}
 
 requirements:
   build:
