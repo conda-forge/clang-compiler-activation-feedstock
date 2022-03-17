@@ -8,29 +8,29 @@ jobs:
     vmImage: macOS-10.15
   strategy:
     matrix:
-      osx_64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version11.1.0:
-        CONFIG: osx_64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version11.1.0
-        UPLOAD_PACKAGES: 'True'
       osx_64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version12.0.1:
         CONFIG: osx_64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version12.0.1
         UPLOAD_PACKAGES: 'True'
-      osx_64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version11.1.0:
-        CONFIG: osx_64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version11.1.0
+      osx_64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version13.0.1:
+        CONFIG: osx_64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version13.0.1
         UPLOAD_PACKAGES: 'True'
       osx_64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version12.0.1:
         CONFIG: osx_64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version12.0.1
         UPLOAD_PACKAGES: 'True'
-      osx_arm64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version11.1.0:
-        CONFIG: osx_arm64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version11.1.0
+      osx_64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version13.0.1:
+        CONFIG: osx_64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version13.0.1
         UPLOAD_PACKAGES: 'True'
       osx_arm64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version12.0.1:
         CONFIG: osx_arm64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version12.0.1
         UPLOAD_PACKAGES: 'True'
-      osx_arm64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version11.1.0:
-        CONFIG: osx_arm64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version11.1.0
+      osx_arm64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version13.0.1:
+        CONFIG: osx_arm64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version13.0.1
         UPLOAD_PACKAGES: 'True'
       osx_arm64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version12.0.1:
         CONFIG: osx_arm64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version12.0.1
+        UPLOAD_PACKAGES: 'True'
+      osx_arm64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version13.0.1:
+        CONFIG: osx_arm64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version13.0.1
         UPLOAD_PACKAGES: 'True'
   timeoutInMinutes: 360
 
@@ -41,7 +41,7 @@ jobs:
       export OSX_FORCE_SDK_DOWNLOAD="1"
       export GIT_BRANCH=$BUILD_SOURCEBRANCHNAME
       export FEEDSTOCK_NAME=$(basename ${BUILD_REPOSITORY_NAME})
-      export UPLOAD_ON_BRANCH="master"
+      export UPLOAD_ON_BRANCH="main"
       if [[ "${BUILD_REASON:-}" == "PullRequest" ]]; then
         export IS_PR_BUILD="True"
       else

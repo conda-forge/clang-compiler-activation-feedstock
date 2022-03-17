@@ -1,7 +1,13 @@
 {% if version is not defined %}
-{% set version = "12.0.1" %}
+{% set version = "13.0.1" %}
 {% endif %}
 {% set major_ver = version.split(".")[0] %}
+
+{% set build_number = 0 %}
+{% if major_ver | int < 13 %}
+  # continue count of builds for LLVM 12
+  {% set build_number = build_number + 8 %}
+{% endif %}
 
 package:
   name: clang-compiler-activation
@@ -10,19 +16,19 @@ package:
 # Not strictly needed but enables automatic updates from the bot
 source:
   url: https://github.com/llvm/llvm-project/releases/download/llvmorg-{{ version.replace(".rc", "-rc") }}/llvm-project-{{ version.replace(".rc", "rc") }}.src.tar.xz
+  sha256: 326335a830f2e32d06d0a36393b5455d17dc73e0bd1211065227ee014f92cbf8  # [version == "13.0.1"]
   sha256: 129cb25cd13677aad951ce5c2deb0fe4afc1e9d98950f53b51bdcfb5a73afa0e  # [version == "12.0.1"]
-  sha256: 74d2529159fd118c3eac6f90107b5611bccc6f647fdea104024183e8d5e25831  # [version != "12.0.1"]
 
 build:
   skip: true  # [win]
-  number: 7
+  number: {{ build_number }}
 
 requirements:
   build:
     - cctools_{{ target_platform }}  # [osx]
     - libcxx {{ version }}
-    - gcc_{{ target_platform }}       # [linux]
-    - clang {{ version }}                  # [osx]
+    - gcc_{{ target_platform }}      # [linux]
+    - clang {{ version }}            # [osx]
 
 outputs:
   - name: clang_{{ cross_target_platform }}
@@ -30,10 +36,10 @@ outputs:
     requirements:
       - clang {{ version }}
       - llvm-tools {{ version }}
-      - cctools_{{ target_platform }}  # [osx]
+      - cctools_{{ target_platform }}        # [osx]
       - cctools_{{ cross_target_platform }}
       - ld64_{{ cross_target_platform }}
-      - ld64_{{ target_platform }}          # [osx]
+      - ld64_{{ target_platform }}           # [osx]
       # this brings in an extra symlink of ld -> x86_64-apple-darwin13.4.0-ld
       # adding these generated an error w/ libtool: https://github.com/conda-forge/libtool-feedstock/issues/24
       # - ld64     # [cross_target_platform == target_platform]
@@ -54,12 +60,12 @@ outputs:
     script: install-clangxx.sh
     requirements:
       build:
-        - cctools_{{ target_platform }}  # [osx]
+        - cctools_{{ target_platform }}   # [osx]
       host:
         - clangxx {{ version }}
-        - libcxx {{ version }}  # [osx]
+        - libcxx {{ version }}            # [osx]
         - {{ pin_subpackage('clang_' ~ cross_target_platform, exact=True) }}
-        - gxx_impl_{{ target_platform }}     # [linux]
+        - gxx_impl_{{ target_platform }}  # [linux]
         # hack to force the solver to work
         - libllvm{{ major_ver }} {{ version }}
       run:
@@ -67,7 +73,7 @@ outputs:
         # This is not needed in Linux for cross-compiling in a conda-build env, but is needed outside
         - libcxx >={{ version }}
         - {{ pin_subpackage('clang_' ~ cross_target_platform, exact=True) }}
-        - gxx_impl_{{ target_platform }}     # [linux]
+        - gxx_impl_{{ target_platform }}  # [linux]
     # Since transitive run_exports are not currently possible
     # (here I would like the run dependency on clangxx to pull in the run_exports from it).
     run_exports:
@@ -91,7 +97,7 @@ outputs:
         - cctools_{{ target_platform }}  # [osx]
       host:
         - clangxx {{ version }}
-        - libcxx {{ version }}                # [cross_target_platform in ("osx-64", "osx-arm64")]
+        - libcxx {{ version }}           # [cross_target_platform in ("osx-64", "osx-arm64")]
         - cctools_{{ cross_target_platform }}
         - ld64_{{ cross_target_platform }}
         - {{ pin_subpackage('clang_' ~ cross_target_platform, exact=True) }}
@@ -134,3 +140,4 @@ extra:
     - isuruf
     - mingwandroid
     - katietz
+    - h-vetinari
