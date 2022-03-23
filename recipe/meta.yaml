@@ -1,9 +1,9 @@
 {% if version is not defined %}
-{% set version = "13.0.1" %}
+{% set version = "14.0.0" %}
 {% endif %}
 {% set major_ver = version.split(".")[0] %}
 
-{% set build_number = 0 %}
+{% set build_number = 1 %}
 {% if major_ver | int < 13 %}
   # continue count of builds for LLVM 12
   {% set build_number = build_number + 8 %}
