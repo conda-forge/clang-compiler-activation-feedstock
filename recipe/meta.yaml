@@ -4,10 +4,6 @@
 {% set major_ver = version.split(".")[0] %}
 
 {% set build_number = 2 %}
-{% if major_ver | int < 13 %}
-  # continue count of builds for LLVM 12
-  {% set build_number = build_number + 8 %}
-{% endif %}
 
 package:
   name: clang-compiler-activation
@@ -18,7 +14,6 @@ package:
 # source:
 #   url: https://github.com/llvm/llvm-project/releases/download/llvmorg-{{ version.replace(".rc", "-rc") }}/llvm-project-{{ version.replace(".rc", "rc") }}.src.tar.xz
 #   sha256: 326335a830f2e32d06d0a36393b5455d17dc73e0bd1211065227ee014f92cbf8  # [version == "13.0.1"]
-#   sha256: 129cb25cd13677aad951ce5c2deb0fe4afc1e9d98950f53b51bdcfb5a73afa0e  # [version == "12.0.1"]
 
 build:
   skip: true  # [win]
