@@ -6,7 +6,7 @@
 # of the C++ stdlib; keep the variable in case this happens again
 {% set libcxx_major = major_ver %}
 
-{% set build_number = 21 %}
+{% set build_number = 22 %}
 
 package:
   name: clang-compiler-activation
