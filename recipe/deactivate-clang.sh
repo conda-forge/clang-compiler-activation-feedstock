@@ -49,8 +49,8 @@ function _tc_activation() {
     for thing in "$@"; do
       case "${thing}" in
         *,*)
-          newval=$(echo "${thing}" | sed "s,^[^\,]*\,\(.*\),\1,")
-          thing=$(echo "${thing}" | sed "s,^\([^\,]*\)\,.*,\1,")
+          newval="${thing#*,}"
+          thing="${thing%%,*}"
           ;;
         *)
           newval="${tc_prefix}${thing}"
