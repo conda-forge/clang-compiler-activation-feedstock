@@ -33,4 +33,4 @@ zip_keys:
     - FINAL_PYTHON_SYSCONFIGDATA_NAME
 version:
   - 13.0.1
-  - 14.0.4
+  - 14.0.6
