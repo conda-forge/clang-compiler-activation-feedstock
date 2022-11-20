@@ -4,7 +4,7 @@
 {% set major_ver = version.split(".")[0] %}
 
 # make sure this does not reset (unless affected older LLVMs get dropped)
-{% set build_number = 3 %}
+{% set build_number = 4 %}
 
 package:
   name: clang-compiler-activation
