@@ -1,10 +1,13 @@
 {% if version is not defined %}
-{% set version = "14.0.6" %}
+{% set version = "15.0.7" %}
 {% endif %}
 {% set major_ver = version.split(".")[0] %}
 
-# make sure this does not reset (unless affected older LLVMs get dropped)
-{% set build_number = 4 %}
+{% set build_number = 0 %}
+# keep build number increments for old compiler versions as necessary
+{% if major_ver | int < 15 %}
+{% set build_number = build_number + 4 %}
+{% endif %}
 
 package:
   name: clang-compiler-activation
