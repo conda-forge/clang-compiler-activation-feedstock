@@ -147,12 +147,12 @@ fi
 
 if [ "@CONDA_BUILD_CROSS_COMPILATION@" = "1" ]; then
   _CMAKE_ARGS="${_CMAKE_ARGS} -DCMAKE_SYSTEM_NAME=Darwin -DCMAKE_SYSTEM_PROCESSOR=@UNAME_MACHINE@ -DCMAKE_SYSTEM_VERSION=@UNAME_KERNEL_RELEASE@"
-  _MESON_ARGS="${_MESON_ARGS} --cross-file $BUILD_PREFIX/meson_cross_file.txt"
-  echo "[host_machine]" > $BUILD_PREFIX/meson_cross_file.txt
-  echo "system = 'darwin'" >> $BUILD_PREFIX/meson_cross_file.txt
-  echo "cpu = '@UNAME_MACHINE@'" >> $BUILD_PREFIX/meson_cross_file.txt
-  echo "cpu_family = '@MESON_CPU_FAMILY@'" >> $BUILD_PREFIX/meson_cross_file.txt
-  echo "endian = 'little'" >> $BUILD_PREFIX/meson_cross_file.txt
+  _MESON_ARGS="${_MESON_ARGS} --cross-file ${CONDA_PREFIX}/meson_cross_file.txt"
+  echo "[host_machine]" > ${CONDA_PREFIX}/meson_cross_file.txt
+  echo "system = 'darwin'" >> ${CONDA_PREFIX}/meson_cross_file.txt
+  echo "cpu = '@UNAME_MACHINE@'" >> ${CONDA_PREFIX}/meson_cross_file.txt
+  echo "cpu_family = '@MESON_CPU_FAMILY@'" >> ${CONDA_PREFIX}/meson_cross_file.txt
+  echo "endian = 'little'" >> ${CONDA_PREFIX}/meson_cross_file.txt
 fi
 
 _tc_activation \
