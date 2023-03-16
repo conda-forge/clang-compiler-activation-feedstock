@@ -8,20 +8,28 @@ jobs:
     vmImage: ubuntu-latest
   strategy:
     matrix:
-      linux_64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version14.0.6:
-        CONFIG: linux_64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version14.0.6
+      ? linux_64_channel_targetsconda-forge_llvm_rccross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version16.0.0.rc4
+      : CONFIG: linux_64_channel_targetsconda-forge_llvm_rccross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version16.0.0.rc4
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
-      linux_64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version15.0.7:
-        CONFIG: linux_64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version15.0.7
+      ? linux_64_channel_targetsconda-forge_llvm_rccross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version16.0.0.rc4
+      : CONFIG: linux_64_channel_targetsconda-forge_llvm_rccross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version16.0.0.rc4
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
-      linux_64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version14.0.6:
-        CONFIG: linux_64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version14.0.6
+      linux_64_channel_targetsconda-forge_maincross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version14.0.6:
+        CONFIG: linux_64_channel_targetsconda-forge_maincross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version14.0.6
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
-      linux_64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version15.0.7:
-        CONFIG: linux_64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version15.0.7
+      linux_64_channel_targetsconda-forge_maincross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version15.0.7:
+        CONFIG: linux_64_channel_targetsconda-forge_maincross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version15.0.7
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
+      linux_64_channel_targetsconda-forge_maincross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version14.0.6:
+        CONFIG: linux_64_channel_targetsconda-forge_maincross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version14.0.6
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
+      linux_64_channel_targetsconda-forge_maincross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version15.0.7:
+        CONFIG: linux_64_channel_targetsconda-forge_maincross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version15.0.7
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
   timeoutInMinutes: 360
