@@ -2,17 +2,12 @@
 
 CHOST=${macos_machine}
 
-if [[ "$target_platform" == linux-* ]]; then
-  CBUILD=${HOST}
-elif [[ "$target_platform" == "osx-64" ]]; then
-  CBUILD=x86_64-apple-darwin13.4.0
-else
-  CBUILD=arm64-apple-darwin20.0.0
-fi
-
 FINAL_CPPFLAGS="-D_FORTIFY_SOURCE=2"
 FINAL_CFLAGS="-ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe"
-FINAL_CXXFLAGS="-ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe -stdlib=libc++ -fvisibility-inlines-hidden -std=c++14 -fmessage-length=0"
+FINAL_CXXFLAGS="-ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe -stdlib=libc++ -fvisibility-inlines-hidden -fmessage-length=0"
+if [[ "${version}" == "11.1.0" ]]; then
+  FINAL_CXXFLAGS="${FINAL_CXXFLAGS} -std=c++14"
+fi
 if [[ "${uname_machine}" == "x86_64" ]]; then
   FINAL_CFLAGS="-march=core2 -mtune=haswell -mssse3 $FINAL_CFLAGS"
   FINAL_CXXFLAGS="-march=core2 -mtune=haswell -mssse3 $FINAL_CXXFLAGS"
@@ -26,17 +21,16 @@ FINAL_DEBUG_CXXFLAGS="-Og -g -Wall -Wextra"
 
 if [[ "$target_platform" == "$cross_target_platform" ]]; then
   CONDA_BUILD_CROSS_COMPILATION=""
-  CC_FOR_BUILD=${CHOST}-clang
-  CXX_FOR_BUILD=${CHOST}-clang++
 else
   CONDA_BUILD_CROSS_COMPILATION="1"
-  if [[ "$target_platform" == linux* ]]; then
-    CC_FOR_BUILD=$(basename $BUILD_PREFIX/bin/*-gcc)
-    CXX_FOR_BUILD=$(basename $BUILD_PREFIX/bin/*-g++)
-  else
-    CC_FOR_BUILD=clang
-    CXX_FOR_BUILD=clang++
-  fi
+fi
+
+if [[ "$target_platform" == linux* ]]; then
+  CC_FOR_BUILD=${CBUILD}-gcc
+  CXX_FOR_BUILD=${CBUILD}-g++
+else
+  CC_FOR_BUILD=${CBUILD}-clang
+  CXX_FOR_BUILD=${CBUILD}-clang++
 fi
 
 find "${RECIPE_DIR}" -name "*activate*.sh" -exec cp {} . \;
@@ -56,5 +50,7 @@ find . -name "*activate*.sh" -exec sed -i.bak "s|@LDFLAGS_LD@|${FINAL_LDFLAGS_LD
 find . -name "*activate*.sh" -exec sed -i.bak "s|@CONDA_BUILD_CROSS_COMPILATION@|${CONDA_BUILD_CROSS_COMPILATION}|g"         "{}" \;
 find . -name "*activate*.sh" -exec sed -i.bak "s|@_PYTHON_SYSCONFIGDATA_NAME@|${FINAL_PYTHON_SYSCONFIGDATA_NAME}|g"  "{}" \;
 find . -name "*activate*.sh" -exec sed -i.bak "s|@UNAME_MACHINE@|${uname_machine}|g"         "{}" \;
+find . -name "*activate*.sh" -exec sed -i.bak "s|@MESON_CPU_FAMILY@|${meson_cpu_family}|g"         "{}" \;
 find . -name "*activate*.sh" -exec sed -i.bak "s|@UNAME_KERNEL_RELEASE@|${uname_kernel_release}|g"         "{}" \;
+find . -name "*activate*.sh" -exec sed -i.bak "s|@TARGET_PLATFORM@|${cross_target_platform}|g"         "{}" \;
 find . -name "*activate*.sh.bak" -exec rm "{}" \;

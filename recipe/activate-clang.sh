@@ -53,10 +53,10 @@ function _tc_activation() {
           thing=$(echo "${thing}" | sed "s,^\([^\,]*\)\,.*,\1,")
           ;;
         *)
-          newval="${CONDA_PREFIX}/bin/${tc_prefix}${thing}"
+          newval="${tc_prefix}${thing}"
           thing=$(echo ${thing} | tr 'a-z+-' 'A-ZX_')
-          if [ ! -x "${newval}" -a "${pass}" = "check" ]; then
-            echo "ERROR: This cross-compiler package contains no program ${newval}"
+          if [ ! -x "${CONDA_PREFIX}/bin/${newval}" -a "${pass}" = "check" ]; then
+            echo "ERROR: This cross-compiler package contains no program ${CONDA_PREFIX}/bin/${newval}"
             return 1
           fi
           ;;
@@ -79,6 +79,7 @@ function _tc_activation() {
   return 0
 }
 
+function activate_clang() {
 # When people are using conda-build, assume that adding rpath during build, and pointing at
 #    the host env's includes and libs is helpful default behavior
 if [ "${CONDA_BUILD:-0}" = "1" ]; then
@@ -114,6 +115,10 @@ if [ "@CONDA_BUILD_CROSS_COMPILATION@" = "1" ]; then
   fi
 fi
 
+if [ "${CONDA_BUILD_SYSROOT:-0}" != "0" ] && [ "${CONDA_BUILD_STATE:-0}" = "TEST" ] && [ ! -d "${CONDA_BUILD_SYSROOT:-0}" ]; then
+  unset CONDA_BUILD_SYSROOT
+fi
+
 CONDA_BUILD_SYSROOT_TEMP=${CONDA_BUILD_SYSROOT:-${SDKROOT:-0}}
 if [ "${CONDA_BUILD_SYSROOT_TEMP}" = "0" ]; then
   if [ "${SDKROOT:-0}" = "0" ]; then
@@ -123,28 +128,44 @@ if [ "${CONDA_BUILD_SYSROOT_TEMP}" = "0" ]; then
   fi
 fi
 
-_CMAKE_ARGS="-DCMAKE_AR=${CONDA_PREFIX}/bin/@CHOST@-ar -DCMAKE_RANLIB=${CONDA_PREFIX}/bin/@CHOST@-ranlib"
+_CMAKE_ARGS="-DCMAKE_AR=${CONDA_PREFIX}/bin/@CHOST@-ar -DCMAKE_CXX_COMPILER_AR=${CONDA_PREFIX}/bin/@CHOST@-ar -DCMAKE_C_COMPILER_AR=${CONDA_PREFIX}/bin/@CHOST@-ar"
+_CMAKE_ARGS="${_CMAKE_ARGS} -DCMAKE_RANLIB=${CONDA_PREFIX}/bin/@CHOST@-ranlib -DCMAKE_CXX_COMPILER_RANLIB=${CONDA_PREFIX}/bin/@CHOST@-ranlib -DCMAKE_C_COMPILER_RANLIB=${CONDA_PREFIX}/bin/@CHOST@-ranlib"
 _CMAKE_ARGS="${_CMAKE_ARGS} -DCMAKE_LINKER=${CONDA_PREFIX}/bin/@CHOST@-ld -DCMAKE_STRIP=${CONDA_PREFIX}/bin/@CHOST@-strip"
 _CMAKE_ARGS="${_CMAKE_ARGS} -DCMAKE_INSTALL_NAME_TOOL=${CONDA_PREFIX}/bin/@CHOST@-install_name_tool"
 _CMAKE_ARGS="${_CMAKE_ARGS} -DCMAKE_LIBTOOL=${CONDA_PREFIX}/bin/@CHOST@-libtool"
 _CMAKE_ARGS="${_CMAKE_ARGS} -DCMAKE_OSX_DEPLOYMENT_TARGET=${MACOSX_DEPLOYMENT_TARGET}"
 _CMAKE_ARGS="${_CMAKE_ARGS} -DCMAKE_BUILD_TYPE=Release -DCMAKE_OSX_SYSROOT=${CONDA_BUILD_SYSROOT_TEMP}"
 
+_MESON_ARGS="--buildtype release"
+
 if [ "${CONDA_BUILD:-0}" = "1" ]; then
+  _CMAKE_ARGS="${_CMAKE_ARGS} -DCMAKE_FIND_FRAMEWORK=LAST -DCMAKE_FIND_APPBUNDLE=LAST"
   _CMAKE_ARGS="${_CMAKE_ARGS} -DCMAKE_INSTALL_PREFIX=${PREFIX} -DCMAKE_INSTALL_LIBDIR=lib"
+  _CMAKE_ARGS="${_CMAKE_ARGS} -DCMAKE_PROGRAM_PATH=${BUILD_PREFIX}/bin;${PREFIX}/bin"
+  _MESON_ARGS="${_MESON_ARGS} --prefix="$PREFIX" -Dlibdir=lib"
 fi
 
 if [ "@CONDA_BUILD_CROSS_COMPILATION@" = "1" ]; then
   _CMAKE_ARGS="${_CMAKE_ARGS} -DCMAKE_SYSTEM_NAME=Darwin -DCMAKE_SYSTEM_PROCESSOR=@UNAME_MACHINE@ -DCMAKE_SYSTEM_VERSION=@UNAME_KERNEL_RELEASE@"
+  _MESON_ARGS="${_MESON_ARGS} --cross-file ${CONDA_PREFIX}/meson_cross_file.txt"
+  echo "[host_machine]" > ${CONDA_PREFIX}/meson_cross_file.txt
+  echo "system = 'darwin'" >> ${CONDA_PREFIX}/meson_cross_file.txt
+  echo "cpu = '@UNAME_MACHINE@'" >> ${CONDA_PREFIX}/meson_cross_file.txt
+  echo "cpu_family = '@MESON_CPU_FAMILY@'" >> ${CONDA_PREFIX}/meson_cross_file.txt
+  echo "endian = 'little'" >> ${CONDA_PREFIX}/meson_cross_file.txt
 fi
 
 _tc_activation \
   activate @CHOST@- "HOST,@CHOST@" \
-  ar as checksyms indr install_name_tool libtool lipo nm nmedit otool \
+  "CONDA_TOOLCHAIN_HOST,@CHOST@" \
+  "CONDA_TOOLCHAIN_BUILD,@CBUILD@" \
+  ar as checksyms install_name_tool libtool lipo nm nmedit otool \
   pagestuff ranlib redo_prebinding seg_addr_table seg_hack segedit size strings strip \
-  clang \
+  clang ld \
   "CC,${CC:-@CHOST@-clang}" \
+  "OBJC,${OBJC:-@CHOST@-clang}" \
   "CC_FOR_BUILD,${CONDA_PREFIX}/bin/@CC_FOR_BUILD@" \
+  "OBJC_FOR_BUILD,${CONDA_PREFIX}/bin/@CC_FOR_BUILD@" \
   "CPPFLAGS,${CPPFLAGS:-${CPPFLAGS_USED}}" \
   "CFLAGS,${CFLAGS:-${CFLAGS_USED}}" \
   "LDFLAGS,${LDFLAGS:-${LDFLAGS_USED}}" \
@@ -153,17 +174,20 @@ _tc_activation \
   "_CONDA_PYTHON_SYSCONFIGDATA_NAME,${_CONDA_PYTHON_SYSCONFIGDATA_NAME:-@_PYTHON_SYSCONFIGDATA_NAME@}" \
   "CMAKE_PREFIX_PATH,${CMAKE_PREFIX_PATH:-${CMAKE_PREFIX_PATH_USED}}" \
   "CONDA_BUILD_CROSS_COMPILATION,@CONDA_BUILD_CROSS_COMPILATION@" \
-  "CONDA_BUILD_SYSROOT,${CONDA_BUILD_SYSROOT_TEMP}" \
   "SDKROOT,${CONDA_BUILD_SYSROOT_TEMP}" \
   "CMAKE_ARGS,${_CMAKE_ARGS}" \
+  "MESON_ARGS,${_MESON_ARGS}" \
   "ac_cv_func_malloc_0_nonnull,yes" \
+  "ac_cv_func_realloc_0_nonnull,yes" \
   "host_alias,@CHOST@" \
   "build_alias,@CBUILD@" \
   "BUILD,@CBUILD@"
 
-if [ "@UNAME_MACHINE@" = "x86_64" ]; then
+if [ "${CONDA_BUILD:-0}" = "1" ]; then
+  # in conda build we set CONDA_BUILD_SYSROOT too
   _tc_activation \
-   activate @CHOST@- ld
+    activate @CHOST@- \
+    "CONDA_BUILD_SYSROOT,${CONDA_BUILD_SYSROOT_TEMP}"
 fi
 
 unset CONDA_BUILD_SYSROOT_TEMP
@@ -182,4 +206,27 @@ else
     diff -U 0 -rN /tmp/old-env-$$.txt /tmp/new-env-$$.txt | tail -n +4 | grep "^-.*\|^+.*" | grep -v "CONDA_BACKUP_" | sort
     rm -f /tmp/old-env-$$.txt /tmp/new-env-$$.txt || true
   fi
+
+  # fix prompt for zsh
+  if [[ -n "${ZSH_NAME:-}" ]]; then
+    autoload -Uz add-zsh-hook
+
+    _conda_clang_precmd() {
+      HOST="${CONDA_BACKUP_HOST}"
+    }
+    add-zsh-hook -Uz precmd _conda_clang_precmd
+
+    _conda_clang_preexec() {
+      HOST="${CONDA_TOOLCHAIN_HOST}"
+    }
+    add-zsh-hook -Uz preexec _conda_clang_preexec
+  fi
+
+fi
+}
+
+if [ "${CONDA_BUILD_STATE:-0}" = "BUILD" ] && [ "${target_platform:-@TARGET_PLATFORM@}" != "@TARGET_PLATFORM@" ]; then
+  echo "Not activating environment because this compiler is not expected."
+else
+  activate_clang
 fi

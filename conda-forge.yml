@@ -1,4 +1,15 @@
-upload_on_branch: rc
 conda_forge_output_validation: true
+upload_on_branch: main
+build_platform:
+  osx_arm64: osx_64
+channel_priority: flexible
+test_on_native_only: true
+github:
+  branch_name: main
+  tooling_branch_name: main
 conda_build:
   pkg_format: '2'
+# due to https://github.com/conda/conda-build/issues/4787
+remote_ci_setup:
+  - conda-forge-ci-setup=3
+  - py-lief<0.12

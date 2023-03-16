@@ -53,10 +53,10 @@ function _tc_activation() {
           thing=$(echo "${thing}" | sed "s,^\([^\,]*\)\,.*,\1,")
           ;;
         *)
-          newval="${CONDA_PREFIX}/bin/${tc_prefix}${thing}"
+          newval="${tc_prefix}${thing}"
           thing=$(echo ${thing} | tr 'a-z+-' 'A-ZX_')
-          if [ ! -x "${newval}" -a "${pass}" = "check" ]; then
-            echo "ERROR: This cross-compiler package contains no program ${newval}"
+          if [ ! -x "${CONDA_PREFIX}/bin/${newval}" -a "${pass}" = "check" ]; then
+            echo "ERROR: This cross-compiler package contains no program ${CONDA_PREFIX}/bin/${newval}"
             return 1
           fi
           ;;
@@ -78,6 +78,9 @@ function _tc_activation() {
   done
   return 0
 }
+
+
+function deactivate_clang() {
 
 # When people are using conda-build, assume that adding rpath during build, and pointing at
 #    the host env's includes and libs is helpful default behavior
@@ -113,13 +116,24 @@ if [ "${CONDA_BUILD_SYSROOT_TEMP}" = "0" ]; then
    CONDA_BUILD_SYSROOT_TEMP=$(xcrun --show-sdk-path)
 fi
 
+if [ "${CONDA_BUILD:-0}" = "1" ]; then
+  # in conda build we need to unset CONDA_BUILD_SYSROOT
+  _tc_activation \
+    deactivate @CHOST@- \
+    "CONDA_BUILD_SYSROOT,${CONDA_BUILD_SYSROOT_TEMP}"
+fi
+
 _tc_activation \
   deactivate @CHOST@- "HOST,@CHOST@" \
-  ar as checksyms indr install_name_tool libtool lipo nm nmedit otool \
+  "CONDA_TOOLCHAIN_HOST,@CHOST@" \
+  "CONDA_TOOLCHAIN_BUILD,@CBUILD@" \
+  ar as checksyms install_name_tool libtool lipo nm nmedit otool \
   pagestuff ranlib redo_prebinding seg_addr_table seg_hack segedit size strings strip \
-  clang \
+  clang ld \
   "CC,${CC:-@CHOST@-clang}" \
+  "OBJC,${OBJC:-@CHOST@-clang}" \
   "CC_FOR_BUILD,${CONDA_PREFIX}/bin/@CC_FOR_BUILD@" \
+  "OBJC_FOR_BUILD,${CONDA_PREFIX}/bin/@OBJC_FOR_BUILD@" \
   "CPPFLAGS,${CPPFLAGS:-${CPPFLAGS_USED}}" \
   "CFLAGS,${CFLAGS:-${CFLAGS_USED}}" \
   "LDFLAGS,${LDFLAGS:-${LDFLAGS_USED}}" \
@@ -128,18 +142,14 @@ _tc_activation \
   "_CONDA_PYTHON_SYSCONFIGDATA_NAME,${_CONDA_PYTHON_SYSCONFIGDATA_NAME:-@_PYTHON_SYSCONFIGDATA_NAME@}" \
   "CMAKE_PREFIX_PATH,${CMAKE_PREFIX_PATH:-${CMAKE_PREFIX_PATH_USED}}" \
   "CONDA_BUILD_CROSS_COMPILATION,@CONDA_BUILD_CROSS_COMPILATION@" \
-  "CONDA_BUILD_SYSROOT,${CONDA_BUILD_SYSROOT_TEMP}" \
   "SDKROOT,${CONDA_BUILD_SYSROOT_TEMP}" \
   "CMAKE_ARGS,${_CMAKE_ARGS:-}" \
+  "MESON_ARGS,${_MESON_ARGS:-}" \
   "ac_cv_func_malloc_0_nonnull,yes" \
+  "ac_cv_func_realloc_0_nonnull,yes" \
   "host_alias,@CHOST@" \
   "build_alias,@CBUILD@" \
   "BUILD,@CBUILD@"
-
-if [ "@UNAME_MACHINE@" = "x86_64" ]; then
-   _tc_activation \
-    activate @CHOST@- ld
-fi
 
 unset CONDA_BUILD_SYSROOT_TEMP
 
@@ -156,4 +166,17 @@ else
     diff -U 0 -rN /tmp/old-env-$$.txt /tmp/new-env-$$.txt | tail -n +4 | grep "^-.*\|^+.*" | grep -v "CONDA_BACKUP_" | sort
     rm -f /tmp/old-env-$$.txt /tmp/new-env-$$.txt || true
   fi
+
+  # unfix prompt for zsh
+  if [[ -n "${ZSH_NAME:-}" ]]; then
+    precmd_functions=(${precmd_functions:#_conda_clang_precmd})
+    preexec_functions=(${preexec_functions:#_conda_clang_preexec})
+  fi
+fi
+}
+
+if [ "${CONDA_BUILD_STATE:-0}" = "BUILD" ] && [ "${target_platform:-@TARGET_PLATFORM@}" != "@TARGET_PLATFORM@" ]; then
+  echo "Not deactivating environment because this compiler is not expected."
+else
+  deactivate_clang
 fi
