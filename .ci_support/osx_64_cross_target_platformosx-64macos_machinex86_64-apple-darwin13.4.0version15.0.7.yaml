@@ -1,9 +1,9 @@
 CBUILD:
-- arm64-apple-darwin20.0.0
+- x86_64-apple-darwin13.4.0
 FINAL_PYTHON_SYSCONFIGDATA_NAME:
 - _sysconfigdata_x86_64_apple_darwin13_4_0
 MACOSX_DEPLOYMENT_TARGET:
-- '11.0'
+- '10.9'
 channel_sources:
 - conda-forge
 channel_targets:
@@ -15,7 +15,7 @@ macos_machine:
 meson_cpu_family:
 - x86_64
 target_platform:
-- osx-arm64
+- osx-64
 uname_kernel_release:
 - 13.4.0
 uname_machine:
@@ -29,6 +29,3 @@ zip_keys:
   - uname_machine
   - uname_kernel_release
   - FINAL_PYTHON_SYSCONFIGDATA_NAME
-- - version
-  - channel_sources
-  - channel_targets
