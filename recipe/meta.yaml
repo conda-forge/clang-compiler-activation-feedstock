@@ -3,7 +3,7 @@
 {% endif %}
 {% set major_ver = version.split(".")[0] %}
 
-{% set build_number = 0 %}
+{% set build_number = 1 %}
 # keep build number increments for old compiler versions as necessary
 {% if major_ver | int <= 14 %}
 {% set build_number = build_number + 5 %}

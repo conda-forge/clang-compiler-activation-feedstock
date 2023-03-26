@@ -153,6 +153,11 @@ if [ "@CONDA_BUILD_CROSS_COMPILATION@" = "1" ]; then
   echo "cpu = '@UNAME_MACHINE@'" >> ${CONDA_PREFIX}/meson_cross_file.txt
   echo "cpu_family = '@MESON_CPU_FAMILY@'" >> ${CONDA_PREFIX}/meson_cross_file.txt
   echo "endian = 'little'" >> ${CONDA_PREFIX}/meson_cross_file.txt
+  # specify path to correct binaries from build (not host) environment,
+  # which meson will not auto-discover (out of caution) if not told explicitly.
+  echo "[binaries]" >> ${CONDA_PREFIX}/meson_cross_file.txt
+  echo "cmake = '${CONDA_PREFIX}/bin/cmake'" >> ${CONDA_PREFIX}/meson_cross_file.txt
+  echo "pkgconfig = '${CONDA_PREFIX}/bin/pkg-config'" >> ${CONDA_PREFIX}/meson_cross_file.txt
 fi
 
 _tc_activation \
