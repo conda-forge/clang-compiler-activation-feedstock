@@ -11,6 +11,7 @@ MACOSX_DEPLOYMENT_TARGET:  # [linux]
 version:
   - 14.0.6
   - 15.0.7
+  - 16.0.0
 
 # everything below is zipped
 cross_target_platform:
@@ -33,7 +34,8 @@ FINAL_PYTHON_SYSCONFIGDATA_NAME:
   - _sysconfigdata_arm64_apple_darwin20_0_0
 
 zip_keys:
-  - - cross_target_platform
+  -
+    - cross_target_platform
     - macos_machine
     - meson_cpu_family
     - uname_machine
