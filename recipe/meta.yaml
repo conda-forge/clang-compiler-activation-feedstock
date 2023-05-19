@@ -1,14 +1,14 @@
 {% if version is not defined %}
-{% set version = "16.0.3" %}
+{% set version = "16.0.4" %}
 {% endif %}
 {% set major_ver = version.split(".")[0] %}
 
-{% set build_number = 2 %}
+{% set build_number = 0 %}
 # keep build number increments for old compiler versions as necessary
 {% if major_ver | int <= 15 %}
-{% set build_number = build_number + 1 %}
+{% set build_number = build_number + 3 %}
 {% elif major_ver | int <= 14 %}
-{% set build_number = build_number + 5 %}
+{% set build_number = build_number + 7 %}
 {% endif %}
 
 package:
