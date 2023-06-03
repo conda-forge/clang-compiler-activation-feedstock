@@ -14,8 +14,8 @@ jobs:
       osx_64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version15.0.7:
         CONFIG: osx_64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version15.0.7
         UPLOAD_PACKAGES: 'True'
-      osx_64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version16.0.4:
-        CONFIG: osx_64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version16.0.4
+      osx_64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version16.0.5:
+        CONFIG: osx_64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version16.0.5
         UPLOAD_PACKAGES: 'True'
       osx_64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version14.0.6:
         CONFIG: osx_64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version14.0.6
@@ -23,8 +23,8 @@ jobs:
       osx_64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version15.0.7:
         CONFIG: osx_64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version15.0.7
         UPLOAD_PACKAGES: 'True'
-      osx_64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version16.0.4:
-        CONFIG: osx_64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version16.0.4
+      osx_64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version16.0.5:
+        CONFIG: osx_64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version16.0.5
         UPLOAD_PACKAGES: 'True'
       osx_arm64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version14.0.6:
         CONFIG: osx_arm64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version14.0.6
@@ -32,8 +32,8 @@ jobs:
       osx_arm64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version15.0.7:
         CONFIG: osx_arm64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version15.0.7
         UPLOAD_PACKAGES: 'True'
-      osx_arm64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version16.0.4:
-        CONFIG: osx_arm64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version16.0.4
+      osx_arm64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version16.0.5:
+        CONFIG: osx_arm64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version16.0.5
         UPLOAD_PACKAGES: 'True'
       osx_arm64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version14.0.6:
         CONFIG: osx_arm64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version14.0.6
@@ -41,8 +41,8 @@ jobs:
       osx_arm64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version15.0.7:
         CONFIG: osx_arm64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version15.0.7
         UPLOAD_PACKAGES: 'True'
-      osx_arm64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version16.0.4:
-        CONFIG: osx_arm64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version16.0.4
+      osx_arm64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version16.0.5:
+        CONFIG: osx_arm64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version16.0.5
         UPLOAD_PACKAGES: 'True'
   timeoutInMinutes: 360
 
