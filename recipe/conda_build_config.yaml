@@ -11,7 +11,7 @@ MACOSX_DEPLOYMENT_TARGET:  # [linux]
 version:
   - 14.0.6
   - 15.0.7
-  - 16.0.5
+  - 16.0.6
 
 # everything below is zipped
 cross_target_platform:
