@@ -21,7 +21,7 @@ uname_kernel_release:
 uname_machine:
 - arm64
 version:
-- 16.0.5
+- 16.0.6
 zip_keys:
 - - cross_target_platform
   - macos_machine

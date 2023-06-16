@@ -1,5 +1,5 @@
 {% if version is not defined %}
-{% set version = "16.0.5" %}
+{% set version = "16.0.6" %}
 {% endif %}
 {% set major_ver = version.split(".")[0] %}
 
