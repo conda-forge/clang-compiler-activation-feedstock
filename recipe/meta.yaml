@@ -9,8 +9,6 @@
 {% set build_number = build_number + 1 %}
 {% elif major_ver | int <= 15 %}
 {% set build_number = build_number + 3 %}
-{% elif major_ver | int <= 14 %}
-{% set build_number = build_number + 7 %}
 {% endif %}
 
 package:
