@@ -1,13 +1,13 @@
 CBUILD:
-- x86_64-apple-darwin13.4.0
+- arm64-apple-darwin20.0.0
 FINAL_PYTHON_SYSCONFIGDATA_NAME:
 - _sysconfigdata_x86_64_apple_darwin13_4_0
 MACOSX_DEPLOYMENT_TARGET:
-- '10.9'
+- '11.0'
 channel_sources:
-- conda-forge
+- conda-forge/label/llvm_rc,conda-forge
 channel_targets:
-- conda-forge main
+- conda-forge llvm_rc
 cross_target_platform:
 - osx-64
 macos_machine:
@@ -15,13 +15,13 @@ macos_machine:
 meson_cpu_family:
 - x86_64
 target_platform:
-- osx-64
+- osx-arm64
 uname_kernel_release:
 - 13.4.0
 uname_machine:
 - x86_64
 version:
-- 16.0.6
+- 17.0.0.rc1
 zip_keys:
 - - cross_target_platform
   - macos_machine
@@ -29,3 +29,6 @@ zip_keys:
   - uname_machine
   - uname_kernel_release
   - FINAL_PYTHON_SYSCONFIGDATA_NAME
+- - version
+  - channel_sources
+  - channel_targets
