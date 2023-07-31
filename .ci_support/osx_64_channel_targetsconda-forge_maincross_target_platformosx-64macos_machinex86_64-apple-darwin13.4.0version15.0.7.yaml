@@ -4,6 +4,8 @@ FINAL_PYTHON_SYSCONFIGDATA_NAME:
 - _sysconfigdata_x86_64_apple_darwin13_4_0
 MACOSX_DEPLOYMENT_TARGET:
 - '10.9'
+MACOSX_SDK_VERSION:
+- '10.13'
 channel_sources:
 - conda-forge
 channel_targets:
@@ -30,5 +32,6 @@ zip_keys:
   - uname_kernel_release
   - FINAL_PYTHON_SYSCONFIGDATA_NAME
 - - version
+  - MACOSX_DEPLOYMENT_TARGET
   - channel_sources
   - channel_targets
