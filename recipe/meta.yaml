@@ -1,14 +1,14 @@
 {% if version is not defined %}
-{% set version = "16.0.6" %}
+{% set version = "17.0.0.rc1" %}
 {% endif %}
 {% set major_ver = version.split(".")[0] %}
 
 {% set build_number = 0 %}
 # keep build number increments for old compiler versions as necessary
-{% if major_ver | int <= 15 %}
-{% set build_number = build_number + 3 %}
-{% elif major_ver | int <= 14 %}
-{% set build_number = build_number + 7 %}
+{% if major_ver | int <= 16 %}
+{% set build_number = build_number + 1 %}
+{% elif major_ver | int <= 15 %}
+{% set build_number = build_number + 4 %}
 {% endif %}
 
 package:
@@ -75,12 +75,17 @@ outputs:
         # This is not needed in Linux for cross-compiling in a conda-build env, but is needed outside
         - libcxx >={{ version }}
         - {{ pin_subpackage('clang_' ~ cross_target_platform, exact=True) }}
-        - gxx_impl_{{ target_platform }}  # [linux]
+        - gxx_impl_{{ target_platform }}            # [linux]
+        - __osx >={{ MACOSX_DEPLOYMENT_TARGET }}    # [osx and x86_64]
     # Since transitive run_exports are not currently possible
     # (here I would like the run dependency on clangxx to pull in the run_exports from it).
     run_exports:
       strong:
         - libcxx >={{ version }}
+        # strictly speaking the constraint on libcxx should be enough,
+        # but let's be nice to the solver and mark all libcxx-dependent
+        # packages as requiring 10.13 (for clangxx >= 17).
+        - __osx >={{ MACOSX_DEPLOYMENT_TARGET }}    # [osx and x86_64]
     test:
       commands:
         - echo {{ MACOSX_DEPLOYMENT_TARGET }}  # [linux]
@@ -106,6 +111,8 @@ outputs:
         - {{ pin_subpackage('clangxx_' ~ cross_target_platform, exact=True) }}
         # hack to force the solver to work
         - libllvm{{ major_ver }} {{ version }}
+      run:
+        - __osx >={{ MACOSX_DEPLOYMENT_TARGET }}    # [osx and x86_64]
     build:
       always_include_files:
         - bin/
