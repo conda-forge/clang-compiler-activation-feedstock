@@ -7,6 +7,13 @@ CBUILD:
 
 MACOSX_DEPLOYMENT_TARGET:  # [linux]
   - 10.9                   # [linux]
+MACOSX_SDK_VERSION:        # [osx and x86_64]
+  - "10.13"                # [osx and x86_64]
+# as of LLVM 17, we need 10.13 for MACOSX_DEPLOYMENT_TARGET --> part of zip
+MACOSX_DEPLOYMENT_TARGET:  # [osx and x86_64]
+  - "10.9"                 # [osx and x86_64]
+  - "10.9"                 # [osx and x86_64]
+  - "10.13"                # [osx and x86_64]
 
 version:
   - 15.0.7
@@ -53,5 +60,6 @@ zip_keys:
     - FINAL_PYTHON_SYSCONFIGDATA_NAME
   -
     - version
+    - MACOSX_DEPLOYMENT_TARGET  # [osx and x86_64]
     - channel_sources
     - channel_targets
