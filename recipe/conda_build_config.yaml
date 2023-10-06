@@ -20,16 +20,6 @@ version:
   - 16.0.6
   - 17.0.0.rc3
 
-# zip to avoid using rc-builds for already-released-in-conda-forge LLVM versions
-channel_sources:
-  - conda-forge
-  - conda-forge
-  - conda-forge/label/llvm_rc,conda-forge
-channel_targets:
-  - conda-forge main
-  - conda-forge main
-  - conda-forge llvm_rc
-
 # everything below is zipped
 cross_target_platform:
   - osx-64
@@ -61,5 +51,3 @@ zip_keys:
   -
     - version
     - MACOSX_DEPLOYMENT_TARGET  # [osx and x86_64]
-    - channel_sources
-    - channel_targets
