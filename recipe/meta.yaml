@@ -3,7 +3,7 @@
 {% endif %}
 {% set major_ver = version.split(".")[0] %}
 
-{% set build_number = 0 %}
+{% set build_number = 1 %}
 # keep build number increments for old compiler versions as necessary
 {% if major_ver | int <= 15 %}
 {% set build_number = build_number + 4 %}
@@ -33,7 +33,7 @@ requirements:
     - clang {{ version }}            # [osx]
 
 outputs:
-  - name: clang_{{ cross_target_platform }}
+  - name: clang_impl_{{ cross_target_platform }}
     script: install-clang.sh
     requirements:
       - clang {{ version }}
@@ -58,7 +58,17 @@ outputs:
         - {{ CBUILD }}-clang --version
         - {{ macos_machine }}-clang --version
 
-  - name: clangxx_{{ cross_target_platform }}
+  - name: clang_{{ cross_target_platform }}
+    script: install-clang-scripts.sh
+    requirements:
+      run:
+        - {{ pin_subpackage("clang_impl_" ~ cross_target_platform, exact=True) }}
+    test:
+      commands:
+        - {{ CBUILD }}-clang --version
+        - {{ macos_machine }}-clang --version
+
+  - name: clangxx_impl_{{ cross_target_platform }}
     script: install-clangxx.sh
     requirements:
       build:
@@ -66,7 +76,7 @@ outputs:
       host:
         - clangxx {{ version }}
         - libcxx {{ version }}            # [osx]
-        - {{ pin_subpackage('clang_' ~ cross_target_platform, exact=True) }}
+        - {{ pin_subpackage('clang_impl' ~ cross_target_platform, exact=True) }}
         - gxx_impl_{{ target_platform }}  # [linux]
         # hack to force the solver to work
         - libllvm{{ major_ver }} {{ version }}
@@ -94,6 +104,16 @@ outputs:
         - echo {{ FINAL_PYTHON_SYSCONFIGDATA_NAME }}
         - echo {{ CBUILD }}
         - echo {{ meson_cpu_family }}
+        - {{ CBUILD }}-clang++ --version
+        - {{ macos_machine }}-clang++ --version
+
+  - name: clangxx_{{ cross_target_platform }}
+    script: install-clangxx-scripts.sh
+    requirements:
+      run:
+        - {{ pin_subpackage("clangxx_impl_" ~ cross_target_platform, exact=True) }}
+    test:
+      commands:
         - {{ CBUILD }}-clang++ --version
         - {{ macos_machine }}-clang++ --version
 
