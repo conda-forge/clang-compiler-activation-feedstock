@@ -70,7 +70,7 @@ outputs:
       host:
         - clangxx {{ version }}
         - libcxx {{ version }}            # [osx]
-        - {{ pin_subpackage('clang_impl' ~ cross_target_platform, exact=True) }}
+        - {{ pin_subpackage('clang_impl_' ~ cross_target_platform, exact=True) }}
         - gxx_impl_{{ target_platform }}  # [linux]
         # hack to force the solver to work
         - libllvm{{ major_ver }} {{ version }}
@@ -106,6 +106,7 @@ outputs:
     requirements:
       run:
         - {{ pin_subpackage("clangxx_impl_" ~ cross_target_platform, exact=True) }}
+        - {{ pin_subpackage("clang_" ~ cross_target_platform, exact=True) }}
     test:
       commands:
         - {{ CBUILD }}-clang++ --version
