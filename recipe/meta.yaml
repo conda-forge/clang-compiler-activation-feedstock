@@ -3,13 +3,7 @@
 {% endif %}
 {% set major_ver = version.split(".")[0] %}
 
-{% set build_number = 1 %}
-# keep build number increments for old compiler versions as necessary
-{% if major_ver | int <= 15 %}
-{% set build_number = build_number + 4 %}
-{% elif major_ver | int <= 16 %}
-{% set build_number = build_number + 2 %}
-{% endif %}
+{% set build_number = 5 %}
 
 package:
   name: clang-compiler-activation
