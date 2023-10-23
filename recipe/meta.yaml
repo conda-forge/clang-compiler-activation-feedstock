@@ -3,7 +3,7 @@
 {% endif %}
 {% set major_ver = version.split(".")[0] %}
 
-{% set build_number = 5 %}
+{% set build_number = 6 %}
 
 package:
   name: clang-compiler-activation
@@ -81,15 +81,6 @@ outputs:
         - {{ pin_subpackage('clang_' ~ cross_target_platform, exact=True) }}
         - gxx_impl_{{ target_platform }}            # [linux]
         - __osx >={{ MACOSX_DEPLOYMENT_TARGET }}    # [osx and x86_64]
-    # Since transitive run_exports are not currently possible
-    # (here I would like the run dependency on clangxx to pull in the run_exports from it).
-    run_exports:
-      strong:
-        - libcxx >={{ version }}
-        # strictly speaking the constraint on libcxx should be enough,
-        # but let's be nice to the solver and mark all libcxx-dependent
-        # packages as requiring 10.13 (for clangxx >= 17).
-        - __osx >={{ MACOSX_DEPLOYMENT_TARGET }}    # [osx and x86_64]
     test:
       commands:
         - echo {{ MACOSX_DEPLOYMENT_TARGET }}  # [linux]
@@ -111,6 +102,15 @@ outputs:
       commands:
         - {{ CBUILD }}-clang++ --version
         - {{ macos_machine }}-clang++ --version
+    # Since transitive run_exports are not currently possible
+    # (here I would like the run dependency on clangxx to pull in the run_exports from it).
+    run_exports:
+      strong:
+        - libcxx >={{ version }}
+        # strictly speaking the constraint on libcxx should be enough,
+        # but let's be nice to the solver and mark all libcxx-dependent
+        # packages as requiring 10.13 (for clangxx >= 17).
+        - __osx >={{ MACOSX_DEPLOYMENT_TARGET }}    # [osx and x86_64]
 
   - name: clang_bootstrap_{{ cross_target_platform }}
     script: install-clang-bootstrap.sh
