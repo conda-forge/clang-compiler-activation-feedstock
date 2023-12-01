@@ -80,7 +80,6 @@ outputs:
         - libcxx >={{ version }}
         - {{ pin_subpackage('clang_' ~ cross_target_platform, exact=True) }}
         - gxx_impl_{{ target_platform }}            # [linux]
-        - __osx >={{ MACOSX_DEPLOYMENT_TARGET }}    # [osx and x86_64]
     test:
       commands:
         - echo {{ MACOSX_DEPLOYMENT_TARGET }}  # [linux]
@@ -107,10 +106,6 @@ outputs:
     run_exports:
       strong:
         - libcxx >={{ version }}
-        # strictly speaking the constraint on libcxx should be enough,
-        # but let's be nice to the solver and mark all libcxx-dependent
-        # packages as requiring 10.13 (for clangxx >= 17).
-        - __osx >={{ MACOSX_DEPLOYMENT_TARGET }}    # [osx and x86_64]
 
   - name: clang_bootstrap_{{ cross_target_platform }}
     script: install-clang-bootstrap.sh
@@ -126,8 +121,6 @@ outputs:
         - {{ pin_subpackage('clangxx_' ~ cross_target_platform, exact=True) }}
         # hack to force the solver to work
         - libllvm{{ major_ver }} {{ version }}
-      run:
-        - __osx >={{ MACOSX_DEPLOYMENT_TARGET }}    # [osx and x86_64]
     build:
       always_include_files:
         - bin/
