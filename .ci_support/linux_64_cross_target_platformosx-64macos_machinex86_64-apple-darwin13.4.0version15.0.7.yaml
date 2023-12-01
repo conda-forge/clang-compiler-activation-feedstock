@@ -33,6 +33,3 @@ zip_keys:
   - uname_machine
   - uname_kernel_release
   - FINAL_PYTHON_SYSCONFIGDATA_NAME
-- - version
-  - channel_sources
-  - channel_targets
