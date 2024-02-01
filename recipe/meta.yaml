@@ -1,13 +1,13 @@
 {% if version is not defined %}
-{% set version = "17.0.6" %}
+{% set version = "18.1.0.rc1" %}
 {% endif %}
 {% set major_ver = version.split(".")[0] %}
 # cannot yet build libcxx 17 due to having no
 # infrastructure to enforce `__osx >=10.13` properly,
 # so allow the last major version of libcxx
-{% set last_major = major_ver | int - 1 %}
+{% set libcxx_major = 16 %}
 
-{% set build_number = 8 %}
+{% set build_number = 9 %}
 
 package:
   name: clang-compiler-activation
@@ -26,7 +26,7 @@ build:
 requirements:
   build:
     - cctools_{{ target_platform }}  # [osx]
-    - libcxx {{ last_major }}
+    - libcxx {{ libcxx_major }}
     - gcc_{{ target_platform }}      # [linux]
     - clang {{ version }}            # [osx]
 
@@ -73,7 +73,7 @@ outputs:
         - cctools_{{ target_platform }}   # [osx]
       host:
         - clangxx {{ version }}
-        - libcxx {{ last_major }}         # [osx]
+        - libcxx {{ libcxx_major }}       # [osx]
         - {{ pin_subpackage('clang_impl_' ~ cross_target_platform, exact=True) }}
         - gxx_impl_{{ target_platform }}  # [linux]
         # hack to force the solver to work
@@ -81,7 +81,7 @@ outputs:
       run:
         - clangxx {{ version }}
         # This is not needed in Linux for cross-compiling in a conda-build env, but is needed outside
-        - libcxx >={{ last_major }}
+        - libcxx >={{ libcxx_major }}
         - {{ pin_subpackage('clang_' ~ cross_target_platform, exact=True) }}
         - gxx_impl_{{ target_platform }}            # [linux]
     test:
@@ -109,7 +109,7 @@ outputs:
     # (here I would like the run dependency on clangxx to pull in the run_exports from it).
     run_exports:
       strong:
-        - libcxx >={{ last_major }}
+        - libcxx >={{ libcxx_major }}
 
   - name: clang_bootstrap_{{ cross_target_platform }}
     script: install-clang-bootstrap.sh
@@ -118,7 +118,7 @@ outputs:
         - cctools_{{ target_platform }}  # [osx]
       host:
         - clangxx {{ version }}
-        - libcxx {{ last_major }}        # [cross_target_platform in ("osx-64", "osx-arm64")]
+        - libcxx {{ libcxx_major }}      # [cross_target_platform in ("osx-64", "osx-arm64")]
         - cctools_{{ cross_target_platform }}
         - ld64_{{ cross_target_platform }}
         - {{ pin_subpackage('clang_' ~ cross_target_platform, exact=True) }}

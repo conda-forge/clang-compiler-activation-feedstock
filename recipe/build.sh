@@ -16,13 +16,6 @@ FINAL_LDFLAGS_LD="-headerpad_max_install_names -dead_strip_dylibs"
 FINAL_DEBUG_CFLAGS="-Og -g -Wall -Wextra"
 FINAL_DEBUG_CXXFLAGS="-Og -g -Wall -Wextra"
 
-if [[ "${version}" == "15.0.7" ]]; then
-  FINAL_CFLAGS="$FINAL_CFLAGS -fPIE"
-  FINAL_CXXFLAGS="$FINAL_CXXFLAGS -fPIE"
-  FINAL_LDFLAGS="$FINAL_LDFLAGS -Wl,-pie"
-  FINAL_LDFLAGS_LD="$FINAL_LDFLAGS_LD -pie"
-fi
-
 if [[ "$target_platform" == "$cross_target_platform" ]]; then
   CONDA_BUILD_CROSS_COMPILATION=""
 else
