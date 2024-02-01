@@ -12,6 +12,7 @@ version:
   - 15.0.7
   - 16.0.6
   - 17.0.6
+  - 18.1.0.rc1
 
 # everything below is zipped
 cross_target_platform:
