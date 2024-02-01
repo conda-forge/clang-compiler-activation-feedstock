@@ -25,7 +25,7 @@ uname_kernel_release:
 uname_machine:
 - arm64
 version:
-- 16.0.6
+- 17.0.6
 zip_keys:
 - - cross_target_platform
   - macos_machine
@@ -33,3 +33,6 @@ zip_keys:
   - uname_machine
   - uname_kernel_release
   - FINAL_PYTHON_SYSCONFIGDATA_NAME
+- - version
+  - channel_sources
+  - channel_targets
