@@ -1,5 +1,5 @@
 {% if version is not defined %}
-{% set version = "18.1.0.rc1" %}
+{% set version = "18.1.0.rc4" %}
 {% endif %}
 {% set major_ver = version.split(".")[0] %}
 # cannot yet build libcxx 17 due to having no
@@ -7,7 +7,7 @@
 # so allow the last major version of libcxx
 {% set libcxx_major = 16 %}
 
-{% set build_number = 9 %}
+{% set build_number = 10 %}
 
 package:
   name: clang-compiler-activation
