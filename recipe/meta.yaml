@@ -1,5 +1,5 @@
 {% if version is not defined %}
-{% set version = "18.1.0.rc4" %}
+{% set version = "18.1.2" %}
 {% endif %}
 {% set major_ver = version.split(".")[0] %}
 # cannot yet build libcxx 17 due to having no
