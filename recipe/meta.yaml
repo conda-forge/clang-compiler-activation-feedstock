@@ -7,7 +7,7 @@
 # so allow the last major version of libcxx
 {% set libcxx_major = 16 %}
 
-{% set build_number = 10 %}
+{% set build_number = 11 %}
 
 package:
   name: clang-compiler-activation
@@ -97,6 +97,12 @@ outputs:
 
   - name: clangxx_{{ cross_target_platform }}
     script: install-clangxx-scripts.sh
+    build:
+      # Since transitive run_exports are not currently possible
+      # (here I would like the run dependency on clangxx to pull in the run_exports from it).
+      run_exports:
+        strong:
+          - libcxx >={{ libcxx_major }}
     requirements:
       run:
         - {{ pin_subpackage("clangxx_impl_" ~ cross_target_platform, exact=True) }}
@@ -105,11 +111,6 @@ outputs:
       commands:
         - {{ CBUILD }}-clang++ --version
         - {{ macos_machine }}-clang++ --version
-    # Since transitive run_exports are not currently possible
-    # (here I would like the run dependency on clangxx to pull in the run_exports from it).
-    run_exports:
-      strong:
-        - libcxx >={{ libcxx_major }}
 
   - name: clang_bootstrap_{{ cross_target_platform }}
     script: install-clang-bootstrap.sh
