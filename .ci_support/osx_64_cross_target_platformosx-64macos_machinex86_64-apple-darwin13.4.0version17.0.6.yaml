@@ -4,6 +4,10 @@ FINAL_PYTHON_SYSCONFIGDATA_NAME:
 - _sysconfigdata_x86_64_apple_darwin13_4_0
 MACOSX_DEPLOYMENT_TARGET:
 - '10.9'
+c_stdlib:
+- macosx_deployment_target
+c_stdlib_version:
+- '10.9'
 channel_sources:
 - conda-forge
 channel_targets:
