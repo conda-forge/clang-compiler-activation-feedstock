@@ -29,7 +29,7 @@ uname_kernel_release:
 uname_machine:
 - x86_64
 version:
-- 18.1.3
+- 18.1.4
 zip_keys:
 - - c_stdlib_version
   - cdt_name
