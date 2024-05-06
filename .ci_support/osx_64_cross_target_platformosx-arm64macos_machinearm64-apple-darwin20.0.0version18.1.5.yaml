@@ -3,11 +3,7 @@ CBUILD:
 FINAL_PYTHON_SYSCONFIGDATA_NAME:
 - _sysconfigdata_arm64_apple_darwin20_0_0
 MACOSX_DEPLOYMENT_TARGET:
-- '10.9'
-c_stdlib:
-- macosx_deployment_target
-c_stdlib_version:
-- '10.9'
+- '10.13'
 channel_sources:
 - conda-forge
 channel_targets:
@@ -25,7 +21,7 @@ uname_kernel_release:
 uname_machine:
 - arm64
 version:
-- 18.1.4
+- 18.1.5
 zip_keys:
 - - cross_target_platform
   - macos_machine
