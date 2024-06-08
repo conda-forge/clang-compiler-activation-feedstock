@@ -1,5 +1,5 @@
 {% if version is not defined %}
-{% set version = "18.1.6" %}
+{% set version = "18.1.7" %}
 {% endif %}
 {% set major_ver = version.split(".")[0] %}
 # first version requiring `__osx >=10.13`; libcxx 18 still in progress
@@ -9,7 +9,7 @@
 {% set libcxx_major = 16 %}
 {% endif %}
 
-{% set build_number = 15 %}
+{% set build_number = 16 %}
 
 package:
   name: clang-compiler-activation
