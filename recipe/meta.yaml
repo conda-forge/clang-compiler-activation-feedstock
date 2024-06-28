@@ -9,7 +9,7 @@
 {% set libcxx_major = 16 %}
 {% endif %}
 
-{% set build_number = 16 %}
+{% set build_number = 17 %}
 
 package:
   name: clang-compiler-activation
