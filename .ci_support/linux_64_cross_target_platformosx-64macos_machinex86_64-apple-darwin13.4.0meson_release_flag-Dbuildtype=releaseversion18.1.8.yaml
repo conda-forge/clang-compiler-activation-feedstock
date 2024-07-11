@@ -5,7 +5,7 @@ FINAL_PYTHON_SYSCONFIGDATA_NAME:
 MACOSX_DEPLOYMENT_TARGET:
 - '10.9'
 cdt_name:
-- cos6
+- cos7
 channel_sources:
 - conda-forge
 channel_targets:
@@ -18,6 +18,8 @@ macos_machine:
 - x86_64-apple-darwin13.4.0
 meson_cpu_family:
 - x86_64
+meson_release_flag:
+- -Dbuildtype=release
 target_platform:
 - linux-64
 uname_kernel_release:
@@ -25,7 +27,7 @@ uname_kernel_release:
 uname_machine:
 - x86_64
 version:
-- 17.0.6
+- 18.1.8
 zip_keys:
 - - cross_target_platform
   - macos_machine
@@ -33,3 +35,5 @@ zip_keys:
   - uname_machine
   - uname_kernel_release
   - FINAL_PYTHON_SYSCONFIGDATA_NAME
+- - version
+  - meson_release_flag

@@ -138,7 +138,7 @@ if [ "${MACOSX_DEPLOYMENT_TARGET:-0}" != "0" ]; then
 fi
 _CMAKE_ARGS="${_CMAKE_ARGS} -DCMAKE_BUILD_TYPE=Release -DCMAKE_OSX_SYSROOT=${CONDA_BUILD_SYSROOT_TEMP}"
 
-_MESON_ARGS="--buildtype release"
+_MESON_ARGS="@MESON_RELEASE_FLAG@"
 
 if [ "${CONDA_BUILD:-0}" = "1" ]; then
   _CMAKE_ARGS="${_CMAKE_ARGS} -DCMAKE_FIND_FRAMEWORK=LAST -DCMAKE_FIND_APPBUNDLE=LAST"
@@ -159,7 +159,7 @@ if [ "@CONDA_BUILD_CROSS_COMPILATION@" = "1" ]; then
   # which meson will not auto-discover (out of caution) if not told explicitly.
   echo "[binaries]" >> ${CONDA_PREFIX}/meson_cross_file.txt
   echo "cmake = '${CONDA_PREFIX}/bin/cmake'" >> ${CONDA_PREFIX}/meson_cross_file.txt
-  echo "pkgconfig = '${CONDA_PREFIX}/bin/pkg-config'" >> ${CONDA_PREFIX}/meson_cross_file.txt
+  echo "pkg-config = '${CONDA_PREFIX}/bin/pkg-config'" >> ${CONDA_PREFIX}/meson_cross_file.txt
 fi
 
 _tc_activation \
