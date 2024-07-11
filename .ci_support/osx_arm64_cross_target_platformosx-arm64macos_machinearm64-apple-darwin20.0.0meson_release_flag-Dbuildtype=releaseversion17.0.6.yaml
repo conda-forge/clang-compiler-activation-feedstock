@@ -1,7 +1,7 @@
 CBUILD:
 - arm64-apple-darwin20.0.0
 FINAL_PYTHON_SYSCONFIGDATA_NAME:
-- _sysconfigdata_x86_64_apple_darwin13_4_0
+- _sysconfigdata_arm64_apple_darwin20_0_0
 MACOSX_DEPLOYMENT_TARGET:
 - '11.0'
 MACOSX_SDK_VERSION:
@@ -11,19 +11,21 @@ channel_sources:
 channel_targets:
 - conda-forge main
 cross_target_platform:
-- osx-64
+- osx-arm64
 macos_machine:
-- x86_64-apple-darwin13.4.0
+- arm64-apple-darwin20.0.0
 meson_cpu_family:
-- x86_64
+- aarch64
+meson_release_flag:
+- -Dbuildtype=release
 target_platform:
 - osx-arm64
 uname_kernel_release:
-- 13.4.0
+- 20.0.0
 uname_machine:
-- x86_64
+- arm64
 version:
-- 18.1.8
+- 17.0.6
 zip_keys:
 - - cross_target_platform
   - macos_machine
@@ -31,3 +33,5 @@ zip_keys:
   - uname_machine
   - uname_kernel_release
   - FINAL_PYTHON_SYSCONFIGDATA_NAME
+- - version
+  - meson_release_flag
