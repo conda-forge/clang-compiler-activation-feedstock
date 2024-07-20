@@ -9,7 +9,7 @@
 {% set libcxx_major = 16 %}
 {% endif %}
 
-{% set build_number = 17 %}
+{% set build_number = 18 %}
 
 # pretend this variable is used, so that smithy populates the variant configs
 # [meson_release_flag]
@@ -59,7 +59,9 @@ outputs:
     test:
       commands:
         - {{ CBUILD }}-clang --version
+        - {{ CBUILD }}-clang-cpp --version
         - {{ macos_machine }}-clang --version
+        - {{ macos_machine }}-clang-cpp --version
 
   - name: clang_{{ cross_target_platform }}
     script: install-clang-scripts.sh
@@ -69,7 +71,9 @@ outputs:
     test:
       commands:
         - {{ CBUILD }}-clang --version
+        - {{ CBUILD }}-clang-cpp --version
         - {{ macos_machine }}-clang --version
+        - {{ macos_machine }}-clang-cpp --version
 
   - name: clangxx_impl_{{ cross_target_platform }}
     script: install-clangxx.sh
@@ -147,6 +151,7 @@ outputs:
     test:
       commands:
         - {{ macos_machine }}-clang --version
+        - {{ macos_machine }}-clang-cpp --version
         - {{ macos_machine }}-clang++ --version
     about:
       home: https://llvm.org
