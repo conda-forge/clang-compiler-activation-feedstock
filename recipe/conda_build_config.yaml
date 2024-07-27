@@ -12,12 +12,26 @@ version:
   - 16.0.6
   - 17.0.6
   - 18.1.8
+  - 19.1.0
 
 # switch over release flag style cleanly across compiler versions, see #112
 meson_release_flag:
   - "--buildtype release"
   - "-Dbuildtype=release"
   - "-Dbuildtype=release"
+  - "-Dbuildtype=release"
+
+# zip to avoid using rc-builds for already-released-in-conda-forge LLVM versions
+channel_sources:
+  - conda-forge
+  - conda-forge
+  - conda-forge
+  - conda-forge/label/llvm_rc,conda-forge
+channel_targets:
+  - conda-forge main
+  - conda-forge main
+  - conda-forge main
+  - conda-forge llvm_rc
 
 # everything below is zipped
 cross_target_platform:
@@ -50,3 +64,5 @@ zip_keys:
   -
     - version
     - meson_release_flag
+    - channel_sources
+    - channel_targets
