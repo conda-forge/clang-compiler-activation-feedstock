@@ -1,33 +1,33 @@
 CBUILD:
 - x86_64-conda-linux-gnu
 FINAL_PYTHON_SYSCONFIGDATA_NAME:
-- _sysconfigdata_arm64_apple_darwin20_0_0
+- _sysconfigdata_x86_64_apple_darwin13_4_0
 MACOSX_DEPLOYMENT_TARGET:
 - '10.9'
 cdt_name:
 - cos7
 channel_sources:
-- conda-forge
+- conda-forge,conda-forge/label/llvm_rc
 channel_targets:
-- conda-forge main
+- conda-forge llvm_rc
 cross_target_platform:
-- osx-arm64
+- osx-64
 docker_image:
 - quay.io/condaforge/linux-anvil-cos7-x86_64
 macos_machine:
-- arm64-apple-darwin20.0.0
+- x86_64-apple-darwin13.4.0
 meson_cpu_family:
-- aarch64
+- x86_64
 meson_release_flag:
 - -Dbuildtype=release
 target_platform:
 - linux-64
 uname_kernel_release:
-- 20.0.0
+- 13.4.0
 uname_machine:
-- arm64
+- x86_64
 version:
-- 17.0.6
+- 19.1.0
 zip_keys:
 - - cross_target_platform
   - macos_machine
@@ -37,3 +37,5 @@ zip_keys:
   - FINAL_PYTHON_SYSCONFIGDATA_NAME
 - - version
   - meson_release_flag
+  - channel_sources
+  - channel_targets
