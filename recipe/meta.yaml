@@ -6,7 +6,7 @@
 # of the C++ stdlib; keep the variable in case this happens again
 {% set libcxx_major = major_ver %}
 
-{% set build_number = 18 %}
+{% set build_number = 19 %}
 
 # pretend this variable is used, so that smithy populates the variant configs
 # [meson_release_flag]
