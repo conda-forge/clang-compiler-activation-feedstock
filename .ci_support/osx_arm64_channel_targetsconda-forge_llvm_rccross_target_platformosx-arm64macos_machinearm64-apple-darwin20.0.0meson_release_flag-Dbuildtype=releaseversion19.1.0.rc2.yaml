@@ -1,11 +1,11 @@
 CBUILD:
-- x86_64-apple-darwin13.4.0
+- arm64-apple-darwin20.0.0
 FINAL_PYTHON_SYSCONFIGDATA_NAME:
 - _sysconfigdata_arm64_apple_darwin20_0_0
 MACOSX_DEPLOYMENT_TARGET:
-- '10.13'
+- '11.0'
 MACOSX_SDK_VERSION:
-- '10.13'
+- '11.0'
 channel_sources:
 - conda-forge,conda-forge/label/llvm_rc
 channel_targets:
@@ -19,13 +19,13 @@ meson_cpu_family:
 meson_release_flag:
 - -Dbuildtype=release
 target_platform:
-- osx-64
+- osx-arm64
 uname_kernel_release:
 - 20.0.0
 uname_machine:
 - arm64
 version:
-- 19.1.0
+- 19.1.0.rc2
 zip_keys:
 - - cross_target_platform
   - macos_machine
