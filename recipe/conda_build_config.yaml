@@ -26,7 +26,7 @@ channel_sources:
   - conda-forge
   - conda-forge
   - conda-forge
-  - conda-forge,conda-forge/label/llvm_rc
+  - conda-forge/label/llvm_rc,conda-forge
 channel_targets:
   - conda-forge main
   - conda-forge main
