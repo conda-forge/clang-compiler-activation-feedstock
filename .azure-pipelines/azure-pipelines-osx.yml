@@ -8,11 +8,11 @@ jobs:
     vmImage: macOS-12
   strategy:
     matrix:
-      ? osx_64_channel_targetsconda-forge_llvm_rccross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0meson_release_flag-Dbuildtype=releaseversion19.1.0.rc2
-      : CONFIG: osx_64_channel_targetsconda-forge_llvm_rccross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0meson_release_flag-Dbuildtype=releaseversion19.1.0.rc2
+      ? osx_64_channel_targetsconda-forge_llvm_rccross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0meson_release_flag-Dbuildtype=releaseversion19.1.0.rc3
+      : CONFIG: osx_64_channel_targetsconda-forge_llvm_rccross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0meson_release_flag-Dbuildtype=releaseversion19.1.0.rc3
         UPLOAD_PACKAGES: 'True'
-      ? osx_64_channel_targetsconda-forge_llvm_rccross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0meson_release_flag-Dbuildtype=releaseversion19.1.0.rc2
-      : CONFIG: osx_64_channel_targetsconda-forge_llvm_rccross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0meson_release_flag-Dbuildtype=releaseversion19.1.0.rc2
+      ? osx_64_channel_targetsconda-forge_llvm_rccross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0meson_release_flag-Dbuildtype=releaseversion19.1.0.rc3
+      : CONFIG: osx_64_channel_targetsconda-forge_llvm_rccross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0meson_release_flag-Dbuildtype=releaseversion19.1.0.rc3
         UPLOAD_PACKAGES: 'True'
       ? osx_64_channel_targetsconda-forge_maincross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0meson_release_flag--buildtype_releaseversion16.0.6
       : CONFIG: osx_64_channel_targetsconda-forge_maincross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0meson_release_flag--buildtype_releaseversion16.0.6
@@ -32,11 +32,11 @@ jobs:
       ? osx_64_channel_targetsconda-forge_maincross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0meson_release_flag-Dbuildtype=releaseversion18.1.8
       : CONFIG: osx_64_channel_targetsconda-forge_maincross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0meson_release_flag-Dbuildtype=releaseversion18.1.8
         UPLOAD_PACKAGES: 'True'
-      ? osx_arm64_channel_targetsconda-forge_llvm_rccross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0meson_release_flag-Dbuildtype=releaseversion19.1.0.rc2
-      : CONFIG: osx_arm64_channel_targetsconda-forge_llvm_rccross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0meson_release_flag-Dbuildtype=releaseversion19.1.0.rc2
+      ? osx_arm64_channel_targetsconda-forge_llvm_rccross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0meson_release_flag-Dbuildtype=releaseversion19.1.0.rc3
+      : CONFIG: osx_arm64_channel_targetsconda-forge_llvm_rccross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0meson_release_flag-Dbuildtype=releaseversion19.1.0.rc3
         UPLOAD_PACKAGES: 'True'
-      ? osx_arm64_channel_targetsconda-forge_llvm_rccross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0meson_release_flag-Dbuildtype=releaseversion19.1.0.rc2
-      : CONFIG: osx_arm64_channel_targetsconda-forge_llvm_rccross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0meson_release_flag-Dbuildtype=releaseversion19.1.0.rc2
+      ? osx_arm64_channel_targetsconda-forge_llvm_rccross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0meson_release_flag-Dbuildtype=releaseversion19.1.0.rc3
+      : CONFIG: osx_arm64_channel_targetsconda-forge_llvm_rccross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0meson_release_flag-Dbuildtype=releaseversion19.1.0.rc3
         UPLOAD_PACKAGES: 'True'
       ? osx_arm64_channel_targetsconda-forge_maincross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0meson_release_flag--buildtype_releaseversion16.0.6
       : CONFIG: osx_arm64_channel_targetsconda-forge_maincross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0meson_release_flag--buildtype_releaseversion16.0.6
