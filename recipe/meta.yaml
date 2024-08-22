@@ -6,6 +6,10 @@
 # of the C++ stdlib; keep the variable in case this happens again
 {% set libcxx_major = major_ver %}
 
+{% if CBUILD is not defined %}
+{% set CBUILD = "dummy" %}
+{% endif %}
+
 {% set build_number = 19 %}
 
 # pretend this variable is used, so that smithy populates the variant configs
