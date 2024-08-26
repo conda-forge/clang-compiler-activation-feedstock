@@ -10,7 +10,7 @@
 {% set CBUILD = "dummy" %}
 {% endif %}
 
-{% set build_number = 19 %}
+{% set build_number = 20 %}
 
 # pretend this variable is used, so that smithy populates the variant configs
 # [meson_release_flag]
@@ -32,7 +32,7 @@ build:
 requirements:
   build:
     - cctools_{{ target_platform }}  # [osx]
-    - libcxx {{ libcxx_major }}
+    - libcxx-devel {{ libcxx_major }}
     - gcc_{{ target_platform }}      # [linux]
     - clang {{ version }}            # [osx]
 
@@ -80,18 +80,18 @@ outputs:
     script: install-clangxx.sh
     requirements:
       build:
-        - cctools_{{ target_platform }}   # [osx]
+        - cctools_{{ target_platform }}     # [osx]
       host:
         - clangxx {{ version }}
-        - libcxx {{ libcxx_major }}       # [osx]
+        - libcxx-devel {{ libcxx_major }}   # [osx]
         - {{ pin_subpackage('clang_impl_' ~ cross_target_platform, exact=True) }}
-        - gxx_impl_{{ target_platform }}  # [linux]
+        - gxx_impl_{{ target_platform }}    # [linux]
         # hack to force the solver to work
         - libllvm{{ major_ver }} {{ version }}
       run:
         - clangxx {{ version }}
         # This is not needed in Linux for cross-compiling in a conda-build env, but is needed outside
-        - libcxx >={{ libcxx_major }}
+        - libcxx-devel >={{ libcxx_major }}
         - {{ pin_subpackage('clang_' ~ cross_target_platform, exact=True) }}
         - gxx_impl_{{ target_platform }}            # [linux]
     test:
@@ -126,10 +126,10 @@ outputs:
     script: install-clang-bootstrap.sh
     requirements:
       build:
-        - cctools_{{ target_platform }}  # [osx]
+        - cctools_{{ target_platform }}     # [osx]
       host:
         - clangxx {{ version }}
-        - libcxx {{ libcxx_major }}      # [cross_target_platform in ("osx-64", "osx-arm64")]
+        - libcxx-devel {{ libcxx_major }}   # [cross_target_platform in ("osx-64", "osx-arm64")]
         - cctools_{{ cross_target_platform }}
         - ld64_{{ cross_target_platform }}
         - {{ pin_subpackage('clang_' ~ cross_target_platform, exact=True) }}
