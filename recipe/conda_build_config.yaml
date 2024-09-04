@@ -12,7 +12,7 @@ version:
   - 16.0.6
   - 17.0.6
   - 18.1.8
-  - 19.1.0.rc3
+  - 19.1.0.rc4
 
 # switch over release flag style cleanly across compiler versions, see #112
 meson_release_flag:
