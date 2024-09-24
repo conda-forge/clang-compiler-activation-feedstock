@@ -49,171 +49,129 @@ Current build status
         <table>
           <thead><tr><th>Variant</th><th>Status</th></tr></thead>
           <tbody><tr>
-              <td>linux_64_channel_targetsconda-forge_llvm_rccross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0meson_release_flag-Dbuildtype=releaseversion19.1.0.rc4</td>
+              <td>linux_64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version17.0.6</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7470&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_channel_targetsconda-forge_llvm_rccross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0meson_release_flag-Dbuildtype=releaseversion19.1.0.rc4" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version17.0.6" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_64_channel_targetsconda-forge_llvm_rccross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0meson_release_flag-Dbuildtype=releaseversion19.1.0.rc4</td>
+              <td>linux_64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version18.1.8</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7470&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_channel_targetsconda-forge_llvm_rccross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0meson_release_flag-Dbuildtype=releaseversion19.1.0.rc4" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version18.1.8" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_64_channel_targetsconda-forge_maincross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0meson_release_flag--buildtype_releaseversion16.0.6</td>
+              <td>linux_64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version19.1.0</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7470&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_channel_targetsconda-forge_maincross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0meson_release_flag--buildtype_releaseversion16.0.6" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version19.1.0" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_64_channel_targetsconda-forge_maincross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0meson_release_flag-Dbuildtype=releaseversion17.0.6</td>
+              <td>linux_64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version17.0.6</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7470&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_channel_targetsconda-forge_maincross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0meson_release_flag-Dbuildtype=releaseversion17.0.6" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version17.0.6" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_64_channel_targetsconda-forge_maincross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0meson_release_flag-Dbuildtype=releaseversion18.1.8</td>
+              <td>linux_64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version18.1.8</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7470&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_channel_targetsconda-forge_maincross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0meson_release_flag-Dbuildtype=releaseversion18.1.8" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version18.1.8" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_64_channel_targetsconda-forge_maincross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0meson_release_flag--buildtype_releaseversion16.0.6</td>
+              <td>linux_64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version19.1.0</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7470&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_channel_targetsconda-forge_maincross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0meson_release_flag--buildtype_releaseversion16.0.6" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version19.1.0" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_64_channel_targetsconda-forge_maincross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0meson_release_flag-Dbuildtype=releaseversion17.0.6</td>
+              <td>osx_64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version17.0.6</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7470&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_channel_targetsconda-forge_maincross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0meson_release_flag-Dbuildtype=releaseversion17.0.6" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version17.0.6" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_64_channel_targetsconda-forge_maincross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0meson_release_flag-Dbuildtype=releaseversion18.1.8</td>
+              <td>osx_64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version18.1.8</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7470&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_channel_targetsconda-forge_maincross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0meson_release_flag-Dbuildtype=releaseversion18.1.8" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version18.1.8" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_64_channel_targetsconda-forge_llvm_rccross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0meson_release_flag-Dbuildtype=releaseversion19.1.0.rc4</td>
+              <td>osx_64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version19.1.0</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7470&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_channel_targetsconda-forge_llvm_rccross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0meson_release_flag-Dbuildtype=releaseversion19.1.0.rc4" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version19.1.0" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_64_channel_targetsconda-forge_llvm_rccross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0meson_release_flag-Dbuildtype=releaseversion19.1.0.rc4</td>
+              <td>osx_64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version17.0.6</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7470&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_channel_targetsconda-forge_llvm_rccross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0meson_release_flag-Dbuildtype=releaseversion19.1.0.rc4" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version17.0.6" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_64_channel_targetsconda-forge_maincross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0meson_release_flag--buildtype_releaseversion16.0.6</td>
+              <td>osx_64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version18.1.8</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7470&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_channel_targetsconda-forge_maincross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0meson_release_flag--buildtype_releaseversion16.0.6" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version18.1.8" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_64_channel_targetsconda-forge_maincross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0meson_release_flag-Dbuildtype=releaseversion17.0.6</td>
+              <td>osx_64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version19.1.0</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7470&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_channel_targetsconda-forge_maincross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0meson_release_flag-Dbuildtype=releaseversion17.0.6" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version19.1.0" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_64_channel_targetsconda-forge_maincross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0meson_release_flag-Dbuildtype=releaseversion18.1.8</td>
+              <td>osx_arm64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version17.0.6</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7470&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_channel_targetsconda-forge_maincross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0meson_release_flag-Dbuildtype=releaseversion18.1.8" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version17.0.6" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_64_channel_targetsconda-forge_maincross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0meson_release_flag--buildtype_releaseversion16.0.6</td>
+              <td>osx_arm64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version18.1.8</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7470&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_channel_targetsconda-forge_maincross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0meson_release_flag--buildtype_releaseversion16.0.6" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version18.1.8" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_64_channel_targetsconda-forge_maincross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0meson_release_flag-Dbuildtype=releaseversion17.0.6</td>
+              <td>osx_arm64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version19.1.0</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7470&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_channel_targetsconda-forge_maincross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0meson_release_flag-Dbuildtype=releaseversion17.0.6" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version19.1.0" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_64_channel_targetsconda-forge_maincross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0meson_release_flag-Dbuildtype=releaseversion18.1.8</td>
+              <td>osx_arm64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version17.0.6</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7470&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_channel_targetsconda-forge_maincross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0meson_release_flag-Dbuildtype=releaseversion18.1.8" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version17.0.6" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_arm64_channel_targetsconda-forge_llvm_rccross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0meson_release_flag-Dbuildtype=releaseversion19.1.0.rc4</td>
+              <td>osx_arm64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version18.1.8</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7470&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_channel_targetsconda-forge_llvm_rccross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0meson_release_flag-Dbuildtype=releaseversion19.1.0.rc4" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version18.1.8" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_arm64_channel_targetsconda-forge_llvm_rccross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0meson_release_flag-Dbuildtype=releaseversion19.1.0.rc4</td>
+              <td>osx_arm64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version19.1.0</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7470&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_channel_targetsconda-forge_llvm_rccross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0meson_release_flag-Dbuildtype=releaseversion19.1.0.rc4" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>osx_arm64_channel_targetsconda-forge_maincross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0meson_release_flag--buildtype_releaseversion16.0.6</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7470&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_channel_targetsconda-forge_maincross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0meson_release_flag--buildtype_releaseversion16.0.6" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>osx_arm64_channel_targetsconda-forge_maincross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0meson_release_flag-Dbuildtype=releaseversion17.0.6</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7470&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_channel_targetsconda-forge_maincross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0meson_release_flag-Dbuildtype=releaseversion17.0.6" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>osx_arm64_channel_targetsconda-forge_maincross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0meson_release_flag-Dbuildtype=releaseversion18.1.8</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7470&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_channel_targetsconda-forge_maincross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0meson_release_flag-Dbuildtype=releaseversion18.1.8" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>osx_arm64_channel_targetsconda-forge_maincross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0meson_release_flag--buildtype_releaseversion16.0.6</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7470&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_channel_targetsconda-forge_maincross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0meson_release_flag--buildtype_releaseversion16.0.6" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>osx_arm64_channel_targetsconda-forge_maincross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0meson_release_flag-Dbuildtype=releaseversion17.0.6</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7470&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_channel_targetsconda-forge_maincross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0meson_release_flag-Dbuildtype=releaseversion17.0.6" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>osx_arm64_channel_targetsconda-forge_maincross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0meson_release_flag-Dbuildtype=releaseversion18.1.8</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7470&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_channel_targetsconda-forge_maincross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0meson_release_flag-Dbuildtype=releaseversion18.1.8" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version19.1.0" alt="variant">
                 </a>
               </td>
             </tr>
@@ -243,14 +201,14 @@ Current release info
 Installing clang-compiler-activation
 ====================================
 
-Installing `clang-compiler-activation` from the `conda-forge/label/llvm_rc` channel can be achieved by adding `conda-forge/label/llvm_rc` to your channels with:
+Installing `clang-compiler-activation` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
 
 ```
-conda config --add channels conda-forge/label/llvm_rc
+conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge/label/llvm_rc` channel has been enabled, `clang_bootstrap_osx-64, clang_bootstrap_osx-arm64, clang_impl_osx-64, clang_impl_osx-arm64, clang_osx-64, clang_osx-arm64, clangxx_impl_osx-64, clangxx_impl_osx-arm64, clangxx_osx-64, clangxx_osx-arm64` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `clang_bootstrap_osx-64, clang_bootstrap_osx-arm64, clang_impl_osx-64, clang_impl_osx-arm64, clang_osx-64, clang_osx-arm64, clangxx_impl_osx-64, clangxx_impl_osx-arm64, clangxx_osx-64, clangxx_osx-arm64` can be installed with `conda`:
 
 ```
 conda install clang_bootstrap_osx-64 clang_bootstrap_osx-arm64 clang_impl_osx-64 clang_impl_osx-arm64 clang_osx-64 clang_osx-arm64 clangxx_impl_osx-64 clangxx_impl_osx-arm64 clangxx_osx-64 clangxx_osx-arm64
@@ -265,26 +223,26 @@ mamba install clang_bootstrap_osx-64 clang_bootstrap_osx-arm64 clang_impl_osx-64
 It is possible to list all of the versions of `clang_bootstrap_osx-64` available on your platform with `conda`:
 
 ```
-conda search clang_bootstrap_osx-64 --channel conda-forge/label/llvm_rc
+conda search clang_bootstrap_osx-64 --channel conda-forge
 ```
 
 or with `mamba`:
 
 ```
-mamba search clang_bootstrap_osx-64 --channel conda-forge/label/llvm_rc
+mamba search clang_bootstrap_osx-64 --channel conda-forge
 ```
 
 Alternatively, `mamba repoquery` may provide more information:
 
 ```
 # Search all versions available on your platform:
-mamba repoquery search clang_bootstrap_osx-64 --channel conda-forge/label/llvm_rc
+mamba repoquery search clang_bootstrap_osx-64 --channel conda-forge
 
 # List packages depending on `clang_bootstrap_osx-64`:
-mamba repoquery whoneeds clang_bootstrap_osx-64 --channel conda-forge/label/llvm_rc
+mamba repoquery whoneeds clang_bootstrap_osx-64 --channel conda-forge
 
 # List dependencies of `clang_bootstrap_osx-64`:
-mamba repoquery depends clang_bootstrap_osx-64 --channel conda-forge/label/llvm_rc
+mamba repoquery depends clang_bootstrap_osx-64 --channel conda-forge
 ```
 
 
