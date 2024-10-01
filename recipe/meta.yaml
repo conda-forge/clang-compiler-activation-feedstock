@@ -1,14 +1,10 @@
 {% if version is not defined %}
-{% set version = "18.1.8" %}
+{% set version = "19.1.0" %}
 {% endif %}
 {% set major_ver = version.split(".")[0] %}
 # in the past we've had to uncouple the compiler version from the version
 # of the C++ stdlib; keep the variable in case this happens again
 {% set libcxx_major = major_ver %}
-
-{% if CBUILD is not defined %}
-{% set CBUILD = "dummy" %}
-{% endif %}
 
 {% set build_number = 19 %}
 
