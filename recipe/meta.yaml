@@ -58,7 +58,7 @@ outputs:
         - {{ macos_machine }}-clang-cpp --version
 
   - name: clang_{{ cross_target_platform }}
-    script: install-clang-scripts.sh
+    script: install-clang.sh
     requirements:
       run:
         - {{ pin_subpackage("clang_impl_" ~ cross_target_platform, exact=True) }}
@@ -99,7 +99,7 @@ outputs:
         - {{ macos_machine }}-clang++ --version
 
   - name: clangxx_{{ cross_target_platform }}
-    script: install-clangxx-scripts.sh
+    script: install-clangxx.sh
     build:
       # Since transitive run_exports are not currently possible
       # (here I would like the run dependency on clangxx to pull in the run_exports from it).
