@@ -160,6 +160,10 @@ if [ "@CONDA_BUILD_CROSS_COMPILATION@" = "1" ]; then
   echo "[binaries]" >> ${CONDA_PREFIX}/meson_cross_file.txt
   echo "cmake = '${CONDA_PREFIX}/bin/cmake'" >> ${CONDA_PREFIX}/meson_cross_file.txt
   echo "pkg-config = '${CONDA_PREFIX}/bin/pkg-config'" >> ${CONDA_PREFIX}/meson_cross_file.txt
+  # meson guesses whether it can run binaries in cross-compilation based on some heuristics,
+  # and those can be wrong; see https://mesonbuild.com/Cross-compilation.html#properties
+  echo "[properties]" >> ${CONDA_PREFIX}/meson_cross_file.txt
+  echo "needs_exe_wrapper = true" >> ${CONDA_PREFIX}/meson_cross_file.txt
 fi
 
 _tc_activation \
