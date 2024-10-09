@@ -7,9 +7,9 @@ echo CHOST is ${CHOST}
 
 pushd "${PREFIX}"/bin
   ln -s clang++ ${CHOST}-clang++
-  if [[ "${CHOST}" != "${CBUILD}" ]] && [[ "${target_platform}" != linux-* ]]; then
-    # on linux, the `clangxx` package already has a $TRIPLE-clang++, see
-    # https://github.com/conda-forge/clangdev-feedstock/pull/251
+  if [[ "${CBUILD}" != ${CHOST} ]] && [[ "${target_platform}" != linux-* || ( ${version} != "17.0.6" && ${version} != "18.1.8") ]]; then
+    # before v19.1.1, `clangxx` on linux already had this symlink, see
+    # https://github.com/conda-forge/clangdev-feedstock/pull/322
     ln -s clang++ ${CBUILD}-clang++
   fi
 popd
