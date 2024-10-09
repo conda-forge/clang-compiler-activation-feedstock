@@ -31,7 +31,7 @@ requirements:
 
 outputs:
   - name: clang_impl_{{ cross_target_platform }}
-    script: install-clang.sh
+    script: install-clang_impl.sh
     requirements:
       - clang {{ version }}
       - llvm-tools {{ version }}
@@ -70,7 +70,7 @@ outputs:
         - ${CPP_FOR_BUILD} --version
 
   - name: clangxx_impl_{{ cross_target_platform }}
-    script: install-clangxx.sh
+    script: install-clangxx_impl.sh
     requirements:
       build:
         - cctools_{{ target_platform }}   # [osx]
