@@ -25,7 +25,7 @@ uname_kernel_release:
 uname_machine:
 - x86_64
 version:
-- 19.1.2
+- 19.1.3
 zip_keys:
 - - cross_target_platform
   - macos_machine
