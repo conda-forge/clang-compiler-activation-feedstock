@@ -175,8 +175,10 @@ _tc_activation \
   clang ld \
   "CC,${CC:-@CHOST@-clang}" \
   "OBJC,${OBJC:-@CHOST@-clang}" \
+  "CPP,${CPP:-@CHOST@-clang-cpp}" \
   "CC_FOR_BUILD,${CONDA_PREFIX}/bin/@CC_FOR_BUILD@" \
   "OBJC_FOR_BUILD,${CONDA_PREFIX}/bin/@CC_FOR_BUILD@" \
+  "CPP_FOR_BUILD,${CONDA_PREFIX}/bin/@CPP_FOR_BUILD@" \
   "CPPFLAGS,${CPPFLAGS:-${CPPFLAGS_USED}}" \
   "CFLAGS,${CFLAGS:-${CFLAGS_USED}}" \
   "LDFLAGS,${LDFLAGS:-${LDFLAGS_USED}}" \
