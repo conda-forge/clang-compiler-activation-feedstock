@@ -13,8 +13,8 @@ Package license: BSD-3-Clause
 
 Summary: clang compilers for conda-build 3
 
-About clang_bootstrap_osx-arm64
--------------------------------
+About clang_bootstrap_osx-64
+----------------------------
 
 Home: https://llvm.org
 
@@ -22,8 +22,8 @@ Package license: Apache-2.0
 
 Summary: clang compiler components in one package for bootstrapping clang
 
-About clang_bootstrap_osx-64
-----------------------------
+About clang_bootstrap_osx-arm64
+-------------------------------
 
 Home: https://llvm.org
 

@@ -64,10 +64,10 @@ outputs:
         - {{ pin_subpackage("clang_impl_" ~ cross_target_platform, exact=True) }}
     test:
       commands:
-        - {{ CBUILD }}-clang --version
-        - {{ CBUILD }}-clang-cpp --version
-        - {{ macos_machine }}-clang --version
-        - {{ macos_machine }}-clang-cpp --version
+        - ${CC} --version
+        - ${CPP} --version
+        - ${CC_FOR_BUILD} --version
+        - ${CPP_FOR_BUILD} --version
 
   - name: clangxx_impl_{{ cross_target_platform }}
     script: install-clangxx.sh
@@ -112,8 +112,8 @@ outputs:
         - {{ pin_subpackage("clang_" ~ cross_target_platform, exact=True) }}
     test:
       commands:
-        - {{ CBUILD }}-clang++ --version
-        - {{ macos_machine }}-clang++ --version
+        - ${CXX} --version
+        - ${CXX_FOR_BUILD} --version
 
   - name: clang_bootstrap_{{ cross_target_platform }}
     script: install-clang-bootstrap.sh

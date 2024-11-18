@@ -24,9 +24,11 @@ fi
 
 if [[ "$target_platform" == linux* ]]; then
   CC_FOR_BUILD=${CBUILD}-gcc
+  CPP_FOR_BUILD=${CBUILD}-cpp
   CXX_FOR_BUILD=${CBUILD}-g++
 else
   CC_FOR_BUILD=${CBUILD}-clang
+  CPP_FOR_BUILD=${CBUILD}-clang-cpp
   CXX_FOR_BUILD=${CBUILD}-clang++
 fi
 
@@ -36,6 +38,7 @@ find . -name "*activate*.sh" -exec sed -i.bak "s|@CHOST@|${CHOST}|g" "{}" \;
 find . -name "*activate*.sh" -exec sed -i.bak "s|@CBUILD@|${CBUILD}|g" "{}" \;
 find . -name "*activate*.sh" -exec sed -i.bak "s|@CPPFLAGS@|${FINAL_CPPFLAGS}|g"             "{}" \;
 find . -name "*activate*.sh" -exec sed -i.bak "s|@CC_FOR_BUILD@|${CC_FOR_BUILD}|g"           "{}" \;
+find . -name "*activate*.sh" -exec sed -i.bak "s|@CPP_FOR_BUILD@|${CPP_FOR_BUILD}|g"         "{}" \;
 find . -name "*activate*.sh" -exec sed -i.bak "s|@CXX_FOR_BUILD@|${CXX_FOR_BUILD}|g"         "{}" \;
 find . -name "*activate*.sh" -exec sed -i.bak "s|@CFLAGS@|${FINAL_CFLAGS}|g"                 "{}" \;
 find . -name "*activate*.sh" -exec sed -i.bak "s|@DEBUG_CFLAGS@|${FINAL_DEBUG_CFLAGS}|g"     "{}" \;
