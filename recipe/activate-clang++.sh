@@ -99,7 +99,7 @@ fi
 
 _tc_activation \
   activate @CHOST@- \
-  clang++ \
+  "CLANGXX,${CXX:-@CHOST@-clang++}" \
   "CXX,${CXX:-@CHOST@-clang++}" \
   "CXX_FOR_BUILD,${CONDA_PREFIX}/bin/@CXX_FOR_BUILD@" \
   "CXXFLAGS,${CXXFLAGS:-${CXXFLAGS_USED}}" \
