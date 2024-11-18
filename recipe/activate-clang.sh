@@ -170,9 +170,26 @@ _tc_activation \
   activate @CHOST@- "HOST,@CHOST@" \
   "CONDA_TOOLCHAIN_HOST,@CHOST@" \
   "CONDA_TOOLCHAIN_BUILD,@CBUILD@" \
-  ar as checksyms install_name_tool libtool lipo nm nmedit otool \
-  pagestuff ranlib redo_prebinding seg_addr_table seg_hack segedit size strings strip \
-  clang ld \
+  "AR,${AR:-@CHOST@-ar}" \
+  "AS,${AS:-@CHOST@-as}" \
+  "CHECKSYMS,${CHECKSYMS:-@CHOST@-checksyms}" \
+  "INSTALL_NAME_TOOL,${INSTALL_NAME_TOOL:-@CHOST@-install_name_tool}" \
+  "LIBTOOL,${LIBTOOL:-@CHOST@-libtool}" \
+  "LIPO,${LIPO:-@CHOST@-lipo}" \
+  "NM,${NM:-@CHOST@-nm}" \
+  "NMEDIT,${NMEDIT:-@CHOST@-nmedit}" \
+  "OTOOL,${OTOOL:-@CHOST@-otool}" \
+  "PAGESTUFF,${PAGESTUFF:-@CHOST@-pagestuff}" \
+  "RANLIB,${RANLIB:-@CHOST@-ranlib}" \
+  "REDO_PREBINDING,${REDO_PREBINDING:-@CHOST@-redo_prebinding}" \
+  "SEG_ADDR_TABLE,${SEG_ADDR_TABLE:-@CHOST@-seg_addr_table}" \
+  "SEG_HACK,${SEG_HACK:-@CHOST@-seg_hack}" \
+  "SEGEDIT,${SEGEDIT:-@CHOST@-segedit}" \
+  "SIZE,${SIZE:-@CHOST@-size}" \
+  "STRINGS,${STRINGS:-@CHOST@-strings}" \
+  "STRIP,${STRIP:-@CHOST@-strip}" \
+  "CLANG,${CLANG:-@CHOST@-clang}" \
+  "LD,${LD:-@CHOST@-ld}" \
   "CC,${CC:-@CHOST@-clang}" \
   "OBJC,${OBJC:-@CHOST@-clang}" \
   "CC_FOR_BUILD,${CONDA_PREFIX}/bin/@CC_FOR_BUILD@" \
