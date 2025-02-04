@@ -1,0 +1,36 @@
+CBUILD:
+- x86_64-apple-darwin13.4.0
+FINAL_PYTHON_SYSCONFIGDATA_NAME:
+- _sysconfigdata_x86_64_apple_darwin13_4_0
+MACOSX_DEPLOYMENT_TARGET:
+- '10.13'
+MACOSX_SDK_VERSION:
+- '10.13'
+channel_sources:
+- conda-forge
+channel_targets:
+- conda-forge main
+cross_target_platform:
+- osx-64
+macos_machine:
+- x86_64-apple-darwin13.4.0
+meson_cpu_family:
+- x86_64
+target_platform:
+- osx-64
+uname_kernel_release:
+- 13.4.0
+uname_machine:
+- x86_64
+version:
+- 18.1.8
+zip_keys:
+- - cross_target_platform
+  - macos_machine
+  - meson_cpu_family
+  - uname_machine
+  - uname_kernel_release
+  - FINAL_PYTHON_SYSCONFIGDATA_NAME
+- - version
+  - channel_sources
+  - channel_targets
