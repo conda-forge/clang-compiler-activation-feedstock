@@ -8,53 +8,41 @@ jobs:
     vmImage: macOS-13
   strategy:
     matrix:
-      ? osx_64_channel_targetsconda-forge_llvm_rccross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version20.1.0.rc1
-      : CONFIG: osx_64_channel_targetsconda-forge_llvm_rccross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version20.1.0.rc1
+      osx_64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version18.1.8:
+        CONFIG: osx_64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version18.1.8
         UPLOAD_PACKAGES: 'True'
-      ? osx_64_channel_targetsconda-forge_llvm_rccross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version20.1.0.rc1
-      : CONFIG: osx_64_channel_targetsconda-forge_llvm_rccross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version20.1.0.rc1
+      osx_64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version19.1.7:
+        CONFIG: osx_64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version19.1.7
         UPLOAD_PACKAGES: 'True'
-      osx_64_channel_targetsconda-forge_maincross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version17.0.6:
-        CONFIG: osx_64_channel_targetsconda-forge_maincross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version17.0.6
+      osx_64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version20.1.1:
+        CONFIG: osx_64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version20.1.1
         UPLOAD_PACKAGES: 'True'
-      osx_64_channel_targetsconda-forge_maincross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version18.1.8:
-        CONFIG: osx_64_channel_targetsconda-forge_maincross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version18.1.8
+      osx_64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version18.1.8:
+        CONFIG: osx_64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version18.1.8
         UPLOAD_PACKAGES: 'True'
-      osx_64_channel_targetsconda-forge_maincross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version19.1.7:
-        CONFIG: osx_64_channel_targetsconda-forge_maincross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version19.1.7
+      osx_64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version19.1.7:
+        CONFIG: osx_64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version19.1.7
         UPLOAD_PACKAGES: 'True'
-      osx_64_channel_targetsconda-forge_maincross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version17.0.6:
-        CONFIG: osx_64_channel_targetsconda-forge_maincross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version17.0.6
+      osx_64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version20.1.1:
+        CONFIG: osx_64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version20.1.1
         UPLOAD_PACKAGES: 'True'
-      osx_64_channel_targetsconda-forge_maincross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version18.1.8:
-        CONFIG: osx_64_channel_targetsconda-forge_maincross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version18.1.8
+      osx_arm64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version18.1.8:
+        CONFIG: osx_arm64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version18.1.8
         UPLOAD_PACKAGES: 'True'
-      osx_64_channel_targetsconda-forge_maincross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version19.1.7:
-        CONFIG: osx_64_channel_targetsconda-forge_maincross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version19.1.7
+      osx_arm64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version19.1.7:
+        CONFIG: osx_arm64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version19.1.7
         UPLOAD_PACKAGES: 'True'
-      ? osx_arm64_channel_targetsconda-forge_llvm_rccross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version20.1.0.rc1
-      : CONFIG: osx_arm64_channel_targetsconda-forge_llvm_rccross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version20.1.0.rc1
+      osx_arm64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version20.1.1:
+        CONFIG: osx_arm64_cross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version20.1.1
         UPLOAD_PACKAGES: 'True'
-      ? osx_arm64_channel_targetsconda-forge_llvm_rccross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version20.1.0.rc1
-      : CONFIG: osx_arm64_channel_targetsconda-forge_llvm_rccross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version20.1.0.rc1
+      osx_arm64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version18.1.8:
+        CONFIG: osx_arm64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version18.1.8
         UPLOAD_PACKAGES: 'True'
-      osx_arm64_channel_targetsconda-forge_maincross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version17.0.6:
-        CONFIG: osx_arm64_channel_targetsconda-forge_maincross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version17.0.6
+      osx_arm64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version19.1.7:
+        CONFIG: osx_arm64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version19.1.7
         UPLOAD_PACKAGES: 'True'
-      osx_arm64_channel_targetsconda-forge_maincross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version18.1.8:
-        CONFIG: osx_arm64_channel_targetsconda-forge_maincross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version18.1.8
-        UPLOAD_PACKAGES: 'True'
-      osx_arm64_channel_targetsconda-forge_maincross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version19.1.7:
-        CONFIG: osx_arm64_channel_targetsconda-forge_maincross_target_platformosx-64macos_machinex86_64-apple-darwin13.4.0version19.1.7
-        UPLOAD_PACKAGES: 'True'
-      osx_arm64_channel_targetsconda-forge_maincross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version17.0.6:
-        CONFIG: osx_arm64_channel_targetsconda-forge_maincross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version17.0.6
-        UPLOAD_PACKAGES: 'True'
-      osx_arm64_channel_targetsconda-forge_maincross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version18.1.8:
-        CONFIG: osx_arm64_channel_targetsconda-forge_maincross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version18.1.8
-        UPLOAD_PACKAGES: 'True'
-      osx_arm64_channel_targetsconda-forge_maincross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version19.1.7:
-        CONFIG: osx_arm64_channel_targetsconda-forge_maincross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version19.1.7
+      osx_arm64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version20.1.1:
+        CONFIG: osx_arm64_cross_target_platformosx-arm64macos_machinearm64-apple-darwin20.0.0version20.1.1
         UPLOAD_PACKAGES: 'True'
   timeoutInMinutes: 360
   variables: {}
