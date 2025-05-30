@@ -1,12 +1,12 @@
 {% if version is not defined %}
-{% set version = "20.1.5" %}
+{% set version = "20.1.6" %}
 {% endif %}
 {% set major_ver = version.split(".")[0] %}
 # in the past we've had to uncouple the compiler version from the version
 # of the C++ stdlib; keep the variable in case this happens again
 {% set libcxx_major = major_ver %}
 
-{% set build_number = 24 %}
+{% set build_number = 25 %}
 
 package:
   name: clang-compiler-activation

@@ -16,8 +16,8 @@ jobs:
         CONFIG: linux_64_cross_target_platformosx-64version19.1.7
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_64_cross_target_platformosx-64version20.1.5:
-        CONFIG: linux_64_cross_target_platformosx-64version20.1.5
+      linux_64_cross_target_platformosx-64version20.1.6:
+        CONFIG: linux_64_cross_target_platformosx-64version20.1.6
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
       linux_64_cross_target_platformosx-arm64version18.1.8:
@@ -28,8 +28,8 @@ jobs:
         CONFIG: linux_64_cross_target_platformosx-arm64version19.1.7
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_64_cross_target_platformosx-arm64version20.1.5:
-        CONFIG: linux_64_cross_target_platformosx-arm64version20.1.5
+      linux_64_cross_target_platformosx-arm64version20.1.6:
+        CONFIG: linux_64_cross_target_platformosx-arm64version20.1.6
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
   timeoutInMinutes: 360
