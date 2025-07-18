@@ -9,19 +9,19 @@ MACOSX_DEPLOYMENT_TARGET:  # [linux]
   - 10.9                   # [linux]
 
 version:
-  - 19.1.7
-  - 20.1.8
   - 21.1.0.rc1
+  - 20.1.8
+  - 19.1.7
 
 # zip to avoid using rc-builds for already-released-in-conda-forge LLVM versions
 channel_sources:
-  - conda-forge
-  - conda-forge
   - conda-forge/label/llvm_rc,conda-forge
+  - conda-forge
+  - conda-forge
 channel_targets:
-  - conda-forge main
-  - conda-forge main
   - conda-forge llvm_rc
+  - conda-forge main
+  - conda-forge main
 
 # everything below is zipped
 cross_target_platform:
