@@ -8,12 +8,12 @@ jobs:
     vmImage: ubuntu-latest
   strategy:
     matrix:
-      linux_64_channel_targetsconda-forge_llvm_rccross_target_platformosx-64version21.1.0.rc2:
-        CONFIG: linux_64_channel_targetsconda-forge_llvm_rccross_target_platformosx-64version21.1.0.rc2
+      linux_64_channel_targetsconda-forge_llvm_rccross_target_platformosx-64version21.1.0.rc3:
+        CONFIG: linux_64_channel_targetsconda-forge_llvm_rccross_target_platformosx-64version21.1.0.rc3
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_64_channel_targetsconda-forge_llvm_rccross_target_platformosx-arm64version21.1.0.rc2:
-        CONFIG: linux_64_channel_targetsconda-forge_llvm_rccross_target_platformosx-arm64version21.1.0.rc2
+      linux_64_channel_targetsconda-forge_llvm_rccross_target_platformosx-arm64version21.1.0.rc3:
+        CONFIG: linux_64_channel_targetsconda-forge_llvm_rccross_target_platformosx-arm64version21.1.0.rc3
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
       linux_64_channel_targetsconda-forge_maincross_target_platformosx-64version19.1.7:
