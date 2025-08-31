@@ -8,28 +8,28 @@ jobs:
     vmImage: ubuntu-latest
   strategy:
     matrix:
-      linux_64_channel_targetsconda-forge_llvm_rccross_target_platformosx-64version21.1.0.rc3:
-        CONFIG: linux_64_channel_targetsconda-forge_llvm_rccross_target_platformosx-64version21.1.0.rc3
+      linux_64_cross_target_platformosx-64version19.1.7:
+        CONFIG: linux_64_cross_target_platformosx-64version19.1.7
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_64_channel_targetsconda-forge_llvm_rccross_target_platformosx-arm64version21.1.0.rc3:
-        CONFIG: linux_64_channel_targetsconda-forge_llvm_rccross_target_platformosx-arm64version21.1.0.rc3
+      linux_64_cross_target_platformosx-64version20.1.8:
+        CONFIG: linux_64_cross_target_platformosx-64version20.1.8
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_64_channel_targetsconda-forge_maincross_target_platformosx-64version19.1.7:
-        CONFIG: linux_64_channel_targetsconda-forge_maincross_target_platformosx-64version19.1.7
+      linux_64_cross_target_platformosx-64version21.1.0:
+        CONFIG: linux_64_cross_target_platformosx-64version21.1.0
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_64_channel_targetsconda-forge_maincross_target_platformosx-64version20.1.8:
-        CONFIG: linux_64_channel_targetsconda-forge_maincross_target_platformosx-64version20.1.8
+      linux_64_cross_target_platformosx-arm64version19.1.7:
+        CONFIG: linux_64_cross_target_platformosx-arm64version19.1.7
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_64_channel_targetsconda-forge_maincross_target_platformosx-arm64version19.1.7:
-        CONFIG: linux_64_channel_targetsconda-forge_maincross_target_platformosx-arm64version19.1.7
+      linux_64_cross_target_platformosx-arm64version20.1.8:
+        CONFIG: linux_64_cross_target_platformosx-arm64version20.1.8
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-      linux_64_channel_targetsconda-forge_maincross_target_platformosx-arm64version20.1.8:
-        CONFIG: linux_64_channel_targetsconda-forge_maincross_target_platformosx-arm64version20.1.8
+      linux_64_cross_target_platformosx-arm64version21.1.0:
+        CONFIG: linux_64_cross_target_platformosx-arm64version21.1.0
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
   timeoutInMinutes: 360
