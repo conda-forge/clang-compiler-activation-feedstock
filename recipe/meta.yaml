@@ -50,6 +50,8 @@ outputs:
       # and clobber each other. Don't bring both here.
       - compiler-rt_{{ cross_target_platform }} {{ version }}     # [linux]
       - gcc_impl_{{ target_platform }}       # [linux]
+      # for testing
+      - libxml2-devel
     test:
       commands:
         - {{ CBUILD }}-clang --version
@@ -81,6 +83,8 @@ outputs:
         - gxx_impl_{{ target_platform }}  # [linux]
         # hack to force the solver to work
         - libllvm{{ major_ver }} {{ version }}
+        # for testing
+        - libxml2-devel
       run:
         - clangxx {{ version }}
         # This is not needed in Linux for cross-compiling in a conda-build env, but is needed outside
@@ -129,6 +133,8 @@ outputs:
         - {{ pin_subpackage('clangxx_' ~ cross_target_platform, exact=True) }}
         # hack to force the solver to work
         - libllvm{{ major_ver }} {{ version }}
+        # for testing
+        - libxml2-devel
     build:
       always_include_files:
         - bin/

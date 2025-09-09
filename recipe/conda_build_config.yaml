@@ -12,6 +12,7 @@ version:
   - 21.1.0
   - 20.1.8
   - 19.1.7
+  - 18.1.8
 
 # everything below is zipped
 cross_target_platform:
