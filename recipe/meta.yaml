@@ -52,6 +52,8 @@ outputs:
       - gcc_impl_{{ target_platform }}       # [linux]
       # for testing
       - libxml2-devel
+      - clangdev
+      - lld
     test:
       commands:
         - {{ CBUILD }}-clang --version
@@ -91,6 +93,9 @@ outputs:
         - libcxx >={{ libcxx_major }}
         - {{ pin_subpackage('clang_' ~ cross_target_platform, exact=True) }}
         - gxx_impl_{{ target_platform }}            # [linux]
+        # for testing
+        - clangdev
+        - lld
     test:
       commands:
         - echo {{ MACOSX_DEPLOYMENT_TARGET }}  # [linux]
@@ -114,6 +119,9 @@ outputs:
       run:
         - {{ pin_subpackage("clangxx_impl_" ~ cross_target_platform, exact=True) }}
         - {{ pin_subpackage("clang_" ~ cross_target_platform, exact=True) }}
+        # for testing
+        - clangdev
+        - lld
     test:
       commands:
         - ${CXX} --version
