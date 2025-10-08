@@ -4,8 +4,6 @@ FINAL_PYTHON_SYSCONFIGDATA_NAME:
 - _sysconfigdata_arm64_apple_darwin20_0_0
 MACOSX_DEPLOYMENT_TARGET:
 - '10.9'
-cdt_name:
-- conda
 channel_sources:
 - conda-forge
 channel_targets:
