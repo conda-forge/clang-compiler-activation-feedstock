@@ -23,7 +23,7 @@ uname_kernel_release:
 uname_machine:
 - x86_64
 version:
-- 21.1.5
+- 21.1.6
 zip_keys:
 - - cross_target_platform
   - macos_machine

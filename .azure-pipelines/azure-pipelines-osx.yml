@@ -14,8 +14,8 @@ jobs:
       osx_64_cross_target_platformosx-64version20.1.8:
         CONFIG: osx_64_cross_target_platformosx-64version20.1.8
         UPLOAD_PACKAGES: 'True'
-      osx_64_cross_target_platformosx-64version21.1.5:
-        CONFIG: osx_64_cross_target_platformosx-64version21.1.5
+      osx_64_cross_target_platformosx-64version21.1.6:
+        CONFIG: osx_64_cross_target_platformosx-64version21.1.6
         UPLOAD_PACKAGES: 'True'
       osx_64_cross_target_platformosx-arm64version19.1.7:
         CONFIG: osx_64_cross_target_platformosx-arm64version19.1.7
@@ -23,8 +23,8 @@ jobs:
       osx_64_cross_target_platformosx-arm64version20.1.8:
         CONFIG: osx_64_cross_target_platformosx-arm64version20.1.8
         UPLOAD_PACKAGES: 'True'
-      osx_64_cross_target_platformosx-arm64version21.1.5:
-        CONFIG: osx_64_cross_target_platformosx-arm64version21.1.5
+      osx_64_cross_target_platformosx-arm64version21.1.6:
+        CONFIG: osx_64_cross_target_platformosx-arm64version21.1.6
         UPLOAD_PACKAGES: 'True'
       osx_arm64_cross_target_platformosx-64version19.1.7:
         CONFIG: osx_arm64_cross_target_platformosx-64version19.1.7
@@ -32,8 +32,8 @@ jobs:
       osx_arm64_cross_target_platformosx-64version20.1.8:
         CONFIG: osx_arm64_cross_target_platformosx-64version20.1.8
         UPLOAD_PACKAGES: 'True'
-      osx_arm64_cross_target_platformosx-64version21.1.5:
-        CONFIG: osx_arm64_cross_target_platformosx-64version21.1.5
+      osx_arm64_cross_target_platformosx-64version21.1.6:
+        CONFIG: osx_arm64_cross_target_platformosx-64version21.1.6
         UPLOAD_PACKAGES: 'True'
       osx_arm64_cross_target_platformosx-arm64version19.1.7:
         CONFIG: osx_arm64_cross_target_platformosx-arm64version19.1.7
@@ -41,8 +41,8 @@ jobs:
       osx_arm64_cross_target_platformosx-arm64version20.1.8:
         CONFIG: osx_arm64_cross_target_platformosx-arm64version20.1.8
         UPLOAD_PACKAGES: 'True'
-      osx_arm64_cross_target_platformosx-arm64version21.1.5:
-        CONFIG: osx_arm64_cross_target_platformosx-arm64version21.1.5
+      osx_arm64_cross_target_platformosx-arm64version21.1.6:
+        CONFIG: osx_arm64_cross_target_platformosx-arm64version21.1.6
         UPLOAD_PACKAGES: 'True'
   timeoutInMinutes: 360
   variables: {}
