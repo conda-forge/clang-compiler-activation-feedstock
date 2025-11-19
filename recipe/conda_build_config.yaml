@@ -9,7 +9,7 @@ MACOSX_DEPLOYMENT_TARGET:  # [linux]
   - 10.9                   # [linux]
 
 version:
-  - 21.1.5
+  - 21.1.6
   - 20.1.8
   - 19.1.7
 
