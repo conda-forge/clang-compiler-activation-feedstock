@@ -112,7 +112,8 @@ outputs:
       run:
         - {{ pin_subpackage("clangxx_impl_" ~ cross_target_platform, exact=True) }}
         - {{ pin_subpackage("clang_" ~ cross_target_platform, exact=True) }}
-        - {{ pin_subpackage("cctools_" ~ cross_target_platform, exact=True) }}
+        - cctools_{{ cross_target_platform }}
+        - sdkroot_env_{{ cross_target_platform }}
     test:
       commands:
         - ${CXX} --version
