@@ -6,7 +6,7 @@
 # of the C++ stdlib; keep the variable in case this happens again
 {% set libcxx_major = major_ver %}
 
-{% set build_number = 25 %}
+{% set build_number = 26 %}
 
 package:
   name: clang-compiler-activation
@@ -35,8 +35,8 @@ outputs:
     requirements:
       - clang {{ version }}
       - llvm-tools {{ version }}
-      - cctools_{{ target_platform }}        # [osx]
-      - cctools_{{ cross_target_platform }}
+      - cctools_impl_{{ target_platform }}        # [osx]
+      - cctools_impl_{{ cross_target_platform }}
       - ld64_{{ cross_target_platform }}
       - ld64_{{ target_platform }}           # [osx]
       # this brings in an extra symlink of ld -> x86_64-apple-darwin13.4.0-ld
@@ -62,6 +62,8 @@ outputs:
     requirements:
       run:
         - {{ pin_subpackage("clang_impl_" ~ cross_target_platform, exact=True) }}
+        - cctools_{{ cross_target_platform }}
+        - sdkroot_env_{{ cross_target_platform }}
     test:
       commands:
         - ${CC} --version
@@ -73,7 +75,7 @@ outputs:
     script: install-clangxx_impl.sh
     requirements:
       build:
-        - cctools_{{ target_platform }}   # [osx]
+        - cctools_impl_{{ target_platform }}   # [osx]
       host:
         - clangxx {{ version }}
         - libcxx {{ libcxx_major }}       # [osx]
@@ -110,6 +112,8 @@ outputs:
       run:
         - {{ pin_subpackage("clangxx_impl_" ~ cross_target_platform, exact=True) }}
         - {{ pin_subpackage("clang_" ~ cross_target_platform, exact=True) }}
+        - cctools_{{ cross_target_platform }}
+        - sdkroot_env_{{ cross_target_platform }}
     test:
       commands:
         - ${CXX} --version
@@ -119,11 +123,11 @@ outputs:
     script: install-clang-bootstrap.sh
     requirements:
       build:
-        - cctools_{{ target_platform }}  # [osx]
+        - cctools_impl_{{ target_platform }}  # [osx]
       host:
         - clangxx {{ version }}
         - libcxx {{ libcxx_major }}      # [cross_target_platform in ("osx-64", "osx-arm64")]
-        - cctools_{{ cross_target_platform }}
+        - cctools_impl_{{ cross_target_platform }}
         - ld64_{{ cross_target_platform }}
         - {{ pin_subpackage('clang_' ~ cross_target_platform, exact=True) }}
         - {{ pin_subpackage('clangxx_' ~ cross_target_platform, exact=True) }}
