@@ -111,42 +111,11 @@ if [ "${CONDA_BUILD:-0}" = "1" ]; then
   env > /tmp/old-env-$$.txt
 fi
 
-CONDA_BUILD_SYSROOT_TEMP=${CONDA_BUILD_SYSROOT:-${SDKROOT:-0}}
-if [ "${CONDA_BUILD_SYSROOT_TEMP}" = "0" ]; then
-   CONDA_BUILD_SYSROOT_TEMP=$(xcrun --show-sdk-path)
-fi
-
-if [ "${CONDA_BUILD:-0}" = "1" ]; then
-  # in conda build we need to unset CONDA_BUILD_SYSROOT
-  _tc_activation \
-    deactivate @CHOST@- \
-    "CONDA_BUILD_SYSROOT,${CONDA_BUILD_SYSROOT_TEMP}"
-fi
-
 _tc_activation \
   deactivate @CHOST@- "HOST,@CHOST@" \
   "CONDA_TOOLCHAIN_HOST,@CHOST@" \
   "CONDA_TOOLCHAIN_BUILD,@CBUILD@" \
-  "AR,${AR:-@CHOST@-ar}" \
-  "AS,${AS:-@CHOST@-as}" \
-  "CHECKSYMS,${CHECKSYMS:-@CHOST@-checksyms}" \
-  "INSTALL_NAME_TOOL,${INSTALL_NAME_TOOL:-@CHOST@-install_name_tool}" \
-  "LIBTOOL,${LIBTOOL:-@CHOST@-libtool}" \
-  "LIPO,${LIPO:-@CHOST@-lipo}" \
-  "NM,${NM:-@CHOST@-nm}" \
-  "NMEDIT,${NMEDIT:-@CHOST@-nmedit}" \
-  "OTOOL,${OTOOL:-@CHOST@-otool}" \
-  "PAGESTUFF,${PAGESTUFF:-@CHOST@-pagestuff}" \
-  "RANLIB,${RANLIB:-@CHOST@-ranlib}" \
-  "REDO_PREBINDING,${REDO_PREBINDING:-@CHOST@-redo_prebinding}" \
-  "SEG_ADDR_TABLE,${SEG_ADDR_TABLE:-@CHOST@-seg_addr_table}" \
-  "SEG_HACK,${SEG_HACK:-@CHOST@-seg_hack}" \
-  "SEGEDIT,${SEGEDIT:-@CHOST@-segedit}" \
-  "SIZE,${SIZE:-@CHOST@-size}" \
-  "STRINGS,${STRINGS:-@CHOST@-strings}" \
-  "STRIP,${STRIP:-@CHOST@-strip}" \
   "CLANG,${CLANG:-@CHOST@-clang}" \
-  "LD,${LD:-@CHOST@-ld}" \
   "CC,${CC:-@CHOST@-clang}" \
   "OBJC,${OBJC:-@CHOST@-clang}" \
   "CPP,${CPP:-@CHOST@-clang-cpp}" \
@@ -161,7 +130,6 @@ _tc_activation \
   "_CONDA_PYTHON_SYSCONFIGDATA_NAME,${_CONDA_PYTHON_SYSCONFIGDATA_NAME:-@_PYTHON_SYSCONFIGDATA_NAME@}" \
   "CMAKE_PREFIX_PATH,${CMAKE_PREFIX_PATH:-${CMAKE_PREFIX_PATH_USED}}" \
   "CONDA_BUILD_CROSS_COMPILATION,@CONDA_BUILD_CROSS_COMPILATION@" \
-  "SDKROOT,${CONDA_BUILD_SYSROOT_TEMP}" \
   "CMAKE_ARGS,${_CMAKE_ARGS:-}" \
   "MESON_ARGS,${_MESON_ARGS:-}" \
   "ac_cv_func_malloc_0_nonnull,yes" \
@@ -169,8 +137,6 @@ _tc_activation \
   "host_alias,@CHOST@" \
   "build_alias,@CBUILD@" \
   "BUILD,@CBUILD@"
-
-unset CONDA_BUILD_SYSROOT_TEMP
 
 if [ $? -ne 0 ]; then
   echo "ERROR: $(_get_sourced_filename) failed, see above for details"

@@ -109,25 +109,6 @@ if [ "${CONDA_BUILD:-0}" = "1" ]; then
   env > /tmp/old-env-$$.txt
 fi
 
-if [ "@CONDA_BUILD_CROSS_COMPILATION@" = "1" ]; then
-  if [ "${CONDA_BUILD_SYSROOT:-${SDKROOT:-0}}" = "0" ]; then
-    echo "ERROR: CONDA_BUILD_SYSROOT or SDKROOT has to be set for cross-compiling"
-  fi
-fi
-
-if [ "${CONDA_BUILD_SYSROOT:-0}" != "0" ] && [ "${CONDA_BUILD_STATE:-0}" = "TEST" ] && [ ! -d "${CONDA_BUILD_SYSROOT:-0}" ]; then
-  unset CONDA_BUILD_SYSROOT
-fi
-
-CONDA_BUILD_SYSROOT_TEMP=${CONDA_BUILD_SYSROOT:-${SDKROOT:-0}}
-if [ "${CONDA_BUILD_SYSROOT_TEMP}" = "0" ]; then
-  if [ "${SDKROOT:-0}" = "0" ]; then
-    CONDA_BUILD_SYSROOT_TEMP=$(xcrun --show-sdk-path)
-  else
-    CONDA_BUILD_SYSROOT_TEMP=${SDKROOT}
-  fi
-fi
-
 _CMAKE_ARGS="-DCMAKE_AR=${CONDA_PREFIX}/bin/@CHOST@-ar -DCMAKE_CXX_COMPILER_AR=${CONDA_PREFIX}/bin/@CHOST@-ar -DCMAKE_C_COMPILER_AR=${CONDA_PREFIX}/bin/@CHOST@-ar"
 _CMAKE_ARGS="${_CMAKE_ARGS} -DCMAKE_RANLIB=${CONDA_PREFIX}/bin/@CHOST@-ranlib -DCMAKE_CXX_COMPILER_RANLIB=${CONDA_PREFIX}/bin/@CHOST@-ranlib -DCMAKE_C_COMPILER_RANLIB=${CONDA_PREFIX}/bin/@CHOST@-ranlib"
 _CMAKE_ARGS="${_CMAKE_ARGS} -DCMAKE_LINKER=${CONDA_PREFIX}/bin/@CHOST@-ld -DCMAKE_STRIP=${CONDA_PREFIX}/bin/@CHOST@-strip"
@@ -136,7 +117,7 @@ _CMAKE_ARGS="${_CMAKE_ARGS} -DCMAKE_LIBTOOL=${CONDA_PREFIX}/bin/@CHOST@-libtool"
 if [ "${MACOSX_DEPLOYMENT_TARGET:-0}" != "0" ]; then
   _CMAKE_ARGS="${_CMAKE_ARGS} -DCMAKE_OSX_DEPLOYMENT_TARGET=${MACOSX_DEPLOYMENT_TARGET}"
 fi
-_CMAKE_ARGS="${_CMAKE_ARGS} -DCMAKE_BUILD_TYPE=Release -DCMAKE_OSX_SYSROOT=${CONDA_BUILD_SYSROOT_TEMP}"
+_CMAKE_ARGS="${_CMAKE_ARGS} -DCMAKE_BUILD_TYPE=Release"
 
 _MESON_ARGS="-Dbuildtype=release"
 
@@ -170,26 +151,7 @@ _tc_activation \
   activate @CHOST@- "HOST,@CHOST@" \
   "CONDA_TOOLCHAIN_HOST,@CHOST@" \
   "CONDA_TOOLCHAIN_BUILD,@CBUILD@" \
-  "AR,${AR:-@CHOST@-ar}" \
-  "AS,${AS:-@CHOST@-as}" \
-  "CHECKSYMS,${CHECKSYMS:-@CHOST@-checksyms}" \
-  "INSTALL_NAME_TOOL,${INSTALL_NAME_TOOL:-@CHOST@-install_name_tool}" \
-  "LIBTOOL,${LIBTOOL:-@CHOST@-libtool}" \
-  "LIPO,${LIPO:-@CHOST@-lipo}" \
-  "NM,${NM:-@CHOST@-nm}" \
-  "NMEDIT,${NMEDIT:-@CHOST@-nmedit}" \
-  "OTOOL,${OTOOL:-@CHOST@-otool}" \
-  "PAGESTUFF,${PAGESTUFF:-@CHOST@-pagestuff}" \
-  "RANLIB,${RANLIB:-@CHOST@-ranlib}" \
-  "REDO_PREBINDING,${REDO_PREBINDING:-@CHOST@-redo_prebinding}" \
-  "SEG_ADDR_TABLE,${SEG_ADDR_TABLE:-@CHOST@-seg_addr_table}" \
-  "SEG_HACK,${SEG_HACK:-@CHOST@-seg_hack}" \
-  "SEGEDIT,${SEGEDIT:-@CHOST@-segedit}" \
-  "SIZE,${SIZE:-@CHOST@-size}" \
-  "STRINGS,${STRINGS:-@CHOST@-strings}" \
-  "STRIP,${STRIP:-@CHOST@-strip}" \
   "CLANG,${CLANG:-@CHOST@-clang}" \
-  "LD,${LD:-@CHOST@-ld}" \
   "CC,${CC:-@CHOST@-clang}" \
   "OBJC,${OBJC:-@CHOST@-clang}" \
   "CPP,${CPP:-@CHOST@-clang-cpp}" \
@@ -204,7 +166,6 @@ _tc_activation \
   "_CONDA_PYTHON_SYSCONFIGDATA_NAME,${_CONDA_PYTHON_SYSCONFIGDATA_NAME:-@_PYTHON_SYSCONFIGDATA_NAME@}" \
   "CMAKE_PREFIX_PATH,${CMAKE_PREFIX_PATH:-${CMAKE_PREFIX_PATH_USED}}" \
   "CONDA_BUILD_CROSS_COMPILATION,@CONDA_BUILD_CROSS_COMPILATION@" \
-  "SDKROOT,${CONDA_BUILD_SYSROOT_TEMP}" \
   "CMAKE_ARGS,${_CMAKE_ARGS}" \
   "MESON_ARGS,${_MESON_ARGS}" \
   "ac_cv_func_malloc_0_nonnull,yes" \
@@ -213,14 +174,6 @@ _tc_activation \
   "build_alias,@CBUILD@" \
   "BUILD,@CBUILD@"
 
-if [ "${CONDA_BUILD:-0}" = "1" ]; then
-  # in conda build we set CONDA_BUILD_SYSROOT too
-  _tc_activation \
-    activate @CHOST@- \
-    "CONDA_BUILD_SYSROOT,${CONDA_BUILD_SYSROOT_TEMP}"
-fi
-
-unset CONDA_BUILD_SYSROOT_TEMP
 unset _CMAKE_ARGS
 
 if [ $? -ne 0 ]; then
