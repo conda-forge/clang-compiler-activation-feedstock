@@ -1,5 +1,5 @@
 {% if version is not defined %}
-{% set version = "21.1.6" %}
+{% set version = "21.1.7" %}
 {% endif %}
 {% set major_ver = version.split(".")[0] %}
 # in the past we've had to uncouple the compiler version from the version
