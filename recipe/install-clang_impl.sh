@@ -2,13 +2,10 @@
 
 set -e -x
 
+MAJOR_VERSION=$(echo ${PKG_VERSION} | cut -f1 -d".")
 CHOST=${macos_machine}
 
 pushd "${PREFIX}"/bin
-  ln -s clang ${CHOST}-clang
-  ln -s clang-cpp ${CHOST}-clang-cpp
-  if [[ "${CBUILD}" != ${CHOST} ]]; then
-    ln -s clang ${CBUILD}-clang
-    ln -s clang-cpp ${CBUILD}-clang-cpp
-  fi
+  ln -s clang-${MAJOR_VERSION} ${CHOST}-clang
+  ln -s clang-${MAJOR_VERSION} ${CHOST}-clang-cpp
 popd
