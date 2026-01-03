@@ -65,6 +65,11 @@ outputs:
         - clang_impl_{{ target_platform }} {{ version }}
         - cctools_{{ cross_target_platform }}
         - sdkroot_env_{{ cross_target_platform }}
+        {% if major_ver == "19" %}
+        # This is strictly not necessary, but added here for backwards
+        # compatibility reasons
+        - clang 19.*
+        {% endif %}
     test:
       commands:
         - ${CC} --version
