@@ -34,10 +34,13 @@ outputs:
   - name: clang_impl_{{ cross_target_platform }}
     script: install-clang_impl.sh
     build:
+      # native package is built in clangdev-feedstock
       skip: true  # [cross_target_platform == target_platform]
     requirements:
       - clang-{{ major_ver }}
       {% if major_ver == "19" %}
+      # This is strictly not necessary, but added here for backwards
+      # compatibility reasons
       - clang 19.*
       {% endif %}
       - llvm-tools {{ version }}
@@ -72,6 +75,7 @@ outputs:
   - name: clangxx_impl_{{ cross_target_platform }}
     script: install-clangxx_impl.sh
     build:
+      # native package is built in clangdev-feedstock
       skip: true  # [cross_target_platform == target_platform]
     requirements:
       run:
