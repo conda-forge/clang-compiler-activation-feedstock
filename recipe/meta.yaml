@@ -42,8 +42,10 @@ outputs:
       # This is strictly not necessary, but added here for backwards
       # compatibility reasons
       - clang 19.*
-      {% endif %}
+      # Not sure why this was added in https://github.com/conda-forge/clang-compiler-activation-feedstock/pull/16
+      # Keep it in 19 for backwards compatibility
       - llvm-tools {{ version }}
+      {% endif %}
       - cctools_impl_{{ cross_target_platform }}
       - ld64_{{ cross_target_platform }} * llvm{{ maj_min.replace(".", "_") }}_*
       # This brings in libraries for linux too. Split this again?
