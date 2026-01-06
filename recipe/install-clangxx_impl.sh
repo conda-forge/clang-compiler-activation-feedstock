@@ -2,12 +2,11 @@
 
 set -e -x
 
+MAJOR_VERSION=$(echo ${PKG_VERSION} | cut -f1 -d".")
 CHOST=${macos_machine}
 echo CHOST is ${CHOST}
 
-pushd "${PREFIX}"/bin
-  ln -s clang++ ${CHOST}-clang++
-  if [[ "${CBUILD}" != ${CHOST} ]]; then
-    ln -s clang++ ${CBUILD}-clang++
-  fi
+mkdir -p "${PREFIX}/bin"
+pushd "${PREFIX}/bin"
+  ln -s clang-${MAJOR_VERSION} ${CHOST}-clang++
 popd

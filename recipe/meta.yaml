@@ -2,6 +2,7 @@
 {% set version = "21.1.7" %}
 {% endif %}
 {% set major_ver = version.split(".")[0] %}
+{% set maj_min = major_ver ~ "." ~ version.split(".")[1] %}
 # in the past we've had to uncouple the compiler version from the version
 # of the C++ stdlib; keep the variable in case this happens again
 {% set libcxx_major = major_ver %}
@@ -32,28 +33,29 @@ requirements:
 outputs:
   - name: clang_impl_{{ cross_target_platform }}
     script: install-clang_impl.sh
+    build:
+      # native package is built in clangdev-feedstock
+      skip: true  # [cross_target_platform == target_platform]
     requirements:
-      - clang {{ version }}
+      - clang-{{ major_ver }}
+      {% if major_ver == "19" %}
+      # This is strictly not necessary, but added here for backwards
+      # compatibility reasons
+      - clang 19.*
+      # Not sure why this was added in https://github.com/conda-forge/clang-compiler-activation-feedstock/pull/16
+      # Keep it in 19 for backwards compatibility
       - llvm-tools {{ version }}
-      - cctools_impl_{{ target_platform }}        # [osx]
+      {% endif %}
       - cctools_impl_{{ cross_target_platform }}
-      - ld64_{{ cross_target_platform }}
-      - ld64_{{ target_platform }}           # [osx]
-      # this brings in an extra symlink of ld -> x86_64-apple-darwin13.4.0-ld
-      # adding these generated an error w/ libtool: https://github.com/conda-forge/libtool-feedstock/issues/24
-      # - ld64     # [cross_target_platform == target_platform]
-      # - cctools  # [cross_target_platform == target_platform]
+      - ld64_{{ cross_target_platform }} * llvm{{ maj_min.replace(".", "_") }}_*
       # This brings in libraries for linux too. Split this again?
       - compiler-rt {{ version }}
       # For OSX, compiler-rt library includes both x86_64 and arm64.
       # Therefore `compiler-rt_osx-64` and `compiler-rt_osx-arm64` are basically the same
       # and clobber each other. Don't bring both here.
       - compiler-rt_{{ cross_target_platform }} {{ version }}     # [linux]
-      - gcc_impl_{{ target_platform }}       # [linux]
     test:
       commands:
-        - {{ CBUILD }}-clang --version
-        - {{ CBUILD }}-clang-cpp --version
         - {{ macos_machine }}-clang --version
         - {{ macos_machine }}-clang-cpp --version
 
@@ -61,9 +63,15 @@ outputs:
     script: install-clang.sh
     requirements:
       run:
-        - {{ pin_subpackage("clang_impl_" ~ cross_target_platform, exact=True) }}
+        - clang_impl_{{ cross_target_platform }} {{ version }}
+        - clang_impl_{{ target_platform }} {{ version }}
         - cctools_{{ cross_target_platform }}
         - sdkroot_env_{{ cross_target_platform }}
+        {% if major_ver == "19" %}
+        # This is strictly not necessary, but added here for backwards
+        # compatibility reasons
+        - clang 19.*
+        {% endif %}
     test:
       commands:
         - ${CC} --version
@@ -73,31 +81,20 @@ outputs:
 
   - name: clangxx_impl_{{ cross_target_platform }}
     script: install-clangxx_impl.sh
+    build:
+      # native package is built in clangdev-feedstock
+      skip: true  # [cross_target_platform == target_platform]
     requirements:
-      build:
-        - cctools_impl_{{ target_platform }}   # [osx]
-      host:
-        - clangxx {{ version }}
-        - libcxx {{ libcxx_major }}       # [osx]
-        - {{ pin_subpackage('clang_impl_' ~ cross_target_platform, exact=True) }}
-        - gxx_impl_{{ target_platform }}  # [linux]
-        # hack to force the solver to work
-        - libllvm{{ major_ver }} {{ version }}
       run:
-        - clangxx {{ version }}
-        # This is not needed in Linux for cross-compiling in a conda-build env, but is needed outside
-        - libcxx >={{ libcxx_major }}
-        - {{ pin_subpackage('clang_' ~ cross_target_platform, exact=True) }}
-        - gxx_impl_{{ target_platform }}            # [linux]
+        - clang-{{ major_ver }}
+        - clang_impl_{{ cross_target_platform }} {{ version }}
+        - libcxx-devel {{ maj_min }}
     test:
       commands:
         - echo {{ MACOSX_DEPLOYMENT_TARGET }}  # [linux]
         - echo {{ uname_kernel_release }}
         - echo {{ uname_machine }}
-        - echo {{ FINAL_PYTHON_SYSCONFIGDATA_NAME }}
-        - echo {{ CBUILD }}
         - echo {{ meson_cpu_family }}
-        - {{ CBUILD }}-clang++ --version
         - {{ macos_machine }}-clang++ --version
 
   - name: clangxx_{{ cross_target_platform }}
@@ -110,7 +107,8 @@ outputs:
           - libcxx >={{ libcxx_major }}
     requirements:
       run:
-        - {{ pin_subpackage("clangxx_impl_" ~ cross_target_platform, exact=True) }}
+        - clangxx_impl_{{ cross_target_platform }} {{ version }}
+        - clangxx_impl_{{ target_platform }} {{ version }}
         - {{ pin_subpackage("clang_" ~ cross_target_platform, exact=True) }}
         - cctools_{{ cross_target_platform }}
         - sdkroot_env_{{ cross_target_platform }}
