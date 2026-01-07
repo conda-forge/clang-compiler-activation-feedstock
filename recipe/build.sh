@@ -1,5 +1,19 @@
 #!/bin/bash
 
+
+if [[ "${target_platform}" == "linux-64" ]]; then
+  CBUILD=x86_64-conda-linux-gnu
+elif [[ "${target_platform}" == "linux-"* ]]; then
+  CBUILD=${target_platform/linux-/}-conda-linux-gnu
+elif [[ "${target_platform}" == "osx-64" ]]; then
+  CBUILD=x86_64-apple-darwin13.4.0
+elif [[ "${target_platform}" == "osx-arm64" ]]; then
+  CBUILD=arm64-apple-darwin20.0.0
+else
+  echo "unknown target: ${target_platform}"
+  exit 1
+fi
+
 CHOST=${macos_machine}
 
 FINAL_CPPFLAGS="-D_FORTIFY_SOURCE=2"
@@ -22,15 +36,9 @@ else
   CONDA_BUILD_CROSS_COMPILATION="1"
 fi
 
-if [[ "$target_platform" == linux* ]]; then
-  CC_FOR_BUILD=${CBUILD}-gcc
-  CPP_FOR_BUILD=${CBUILD}-cpp
-  CXX_FOR_BUILD=${CBUILD}-g++
-else
-  CC_FOR_BUILD=${CBUILD}-clang
-  CPP_FOR_BUILD=${CBUILD}-clang-cpp
-  CXX_FOR_BUILD=${CBUILD}-clang++
-fi
+CC_FOR_BUILD=${CBUILD}-clang
+CPP_FOR_BUILD=${CBUILD}-clang-cpp
+CXX_FOR_BUILD=${CBUILD}-clang++
 
 find "${RECIPE_DIR}" -name "*activate*.sh" -exec cp {} . \;
 
