@@ -7,7 +7,7 @@
 # of the C++ stdlib; keep the variable in case this happens again
 {% set libcxx_major = major_ver %}
 
-{% set build_number = 28 %}
+{% set build_number = 29 %}
 
 package:
   name: clang-compiler-activation
@@ -86,6 +86,11 @@ outputs:
       skip: true  # [cross_target_platform == target_platform]
     requirements:
       run:
+        {% if major_ver == "19" %}
+        # This is strictly not necessary, but added here for backwards
+        # compatibility reasons
+        - clangxx 19.*
+        {% endif %}
         - clang-{{ major_ver }}
         - clang_impl_{{ cross_target_platform }} {{ version }}
         - libcxx-devel {{ maj_min }}
