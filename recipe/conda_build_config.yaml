@@ -2,9 +2,22 @@ MACOSX_DEPLOYMENT_TARGET:  # [linux]
   - 10.9                   # [linux]
 
 version:
+  - 22.1.0.rc1
   - 21.1.8
   - 20.1.8
   - 19.1.7
+
+# zip to avoid using rc-builds for already-released-in-conda-forge LLVM versions
+channel_sources:
+  - conda-forge/label/llvm_rc,conda-forge
+  - conda-forge
+  - conda-forge
+  - conda-forge
+channel_targets:
+  - conda-forge llvm_rc
+  - conda-forge main
+  - conda-forge main
+  - conda-forge main
 
 # everything below is zipped
 cross_target_platform:
@@ -13,24 +26,24 @@ cross_target_platform:
 macos_machine:
   - x86_64-apple-darwin13.4.0
   - arm64-apple-darwin20.0.0
-uname_machine:
-  - x86_64
-  - arm64
 meson_cpu_family:
   - x86_64
   - aarch64
 uname_kernel_release:
   - 13.4.0
   - 20.0.0
-FINAL_PYTHON_SYSCONFIGDATA_NAME:
-  - _sysconfigdata_x86_64_apple_darwin13_4_0
-  - _sysconfigdata_arm64_apple_darwin20_0_0
+uname_machine:
+  - x86_64
+  - arm64
 
 zip_keys:
   -
     - cross_target_platform
     - macos_machine
     - meson_cpu_family
-    - uname_machine
     - uname_kernel_release
-    - FINAL_PYTHON_SYSCONFIGDATA_NAME
+    - uname_machine
+  -
+    - version
+    - channel_sources
+    - channel_targets
