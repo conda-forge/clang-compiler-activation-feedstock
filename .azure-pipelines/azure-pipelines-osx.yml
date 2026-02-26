@@ -5,57 +5,73 @@
 jobs:
 - job: osx
   pool:
-    vmImage: macOS-15
+    vmImage: $(VMIMAGE)
   strategy:
     matrix:
-      osx_64_channel_targetsconda-forge_llvm_rccross_target_platformosx-64version22.1.0.rc1:
-        CONFIG: osx_64_channel_targetsconda-forge_llvm_rccross_target_platformosx-64version22.1.0.rc1
+      osx_64_cross_target_platformosx-64version19.1.7:
+        CONFIG: osx_64_cross_target_platformosx-64version19.1.7
         UPLOAD_PACKAGES: 'True'
-      osx_64_channel_targetsconda-forge_llvm_rccross_target_platformosx-arm64version22.1.0.rc1:
-        CONFIG: osx_64_channel_targetsconda-forge_llvm_rccross_target_platformosx-arm64version22.1.0.rc1
+        VMIMAGE: macOS-15
+      osx_64_cross_target_platformosx-64version20.1.8:
+        CONFIG: osx_64_cross_target_platformosx-64version20.1.8
         UPLOAD_PACKAGES: 'True'
-      osx_64_channel_targetsconda-forge_maincross_target_platformosx-64version19.1.7:
-        CONFIG: osx_64_channel_targetsconda-forge_maincross_target_platformosx-64version19.1.7
+        VMIMAGE: macOS-15
+      osx_64_cross_target_platformosx-64version21.1.8:
+        CONFIG: osx_64_cross_target_platformosx-64version21.1.8
         UPLOAD_PACKAGES: 'True'
-      osx_64_channel_targetsconda-forge_maincross_target_platformosx-64version20.1.8:
-        CONFIG: osx_64_channel_targetsconda-forge_maincross_target_platformosx-64version20.1.8
+        VMIMAGE: macOS-15
+      osx_64_cross_target_platformosx-64version22.1.0:
+        CONFIG: osx_64_cross_target_platformosx-64version22.1.0
         UPLOAD_PACKAGES: 'True'
-      osx_64_channel_targetsconda-forge_maincross_target_platformosx-64version21.1.8:
-        CONFIG: osx_64_channel_targetsconda-forge_maincross_target_platformosx-64version21.1.8
+        VMIMAGE: macOS-15
+      osx_64_cross_target_platformosx-arm64version19.1.7:
+        CONFIG: osx_64_cross_target_platformosx-arm64version19.1.7
         UPLOAD_PACKAGES: 'True'
-      osx_64_channel_targetsconda-forge_maincross_target_platformosx-arm64version19.1.7:
-        CONFIG: osx_64_channel_targetsconda-forge_maincross_target_platformosx-arm64version19.1.7
+        VMIMAGE: macOS-15
+      osx_64_cross_target_platformosx-arm64version20.1.8:
+        CONFIG: osx_64_cross_target_platformosx-arm64version20.1.8
         UPLOAD_PACKAGES: 'True'
-      osx_64_channel_targetsconda-forge_maincross_target_platformosx-arm64version20.1.8:
-        CONFIG: osx_64_channel_targetsconda-forge_maincross_target_platformosx-arm64version20.1.8
+        VMIMAGE: macOS-15
+      osx_64_cross_target_platformosx-arm64version21.1.8:
+        CONFIG: osx_64_cross_target_platformosx-arm64version21.1.8
         UPLOAD_PACKAGES: 'True'
-      osx_64_channel_targetsconda-forge_maincross_target_platformosx-arm64version21.1.8:
-        CONFIG: osx_64_channel_targetsconda-forge_maincross_target_platformosx-arm64version21.1.8
+        VMIMAGE: macOS-15
+      osx_64_cross_target_platformosx-arm64version22.1.0:
+        CONFIG: osx_64_cross_target_platformosx-arm64version22.1.0
         UPLOAD_PACKAGES: 'True'
-      osx_arm64_channel_targetsconda-forge_llvm_rccross_target_platformosx-64version22.1.0.rc1:
-        CONFIG: osx_arm64_channel_targetsconda-forge_llvm_rccross_target_platformosx-64version22.1.0.rc1
+        VMIMAGE: macOS-15
+      osx_arm64_cross_target_platformosx-64version19.1.7:
+        CONFIG: osx_arm64_cross_target_platformosx-64version19.1.7
         UPLOAD_PACKAGES: 'True'
-      osx_arm64_channel_targetsconda-forge_llvm_rccross_target_platformosx-arm64version22.1.0.rc1:
-        CONFIG: osx_arm64_channel_targetsconda-forge_llvm_rccross_target_platformosx-arm64version22.1.0.rc1
+        VMIMAGE: macOS-15
+      osx_arm64_cross_target_platformosx-64version20.1.8:
+        CONFIG: osx_arm64_cross_target_platformosx-64version20.1.8
         UPLOAD_PACKAGES: 'True'
-      osx_arm64_channel_targetsconda-forge_maincross_target_platformosx-64version19.1.7:
-        CONFIG: osx_arm64_channel_targetsconda-forge_maincross_target_platformosx-64version19.1.7
+        VMIMAGE: macOS-15
+      osx_arm64_cross_target_platformosx-64version21.1.8:
+        CONFIG: osx_arm64_cross_target_platformosx-64version21.1.8
         UPLOAD_PACKAGES: 'True'
-      osx_arm64_channel_targetsconda-forge_maincross_target_platformosx-64version20.1.8:
-        CONFIG: osx_arm64_channel_targetsconda-forge_maincross_target_platformosx-64version20.1.8
+        VMIMAGE: macOS-15
+      osx_arm64_cross_target_platformosx-64version22.1.0:
+        CONFIG: osx_arm64_cross_target_platformosx-64version22.1.0
         UPLOAD_PACKAGES: 'True'
-      osx_arm64_channel_targetsconda-forge_maincross_target_platformosx-64version21.1.8:
-        CONFIG: osx_arm64_channel_targetsconda-forge_maincross_target_platformosx-64version21.1.8
+        VMIMAGE: macOS-15
+      osx_arm64_cross_target_platformosx-arm64version19.1.7:
+        CONFIG: osx_arm64_cross_target_platformosx-arm64version19.1.7
         UPLOAD_PACKAGES: 'True'
-      osx_arm64_channel_targetsconda-forge_maincross_target_platformosx-arm64version19.1.7:
-        CONFIG: osx_arm64_channel_targetsconda-forge_maincross_target_platformosx-arm64version19.1.7
+        VMIMAGE: macOS-15
+      osx_arm64_cross_target_platformosx-arm64version20.1.8:
+        CONFIG: osx_arm64_cross_target_platformosx-arm64version20.1.8
         UPLOAD_PACKAGES: 'True'
-      osx_arm64_channel_targetsconda-forge_maincross_target_platformosx-arm64version20.1.8:
-        CONFIG: osx_arm64_channel_targetsconda-forge_maincross_target_platformosx-arm64version20.1.8
+        VMIMAGE: macOS-15
+      osx_arm64_cross_target_platformosx-arm64version21.1.8:
+        CONFIG: osx_arm64_cross_target_platformosx-arm64version21.1.8
         UPLOAD_PACKAGES: 'True'
-      osx_arm64_channel_targetsconda-forge_maincross_target_platformosx-arm64version21.1.8:
-        CONFIG: osx_arm64_channel_targetsconda-forge_maincross_target_platformosx-arm64version21.1.8
+        VMIMAGE: macOS-15
+      osx_arm64_cross_target_platformosx-arm64version22.1.0:
+        CONFIG: osx_arm64_cross_target_platformosx-arm64version22.1.0
         UPLOAD_PACKAGES: 'True'
+        VMIMAGE: macOS-15
   timeoutInMinutes: 360
   variables: {}
 
