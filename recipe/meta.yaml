@@ -47,7 +47,7 @@ outputs:
       - llvm-tools {{ version }}
       {% endif %}
       - cctools_impl_{{ cross_target_platform }}
-      - ld64_{{ cross_target_platform }} * llvm{{ maj_min.replace(".", "_") }}_*
+      - ld64_{{ cross_target_platform }} 956.* llvm{{ maj_min.replace(".", "_") }}_*
       # This brings in libraries for linux too. Split this again?
       - compiler-rt {{ version }}
       # For OSX, compiler-rt library includes both x86_64 and arm64.
@@ -67,6 +67,7 @@ outputs:
         - clang_impl_{{ target_platform }} {{ version }}
         - cctools_{{ cross_target_platform }}
         - sdkroot_env_{{ cross_target_platform }}
+        - ld64_{{ cross_target_platform }} 956.*
     test:
       commands:
         - ${CC} --version
@@ -84,6 +85,7 @@ outputs:
         - clang-{{ major_ver }}
         - clang_impl_{{ cross_target_platform }} {{ version }}
         - libcxx-devel {{ maj_min }}
+        - ld64_{{ cross_target_platform }} 956.*
     test:
       commands:
         - echo {{ MACOSX_DEPLOYMENT_TARGET }}  # [linux]
@@ -107,6 +109,7 @@ outputs:
         - {{ pin_subpackage("clang_" ~ cross_target_platform, exact=True) }}
         - cctools_{{ cross_target_platform }}
         - sdkroot_env_{{ cross_target_platform }}
+        - ld64_{{ cross_target_platform }} 956.*
     test:
       commands:
         - ${CXX} --version
@@ -120,7 +123,7 @@ outputs:
       host:
         - libcxx {{ libcxx_major }}      # [cross_target_platform in ("osx-64", "osx-arm64")]
         - cctools_impl_{{ cross_target_platform }}
-        - ld64_{{ cross_target_platform }} >=956
+        - ld64_{{ cross_target_platform }} 956.*
         - {{ pin_subpackage('clang_' ~ cross_target_platform, exact=True) }}
         - {{ pin_subpackage('clangxx_' ~ cross_target_platform, exact=True) }}
         # hack to force the solver to work
