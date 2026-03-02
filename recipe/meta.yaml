@@ -67,6 +67,11 @@ outputs:
         - clang_impl_{{ target_platform }} {{ version }}
         - cctools_{{ cross_target_platform }}
         - sdkroot_env_{{ cross_target_platform }}
+        {% if major_ver == "19" %}
+        # This is strictly not necessary, but added here for backwards
+        # compatibility reasons
+        - clang 19.*
+        {% endif %}
     test:
       commands:
         - ${CC} --version
@@ -81,6 +86,11 @@ outputs:
       skip: true  # [cross_target_platform == target_platform]
     requirements:
       run:
+        {% if major_ver == "19" %}
+        # This is strictly not necessary, but added here for backwards
+        # compatibility reasons
+        - clangxx 19.*
+        {% endif %}
         - clang-{{ major_ver }}
         - clang_impl_{{ cross_target_platform }} {{ version }}
         - libcxx-devel {{ maj_min }}
@@ -102,6 +112,11 @@ outputs:
           - libcxx >={{ libcxx_major }}
     requirements:
       run:
+        {% if major_ver == "19" %}
+        # This is strictly not necessary, but added here for backwards
+        # compatibility reasons
+        - clangxx 19.*
+        {% endif %}
         - clangxx_impl_{{ cross_target_platform }} {{ version }}
         - clangxx_impl_{{ target_platform }} {{ version }}
         - {{ pin_subpackage("clang_" ~ cross_target_platform, exact=True) }}
@@ -118,6 +133,7 @@ outputs:
       build:
         - cctools_impl_{{ target_platform }}  # [osx]
       host:
+        - clangxx {{ version }}
         - libcxx {{ libcxx_major }}      # [cross_target_platform in ("osx-64", "osx-arm64")]
         - cctools_impl_{{ cross_target_platform }}
         - ld64_{{ cross_target_platform }}
