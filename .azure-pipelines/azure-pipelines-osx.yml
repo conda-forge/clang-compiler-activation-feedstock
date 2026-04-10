@@ -20,8 +20,8 @@ jobs:
         CONFIG: osx_64_cross_target_platformosx-64version21.1.8
         UPLOAD_PACKAGES: 'True'
         VMIMAGE: macOS-15
-      osx_64_cross_target_platformosx-64version22.1.0:
-        CONFIG: osx_64_cross_target_platformosx-64version22.1.0
+      osx_64_cross_target_platformosx-64version22.1.3:
+        CONFIG: osx_64_cross_target_platformosx-64version22.1.3
         UPLOAD_PACKAGES: 'True'
         VMIMAGE: macOS-15
       osx_64_cross_target_platformosx-arm64version19.1.7:
@@ -36,8 +36,8 @@ jobs:
         CONFIG: osx_64_cross_target_platformosx-arm64version21.1.8
         UPLOAD_PACKAGES: 'True'
         VMIMAGE: macOS-15
-      osx_64_cross_target_platformosx-arm64version22.1.0:
-        CONFIG: osx_64_cross_target_platformosx-arm64version22.1.0
+      osx_64_cross_target_platformosx-arm64version22.1.3:
+        CONFIG: osx_64_cross_target_platformosx-arm64version22.1.3
         UPLOAD_PACKAGES: 'True'
         VMIMAGE: macOS-15
       osx_arm64_cross_target_platformosx-64version19.1.7:
@@ -52,8 +52,8 @@ jobs:
         CONFIG: osx_arm64_cross_target_platformosx-64version21.1.8
         UPLOAD_PACKAGES: 'True'
         VMIMAGE: macOS-15
-      osx_arm64_cross_target_platformosx-64version22.1.0:
-        CONFIG: osx_arm64_cross_target_platformosx-64version22.1.0
+      osx_arm64_cross_target_platformosx-64version22.1.3:
+        CONFIG: osx_arm64_cross_target_platformosx-64version22.1.3
         UPLOAD_PACKAGES: 'True'
         VMIMAGE: macOS-15
       osx_arm64_cross_target_platformosx-arm64version19.1.7:
@@ -68,8 +68,8 @@ jobs:
         CONFIG: osx_arm64_cross_target_platformosx-arm64version21.1.8
         UPLOAD_PACKAGES: 'True'
         VMIMAGE: macOS-15
-      osx_arm64_cross_target_platformosx-arm64version22.1.0:
-        CONFIG: osx_arm64_cross_target_platformosx-arm64version22.1.0
+      osx_arm64_cross_target_platformosx-arm64version22.1.3:
+        CONFIG: osx_arm64_cross_target_platformosx-arm64version22.1.3
         UPLOAD_PACKAGES: 'True'
         VMIMAGE: macOS-15
   timeoutInMinutes: 360
