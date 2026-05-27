@@ -23,8 +23,8 @@ jobs:
         UPLOAD_PACKAGES: 'True'
         VMIMAGE: macOS-15
         store_build_artifacts: false
-      osx_64_cross_target_platformosx-64version22.1.5:
-        CONFIG: osx_64_cross_target_platformosx-64version22.1.5
+      osx_64_cross_target_platformosx-64version22.1.6:
+        CONFIG: osx_64_cross_target_platformosx-64version22.1.6
         UPLOAD_PACKAGES: 'True'
         VMIMAGE: macOS-15
         store_build_artifacts: false
@@ -43,8 +43,8 @@ jobs:
         UPLOAD_PACKAGES: 'True'
         VMIMAGE: macOS-15
         store_build_artifacts: false
-      osx_64_cross_target_platformosx-arm64version22.1.5:
-        CONFIG: osx_64_cross_target_platformosx-arm64version22.1.5
+      osx_64_cross_target_platformosx-arm64version22.1.6:
+        CONFIG: osx_64_cross_target_platformosx-arm64version22.1.6
         UPLOAD_PACKAGES: 'True'
         VMIMAGE: macOS-15
         store_build_artifacts: false
@@ -63,8 +63,8 @@ jobs:
         UPLOAD_PACKAGES: 'True'
         VMIMAGE: macOS-15
         store_build_artifacts: false
-      osx_arm64_cross_target_platformosx-64version22.1.5:
-        CONFIG: osx_arm64_cross_target_platformosx-64version22.1.5
+      osx_arm64_cross_target_platformosx-64version22.1.6:
+        CONFIG: osx_arm64_cross_target_platformosx-64version22.1.6
         UPLOAD_PACKAGES: 'True'
         VMIMAGE: macOS-15
         store_build_artifacts: false
@@ -83,8 +83,8 @@ jobs:
         UPLOAD_PACKAGES: 'True'
         VMIMAGE: macOS-15
         store_build_artifacts: false
-      osx_arm64_cross_target_platformosx-arm64version22.1.5:
-        CONFIG: osx_arm64_cross_target_platformosx-arm64version22.1.5
+      osx_arm64_cross_target_platformosx-arm64version22.1.6:
+        CONFIG: osx_arm64_cross_target_platformosx-arm64version22.1.6
         UPLOAD_PACKAGES: 'True'
         VMIMAGE: macOS-15
         store_build_artifacts: false
