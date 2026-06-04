@@ -13,13 +13,13 @@ macos_machine:
 meson_cpu_family:
 - aarch64
 target_platform:
-- osx-64
+- osx-arm64
 uname_kernel_release:
 - 20.0.0
 uname_machine:
 - arm64
 version:
-- 22.1.6
+- 22.1.7
 zip_keys:
 - - cross_target_platform
   - macos_machine
