@@ -136,6 +136,7 @@ if [ "@CONDA_BUILD_CROSS_COMPILATION@" = "1" ]; then
   _MESON_ARGS="${_MESON_ARGS} --cross-file ${CONDA_PREFIX}/meson_cross_file.txt"
   echo "[host_machine]" > ${CONDA_PREFIX}/meson_cross_file.txt
   echo "system = 'darwin'" >> ${CONDA_PREFIX}/meson_cross_file.txt
+  echo "subsystem = 'macos'" >> ${CONDA_PREFIX}/meson_cross_file.txt
   echo "cpu = '@UNAME_MACHINE@'" >> ${CONDA_PREFIX}/meson_cross_file.txt
   echo "cpu_family = '@MESON_CPU_FAMILY@'" >> ${CONDA_PREFIX}/meson_cross_file.txt
   echo "endian = 'little'" >> ${CONDA_PREFIX}/meson_cross_file.txt
