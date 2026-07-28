@@ -7,7 +7,7 @@ channel_targets:
 cross_target_platform:
 - osx-64
 docker_image:
-- quay.io/condaforge/linux-anvil-x86_64:alma9
+- quay.io/condaforge/linux-anvil-x86_64:alma10
 macos_machine:
 - x86_64-apple-darwin13.4.0
 meson_cpu_family:
