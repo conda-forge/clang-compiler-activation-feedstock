@@ -5,20 +5,14 @@ version:
   - 23.1.0.rc3
   - 22.1.8
   - 21.1.8
-  - 20.1.8
-  - 19.1.7
 
 # zip to avoid using rc-builds for already-released-in-conda-forge LLVM versions
 channel_sources:
   - conda-forge/label/llvm_rc,conda-forge
   - conda-forge
   - conda-forge
-  - conda-forge
-  - conda-forge
 channel_targets:
   - conda-forge llvm_rc
-  - conda-forge main
-  - conda-forge main
   - conda-forge main
   - conda-forge main
 
