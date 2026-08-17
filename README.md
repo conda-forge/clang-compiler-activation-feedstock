@@ -56,31 +56,17 @@ Current build status
         <table>
           <thead><tr><th>Variant</th><th>Status</th></tr></thead>
           <tbody><tr>
-              <td>osx_64_channel_targetsconda-forge_llvm_rccross_target_platformosx-64version23.1.0.rc1</td>
+              <td>osx_64_channel_targetsconda-forge_llvm_rccross_target_platformosx-64version23.1.0.rc3</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7470&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_channel_targetsconda-forge_llvm_rccross_target_platformosx-64version23.1.0.rc1" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_channel_targetsconda-forge_llvm_rccross_target_platformosx-64version23.1.0.rc3" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_64_channel_targetsconda-forge_llvm_rccross_target_platformosx-arm64version23.1.0.rc1</td>
+              <td>osx_64_channel_targetsconda-forge_llvm_rccross_target_platformosx-arm64version23.1.0.rc3</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7470&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_channel_targetsconda-forge_llvm_rccross_target_platformosx-arm64version23.1.0.rc1" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>osx_64_channel_targetsconda-forge_maincross_target_platformosx-64version19.1.7</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7470&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_channel_targetsconda-forge_maincross_target_platformosx-64version19.1.7" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>osx_64_channel_targetsconda-forge_maincross_target_platformosx-64version20.1.8</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7470&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_channel_targetsconda-forge_maincross_target_platformosx-64version20.1.8" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_channel_targetsconda-forge_llvm_rccross_target_platformosx-arm64version23.1.0.rc3" alt="variant">
                 </a>
               </td>
             </tr><tr>
@@ -98,20 +84,6 @@ Current build status
                 </a>
               </td>
             </tr><tr>
-              <td>osx_64_channel_targetsconda-forge_maincross_target_platformosx-arm64version19.1.7</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7470&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_channel_targetsconda-forge_maincross_target_platformosx-arm64version19.1.7" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>osx_64_channel_targetsconda-forge_maincross_target_platformosx-arm64version20.1.8</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7470&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_channel_targetsconda-forge_maincross_target_platformosx-arm64version20.1.8" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
               <td>osx_64_channel_targetsconda-forge_maincross_target_platformosx-arm64version21.1.8</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7470&branchName=main">
@@ -126,31 +98,17 @@ Current build status
                 </a>
               </td>
             </tr><tr>
-              <td>osx_arm64_channel_targetsconda-forge_llvm_rccross_target_platformosx-64version23.1.0.rc1</td>
+              <td>osx_arm64_channel_targetsconda-forge_llvm_rccross_target_platformosx-64version23.1.0.rc3</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7470&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_channel_targetsconda-forge_llvm_rccross_target_platformosx-64version23.1.0.rc1" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_channel_targetsconda-forge_llvm_rccross_target_platformosx-64version23.1.0.rc3" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_arm64_channel_targetsconda-forge_llvm_rccross_target_platformosx-arm64version23.1.0.rc1</td>
+              <td>osx_arm64_channel_targetsconda-forge_llvm_rccross_target_platformosx-arm64version23.1.0.rc3</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7470&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_channel_targetsconda-forge_llvm_rccross_target_platformosx-arm64version23.1.0.rc1" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>osx_arm64_channel_targetsconda-forge_maincross_target_platformosx-64version19.1.7</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7470&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_channel_targetsconda-forge_maincross_target_platformosx-64version19.1.7" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>osx_arm64_channel_targetsconda-forge_maincross_target_platformosx-64version20.1.8</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7470&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_channel_targetsconda-forge_maincross_target_platformosx-64version20.1.8" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_channel_targetsconda-forge_llvm_rccross_target_platformosx-arm64version23.1.0.rc3" alt="variant">
                 </a>
               </td>
             </tr><tr>
@@ -165,20 +123,6 @@ Current build status
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7470&branchName=main">
                   <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_channel_targetsconda-forge_maincross_target_platformosx-64version22.1.8" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>osx_arm64_channel_targetsconda-forge_maincross_target_platformosx-arm64version19.1.7</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7470&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_channel_targetsconda-forge_maincross_target_platformosx-arm64version19.1.7" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>osx_arm64_channel_targetsconda-forge_maincross_target_platformosx-arm64version20.1.8</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7470&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/clang-compiler-activation-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_channel_targetsconda-forge_maincross_target_platformosx-arm64version20.1.8" alt="variant">
                 </a>
               </td>
             </tr><tr>
@@ -229,31 +173,73 @@ conda config --add channels conda-forge/label/llvm_rc
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge/label/llvm_rc` channel has been enabled, `clang_bootstrap_osx-64, clang_bootstrap_osx-arm64, clang_impl_osx-64, clang_impl_osx-arm64, clang_osx-64, clang_osx-arm64, clangxx_impl_osx-64, clangxx_impl_osx-arm64, clangxx_osx-64, clangxx_osx-arm64` can be installed with `conda`:
+How to use
+----------
+
+<details>
+<summary>With conda</summary>
 
 ```
 conda install clang_bootstrap_osx-64 clang_bootstrap_osx-arm64 clang_impl_osx-64 clang_impl_osx-arm64 clang_osx-64 clang_osx-arm64 clangxx_impl_osx-64 clangxx_impl_osx-arm64 clangxx_osx-64 clangxx_osx-arm64
 ```
 
-or with `mamba`:
+</details>
+
+<details>
+<summary>With mamba</summary>
 
 ```
 mamba install clang_bootstrap_osx-64 clang_bootstrap_osx-arm64 clang_impl_osx-64 clang_impl_osx-arm64 clang_osx-64 clang_osx-arm64 clangxx_impl_osx-64 clangxx_impl_osx-arm64 clangxx_osx-64 clangxx_osx-arm64
 ```
 
-It is possible to list all of the versions of `clang_bootstrap_osx-64` available on your platform with `conda`:
+</details>
+
+<details>
+<summary>With pixi</summary>
+
+```
+# for adding to your local project
+pixi add clang_bootstrap_osx-64 clang_bootstrap_osx-arm64 clang_impl_osx-64 clang_impl_osx-arm64 clang_osx-64 clang_osx-arm64 clangxx_impl_osx-64 clangxx_impl_osx-arm64 clangxx_osx-64 clangxx_osx-arm64
+# for installing globally
+pixi global install clang_bootstrap_osx-64 clang_bootstrap_osx-arm64 clang_impl_osx-64 clang_impl_osx-arm64 clang_osx-64 clang_osx-arm64 clangxx_impl_osx-64 clangxx_impl_osx-arm64 clangxx_osx-64 clangxx_osx-arm64
+```
+
+</details>
+
+Search package versions
+-----------------------
+
+It is possible to list all of the versions of `clang_bootstrap_osx-64` available on your platform:
+
+<details>
+<summary>With conda</summary>
 
 ```
 conda search clang_bootstrap_osx-64 --channel conda-forge/label/llvm_rc
 ```
 
-or with `mamba`:
+</details>
+
+<details>
+<summary>With mamba</summary>
 
 ```
 mamba search clang_bootstrap_osx-64 --channel conda-forge/label/llvm_rc
 ```
 
-Alternatively, `mamba repoquery` may provide more information:
+</details>
+
+<details>
+<summary>With pixi</summary>
+
+```
+pixi search clang_bootstrap_osx-64 --channel conda-forge/label/llvm_rc
+```
+
+</details>
+
+<details>
+<summary>With mamba repoquery, which may provide more information</summary>
 
 ```
 # Search all versions available on your platform:
@@ -265,6 +251,8 @@ mamba repoquery whoneeds clang_bootstrap_osx-64 --channel conda-forge/label/llvm
 # List dependencies of `clang_bootstrap_osx-64`:
 mamba repoquery depends clang_bootstrap_osx-64 --channel conda-forge/label/llvm_rc
 ```
+
+</details>
 
 
 About conda-forge

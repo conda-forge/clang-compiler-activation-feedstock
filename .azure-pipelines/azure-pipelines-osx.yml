@@ -8,8 +8,8 @@ jobs:
     vmImage: $(VMIMAGE)
   strategy:
     matrix:
-      osx_64_channel_targetsconda-forge_llvm_rccross_target_platformosx-64version23.1.0.rc1:
-        CONFIG: osx_64_channel_targetsconda-forge_llvm_rccross_target_platformosx-64version23.1.0.rc1
+      osx_64_channel_targetsconda-forge_llvm_rccross_target_platformosx-64version23.1.0.rc3:
+        CONFIG: osx_64_channel_targetsconda-forge_llvm_rccross_target_platformosx-64version23.1.0.rc3
         UPLOAD_PACKAGES: 'True'
         VMIMAGE: macOS-15
         build_workspace_dir: ~/miniforge3/conda-bld
@@ -18,28 +18,8 @@ jobs:
         resize_partitions: false
         store_build_artifacts: false
         tools_install_dir: ~/miniforge3
-      osx_64_channel_targetsconda-forge_llvm_rccross_target_platformosx-arm64version23.1.0.rc1:
-        CONFIG: osx_64_channel_targetsconda-forge_llvm_rccross_target_platformosx-arm64version23.1.0.rc1
-        UPLOAD_PACKAGES: 'True'
-        VMIMAGE: macOS-15
-        build_workspace_dir: ~/miniforge3/conda-bld
-        free_disk_space: skip
-        pagefile_size: 0
-        resize_partitions: false
-        store_build_artifacts: false
-        tools_install_dir: ~/miniforge3
-      osx_64_channel_targetsconda-forge_maincross_target_platformosx-64version19.1.7:
-        CONFIG: osx_64_channel_targetsconda-forge_maincross_target_platformosx-64version19.1.7
-        UPLOAD_PACKAGES: 'True'
-        VMIMAGE: macOS-15
-        build_workspace_dir: ~/miniforge3/conda-bld
-        free_disk_space: skip
-        pagefile_size: 0
-        resize_partitions: false
-        store_build_artifacts: false
-        tools_install_dir: ~/miniforge3
-      osx_64_channel_targetsconda-forge_maincross_target_platformosx-64version20.1.8:
-        CONFIG: osx_64_channel_targetsconda-forge_maincross_target_platformosx-64version20.1.8
+      osx_64_channel_targetsconda-forge_llvm_rccross_target_platformosx-arm64version23.1.0.rc3:
+        CONFIG: osx_64_channel_targetsconda-forge_llvm_rccross_target_platformosx-arm64version23.1.0.rc3
         UPLOAD_PACKAGES: 'True'
         VMIMAGE: macOS-15
         build_workspace_dir: ~/miniforge3/conda-bld
@@ -68,26 +48,6 @@ jobs:
         resize_partitions: false
         store_build_artifacts: false
         tools_install_dir: ~/miniforge3
-      osx_64_channel_targetsconda-forge_maincross_target_platformosx-arm64version19.1.7:
-        CONFIG: osx_64_channel_targetsconda-forge_maincross_target_platformosx-arm64version19.1.7
-        UPLOAD_PACKAGES: 'True'
-        VMIMAGE: macOS-15
-        build_workspace_dir: ~/miniforge3/conda-bld
-        free_disk_space: skip
-        pagefile_size: 0
-        resize_partitions: false
-        store_build_artifacts: false
-        tools_install_dir: ~/miniforge3
-      osx_64_channel_targetsconda-forge_maincross_target_platformosx-arm64version20.1.8:
-        CONFIG: osx_64_channel_targetsconda-forge_maincross_target_platformosx-arm64version20.1.8
-        UPLOAD_PACKAGES: 'True'
-        VMIMAGE: macOS-15
-        build_workspace_dir: ~/miniforge3/conda-bld
-        free_disk_space: skip
-        pagefile_size: 0
-        resize_partitions: false
-        store_build_artifacts: false
-        tools_install_dir: ~/miniforge3
       osx_64_channel_targetsconda-forge_maincross_target_platformosx-arm64version21.1.8:
         CONFIG: osx_64_channel_targetsconda-forge_maincross_target_platformosx-arm64version21.1.8
         UPLOAD_PACKAGES: 'True'
@@ -108,8 +68,8 @@ jobs:
         resize_partitions: false
         store_build_artifacts: false
         tools_install_dir: ~/miniforge3
-      osx_arm64_channel_targetsconda-forge_llvm_rccross_target_platformosx-64version23.1.0.rc1:
-        CONFIG: osx_arm64_channel_targetsconda-forge_llvm_rccross_target_platformosx-64version23.1.0.rc1
+      osx_arm64_channel_targetsconda-forge_llvm_rccross_target_platformosx-64version23.1.0.rc3:
+        CONFIG: osx_arm64_channel_targetsconda-forge_llvm_rccross_target_platformosx-64version23.1.0.rc3
         UPLOAD_PACKAGES: 'True'
         VMIMAGE: macOS-15-arm64
         build_workspace_dir: ~/miniforge3/conda-bld
@@ -118,28 +78,8 @@ jobs:
         resize_partitions: false
         store_build_artifacts: false
         tools_install_dir: ~/miniforge3
-      osx_arm64_channel_targetsconda-forge_llvm_rccross_target_platformosx-arm64version23.1.0.rc1:
-        CONFIG: osx_arm64_channel_targetsconda-forge_llvm_rccross_target_platformosx-arm64version23.1.0.rc1
-        UPLOAD_PACKAGES: 'True'
-        VMIMAGE: macOS-15-arm64
-        build_workspace_dir: ~/miniforge3/conda-bld
-        free_disk_space: skip
-        pagefile_size: 0
-        resize_partitions: false
-        store_build_artifacts: false
-        tools_install_dir: ~/miniforge3
-      osx_arm64_channel_targetsconda-forge_maincross_target_platformosx-64version19.1.7:
-        CONFIG: osx_arm64_channel_targetsconda-forge_maincross_target_platformosx-64version19.1.7
-        UPLOAD_PACKAGES: 'True'
-        VMIMAGE: macOS-15-arm64
-        build_workspace_dir: ~/miniforge3/conda-bld
-        free_disk_space: skip
-        pagefile_size: 0
-        resize_partitions: false
-        store_build_artifacts: false
-        tools_install_dir: ~/miniforge3
-      osx_arm64_channel_targetsconda-forge_maincross_target_platformosx-64version20.1.8:
-        CONFIG: osx_arm64_channel_targetsconda-forge_maincross_target_platformosx-64version20.1.8
+      osx_arm64_channel_targetsconda-forge_llvm_rccross_target_platformosx-arm64version23.1.0.rc3:
+        CONFIG: osx_arm64_channel_targetsconda-forge_llvm_rccross_target_platformosx-arm64version23.1.0.rc3
         UPLOAD_PACKAGES: 'True'
         VMIMAGE: macOS-15-arm64
         build_workspace_dir: ~/miniforge3/conda-bld
@@ -160,26 +100,6 @@ jobs:
         tools_install_dir: ~/miniforge3
       osx_arm64_channel_targetsconda-forge_maincross_target_platformosx-64version22.1.8:
         CONFIG: osx_arm64_channel_targetsconda-forge_maincross_target_platformosx-64version22.1.8
-        UPLOAD_PACKAGES: 'True'
-        VMIMAGE: macOS-15-arm64
-        build_workspace_dir: ~/miniforge3/conda-bld
-        free_disk_space: skip
-        pagefile_size: 0
-        resize_partitions: false
-        store_build_artifacts: false
-        tools_install_dir: ~/miniforge3
-      osx_arm64_channel_targetsconda-forge_maincross_target_platformosx-arm64version19.1.7:
-        CONFIG: osx_arm64_channel_targetsconda-forge_maincross_target_platformosx-arm64version19.1.7
-        UPLOAD_PACKAGES: 'True'
-        VMIMAGE: macOS-15-arm64
-        build_workspace_dir: ~/miniforge3/conda-bld
-        free_disk_space: skip
-        pagefile_size: 0
-        resize_partitions: false
-        store_build_artifacts: false
-        tools_install_dir: ~/miniforge3
-      osx_arm64_channel_targetsconda-forge_maincross_target_platformosx-arm64version20.1.8:
-        CONFIG: osx_arm64_channel_targetsconda-forge_maincross_target_platformosx-arm64version20.1.8
         UPLOAD_PACKAGES: 'True'
         VMIMAGE: macOS-15-arm64
         build_workspace_dir: ~/miniforge3/conda-bld
