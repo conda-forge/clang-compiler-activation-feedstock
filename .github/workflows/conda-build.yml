@@ -22,7 +22,7 @@ jobs:
       max-parallel: 50
       matrix:
         include:
-          - CONFIG: linux_64_channel_targetsconda-forge_llvm_rccross_target_platformosx-64version23.1.0.rc3
+          - CONFIG: linux_64_cross_target_platformosx-64version21.1.8
             DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma10
             STORE_BUILD_ARTIFACTS: False
             UPLOAD_PACKAGES: True
@@ -34,7 +34,7 @@ jobs:
             resize_partitions: False
             runs_on: ['ubuntu-latest']
             tools_install_dir: ~/miniforge3
-          - CONFIG: linux_64_channel_targetsconda-forge_llvm_rccross_target_platformosx-arm64version23.1.0.rc3
+          - CONFIG: linux_64_cross_target_platformosx-64version22.1.8
             DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma10
             STORE_BUILD_ARTIFACTS: False
             UPLOAD_PACKAGES: True
@@ -46,7 +46,7 @@ jobs:
             resize_partitions: False
             runs_on: ['ubuntu-latest']
             tools_install_dir: ~/miniforge3
-          - CONFIG: linux_64_channel_targetsconda-forge_maincross_target_platformosx-64version21.1.8
+          - CONFIG: linux_64_cross_target_platformosx-64version23.1.0
             DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma10
             STORE_BUILD_ARTIFACTS: False
             UPLOAD_PACKAGES: True
@@ -58,7 +58,7 @@ jobs:
             resize_partitions: False
             runs_on: ['ubuntu-latest']
             tools_install_dir: ~/miniforge3
-          - CONFIG: linux_64_channel_targetsconda-forge_maincross_target_platformosx-64version22.1.8
+          - CONFIG: linux_64_cross_target_platformosx-arm64version21.1.8
             DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma10
             STORE_BUILD_ARTIFACTS: False
             UPLOAD_PACKAGES: True
@@ -70,7 +70,7 @@ jobs:
             resize_partitions: False
             runs_on: ['ubuntu-latest']
             tools_install_dir: ~/miniforge3
-          - CONFIG: linux_64_channel_targetsconda-forge_maincross_target_platformosx-arm64version21.1.8
+          - CONFIG: linux_64_cross_target_platformosx-arm64version22.1.8
             DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma10
             STORE_BUILD_ARTIFACTS: False
             UPLOAD_PACKAGES: True
@@ -82,7 +82,7 @@ jobs:
             resize_partitions: False
             runs_on: ['ubuntu-latest']
             tools_install_dir: ~/miniforge3
-          - CONFIG: linux_64_channel_targetsconda-forge_maincross_target_platformosx-arm64version22.1.8
+          - CONFIG: linux_64_cross_target_platformosx-arm64version23.1.0
             DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma10
             STORE_BUILD_ARTIFACTS: False
             UPLOAD_PACKAGES: True
