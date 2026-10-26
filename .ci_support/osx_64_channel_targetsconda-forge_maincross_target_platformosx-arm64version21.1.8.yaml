@@ -11,7 +11,7 @@ macos_machine:
 meson_cpu_family:
 - aarch64
 target_platform:
-- osx-arm64
+- osx-64
 uname_kernel_release:
 - 20.0.0
 uname_machine:
@@ -24,3 +24,6 @@ zip_keys:
   - meson_cpu_family
   - uname_kernel_release
   - uname_machine
+- - version
+  - channel_sources
+  - channel_targets

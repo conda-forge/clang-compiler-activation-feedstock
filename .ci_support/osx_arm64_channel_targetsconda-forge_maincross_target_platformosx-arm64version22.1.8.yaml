@@ -24,3 +24,6 @@ zip_keys:
   - meson_cpu_family
   - uname_kernel_release
   - uname_machine
+- - version
+  - channel_sources
+  - channel_targets
