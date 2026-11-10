@@ -128,6 +128,8 @@ if [ "${CONDA_BUILD:-0}" = "1" ]; then
   _CMAKE_ARGS="${_CMAKE_ARGS} -DCMAKE_FIND_FRAMEWORK=LAST -DCMAKE_FIND_APPBUNDLE=LAST"
   _CMAKE_ARGS="${_CMAKE_ARGS} -DCMAKE_INSTALL_PREFIX=${PREFIX} -DCMAKE_INSTALL_LIBDIR=lib"
   _CMAKE_ARGS="${_CMAKE_ARGS} -DCMAKE_PROGRAM_PATH=${BUILD_PREFIX}/bin;${PREFIX}/bin"
+  # native osx-arm64 runners have Homebrew in /opt/homebrew, which CMake searches by default
+  _CMAKE_ARGS="${_CMAKE_ARGS} -DCMAKE_IGNORE_PREFIX_PATH=/opt/homebrew"
   if [ -f "${PREFIX}/bin/python" ]; then
     # use conda-forge Python version even if the system Python is newer
     # https://github.com/conda-forge/cmake-feedstock/issues/196
