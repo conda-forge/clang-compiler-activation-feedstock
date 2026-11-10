@@ -17,13 +17,10 @@ uname_kernel_release:
 uname_machine:
 - x86_64
 version:
-- 21.1.8
+- 23.1.4
 zip_keys:
 - - cross_target_platform
   - macos_machine
   - meson_cpu_family
   - uname_kernel_release
   - uname_machine
-- - version
-  - channel_sources
-  - channel_targets
