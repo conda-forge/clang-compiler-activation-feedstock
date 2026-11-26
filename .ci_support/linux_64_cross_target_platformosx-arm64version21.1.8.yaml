@@ -26,3 +26,5 @@ zip_keys:
   - meson_cpu_family
   - uname_kernel_release
   - uname_machine
+zstd:
+- '1.6'
