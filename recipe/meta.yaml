@@ -29,6 +29,7 @@ requirements:
     - libcxx {{ libcxx_major }}
     - gcc_{{ target_platform }}      # [linux]
     - clang {{ version }}            # [osx]
+    - zstd
 
 outputs:
   - name: clang_impl_{{ cross_target_platform }}
@@ -46,6 +47,7 @@ outputs:
       # Therefore `compiler-rt_osx-64` and `compiler-rt_osx-arm64` are basically the same
       # and clobber each other. Don't bring both here.
       - compiler-rt_{{ cross_target_platform }} {{ version }}     # [linux]
+      - zstd
     test:
       commands:
         - {{ macos_machine }}-clang --version
@@ -118,6 +120,7 @@ outputs:
         - {{ pin_subpackage('clangxx_' ~ cross_target_platform, exact=True) }}
         # hack to force the solver to work
         - libllvm{{ major_ver }} {{ version }}
+        - zstd
     build:
       always_include_files:
         - bin/
